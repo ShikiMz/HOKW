@@ -1,0 +1,1454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>星辰之子 · Dong Fang Yao — Skill Sheet</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c14;
+    --bg2: #0d1420;
+    --bg3: #111827;
+    --border: #1e2d45;
+    --border-glow: #2a4a7f;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim: #7a5e2a;
+    --blue: #4a9eff;
+    --blue-dim: #1a3a6a;
+    --teal: #5ecfcf;
+    --red: #e06060;
+    --green: #6dbf8a;
+    --text: #d4cfc7;
+    --text-dim: #7a7a8a;
+    --text-bright: #f0ead8;
+    --tag-bg: #12202f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'EB Garamond', serif;
+    font-size: 19px;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(42,74,127,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.07) 0%, transparent 50%);
+  }
+
+  /* HERO HEADER */
+  .hero {
+    position: relative;
+    text-align: center;
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(74,158,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-cn {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 13px;
+    letter-spacing: 0.4em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .hero-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 40px rgba(201,168,76,0.3);
+    margin-bottom: 6px;
+  }
+  .hero-sub {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--text-dim);
+  }
+  .star-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+    margin: 20px 0 0;
+  }
+  .star-divider::before, .star-divider::after {
+    content: '';
+    flex: 1;
+    max-width: 200px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dim));
+  }
+  .star-divider::after { background: linear-gradient(to left, transparent, var(--gold-dim)); }
+  .star-divider span { color: var(--gold); font-size: 14px; }
+
+  /* NAV */
+  .nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    background: rgba(8,12,20,0.95);
+    backdrop-filter: blur(12px);
+    z-index: 100;
+    padding: 0 40px;
+  }
+  .nav a {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: #8a9ab5;
+    text-decoration: none;
+    padding: 16px 20px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    text-transform: uppercase;
+  }
+  .nav a:hover { color: var(--gold-light); border-bottom-color: var(--gold); }
+
+  /* MAIN */
+  .container { max-width: 1100px; margin: 0 auto; padding: 40px 40px 80px; }
+
+  /* SECTION HEADERS */
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    color: #8a9ab5;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* SKILL CARDS */
+  .skill-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .skill-card:hover { border-color: var(--border-glow); }
+
+  .skill-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(to right, rgba(42,74,127,0.08), transparent);
+  }
+  .skill-icon-slot {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--bg3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 1px solid var(--border-glow);
+  }
+  .skill-icon-slot img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+  .node-icon-slot {
+    width: 48px;
+    height: 48px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .node-icon-slot img {
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+  }
+  .skill-title-area { flex: 1; }
+  .skill-key {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: #6aa8ff;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .skill-names {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .skill-cn {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 20px;
+    color: var(--text-bright);
+  }
+  .skill-en {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+  .skill-meta {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    flex-wrap: wrap;
+  }
+  .tag {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    padding: 3px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+  .tag-skill { background: rgba(74,158,255,0.12); color: var(--blue); border: 1px solid rgba(74,158,255,0.3); }
+  .tag-damage { background: rgba(224,96,96,0.12); color: var(--red); border: 1px solid rgba(224,96,96,0.3); }
+  .tag-buff { background: rgba(109,191,138,0.12); color: var(--green); border: 1px solid rgba(109,191,138,0.3); }
+  .tag-stun { background: rgba(201,168,76,0.12); color: var(--gold); border: 1px solid rgba(201,168,76,0.3); }
+  .tag-recovery { background: rgba(94,207,207,0.12); color: var(--teal); border: 1px solid rgba(94,207,207,0.3); }
+  .tag-liberation { background: rgba(150,80,200,0.15); color: #c090e8; border: 1px solid rgba(150,80,200,0.3); }
+  .tag-empowered { background: rgba(201,168,76,0.08); color: var(--gold-dim); border: 1px solid rgba(201,168,76,0.2); }
+  .skill-level {
+    margin-left: auto;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    white-space: nowrap;
+  }
+  .skill-level span { color: var(--gold); }
+  .cd {
+    font-family: 'EB Garamond', serif;
+    font-size: 13px;
+    color: var(--teal);
+    font-style: italic;
+  }
+
+  /* TABS */
+  .tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border);
+  }
+  .tab-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 14px 22px;
+    color: #8a9ab5;
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    position: relative;
+    top: 1px;
+  }
+  .tab-btn:hover { color: var(--text-bright); }
+  .tab-btn.active { color: var(--gold-light); border-bottom-color: var(--gold); }
+
+  .tab-content { display: none; padding: 24px 28px; }
+  .tab-content.active { display: block; }
+
+  /* DESCRIPTION */
+  .desc-main {
+    font-size: 18px;
+    line-height: 1.85;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .sub-skill { margin-bottom: 18px; }
+  .sub-skill-name {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .sub-skill-desc {
+    font-size: 18px;
+    line-height: 1.8;
+    color: var(--text);
+  }
+  .kw { color: var(--blue); font-style: italic; }
+  .kw-gold { color: var(--gold-light); font-style: italic; }
+  .kw-red { color: var(--red); font-style: italic; }
+  .kw-teal { color: var(--teal); font-style: italic; }
+  .num { color: var(--gold-light); font-weight: 600; }
+
+  /* STATS TABLE */
+  .stats-table { width: 100%; border-collapse: collapse; }
+  .stats-table tr { border-bottom: 1px solid rgba(30,45,69,0.6); }
+  .stats-table tr:last-child { border-bottom: none; }
+  .stats-table td {
+    padding: 12px 0;
+    font-size: 17px;
+    line-height: 1.5;
+  }
+  .stats-table td:first-child { color: var(--text-dim); width: 55%; }
+  .stats-table td:nth-child(2) { color: var(--text-bright); text-align: right; font-variant-numeric: tabular-nums; }
+  .stats-table td:nth-child(3) { color: var(--green); text-align: right; font-size: 14px; padding-left: 12px; }
+  .cn-label { font-size: 13px; color: var(--text-dim); opacity: 0.6; display: block; margin-top: 2px; }
+
+  /* PVP */
+  .pvp-box {
+    background: rgba(42,74,127,0.08);
+    border: 1px solid rgba(42,74,127,0.3);
+    border-radius: 3px;
+    padding: 14px 18px;
+    font-size: 14px;
+    line-height: 1.75;
+    color: var(--text);
+    font-style: italic;
+  }
+  .pvp-box.modified {
+    background: rgba(201,168,76,0.05);
+    border-color: rgba(201,168,76,0.2);
+  }
+
+  /* NODE CARDS */
+  .nodes-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 40px; }
+  .node-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold-dim);
+    padding: 30px 36px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 36px;
+    align-items: start;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .node-card:first-child { border-radius: 4px 4px 0 0; }
+  .node-card:last-child { border-radius: 0 0 4px 4px; }
+  .node-card:hover { border-left-color: var(--gold); background: rgba(13,20,32,0.9); }
+  .node-left { display: flex; flex-direction: column; gap: 10px; border-right: 1px solid var(--border); padding-right: 28px; }
+  .node-layer {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: #8a9ab5;
+    text-transform: uppercase;
+  }
+  .node-cn {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 21px;
+    color: var(--text-bright);
+    line-height: 1.3;
+  }
+  .node-en {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    margin-top: 2px;
+  }
+  .node-desc {
+    font-size: 18px;
+    line-height: 1.9;
+    color: var(--text);
+  }
+
+  /* BREAKTHROUGH TABLE */
+  .breakthrough-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .bt-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .bt-header {
+    padding: 20px 24px;
+    background: linear-gradient(to right, rgba(201,168,76,0.07), transparent);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .bt-icon {
+    height: 72px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+  }
+  .bt-title { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .bt-cn {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 19px;
+    color: var(--gold);
+  }
+  .bt-en {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: #8a9ab5;
+  }
+  .bt-body { padding: 16px 24px; }
+  .bt-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(30,45,69,0.5);
+    font-size: 17px;
+  }
+  .bt-row:last-child { border-bottom: none; }
+  .bt-stat { color: var(--text-dim); }
+  .bt-values { display: flex; align-items: center; gap: 10px; }
+  .bt-before { color: var(--text-dim); }
+  .bt-arrow { color: var(--border-glow); font-size: 12px; }
+  .bt-after { color: var(--green); font-weight: 600; }
+
+  /* SECTION SPACING */
+  .section { margin-bottom: 48px; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border-glow); border-radius: 3px; }
+
+  /* WEAPONS */
+  .weapon-chain {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 40px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  .chain-item {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    flex-shrink: 0;
+  }
+  .chain-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    text-align: center;
+    text-decoration: none;
+  }
+  .chain-badge:hover { border-color: var(--border-glow); background: var(--bg2); }
+  .chain-badge:hover .chain-icon { transform: translateY(-3px); }
+  .chain-icon { transition: transform 0.2s; }
+  .chain-icon {
+    width: 72px;
+    height: 72px;
+    border-radius: 6px;
+    background: var(--bg3);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    font-size: 10px;
+    font-family: 'Cinzel', serif;
+    overflow: hidden;
+  }
+  .chain-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 5px; }
+  .chain-icon.grade-white  { border-color: #c8c8c8; box-shadow: 0 0 6px rgba(200,200,200,0.2); }
+  .chain-icon.grade-green  { border-color: #4caf7d; box-shadow: 0 0 6px rgba(76,175,125,0.25); }
+  .chain-icon.grade-blue   { border-color: #4a9eff; box-shadow: 0 0 6px rgba(74,158,255,0.25); }
+  .chain-icon.grade-purple { border-color: #a066d3; box-shadow: 0 0 6px rgba(160,102,211,0.25); }
+  .chain-icon.grade-gold   { border-color: #c9a84c; box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  .chain-icon.grade-red    { border-color: #e05050; box-shadow: 0 0 10px rgba(224,80,80,0.35); }
+  .chain-lv {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.15em;
+    color: #8a9ab5;
+  }
+  .chain-lv.sig { color: var(--gold); }
+  .chain-arrow {
+    color: var(--border-glow);
+    font-size: 22px;
+    padding: 0 6px;
+    flex-shrink: 0;
+  }
+
+  .weapon-cards { display: flex; flex-direction: column; gap: 20px; }
+  .weapon-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .weapon-card:hover { border-color: var(--border-glow); }
+  .weapon-card.signature { border-color: var(--border); }
+  .weapon-card.signature .weapon-header { background: linear-gradient(to right, rgba(42,74,127,0.06), transparent); }
+
+  .weapon-header {
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    padding: 26px 32px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(to right, rgba(42,74,127,0.06), transparent);
+  }
+  .weapon-icon {
+    width: 90px;
+    height: 90px;
+    border-radius: 6px;
+    background: var(--bg3);
+    border: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-dim);
+    font-size: 10px;
+    font-family: 'Cinzel', serif;
+    flex-shrink: 0;
+    text-align: center;
+    line-height: 1.4;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.4);
+  }
+  .weapon-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 5px; }
+  .weapon-icon.grade-white  { border-color: #c8c8c8; box-shadow: 0 0 8px rgba(200,200,200,0.2); }
+  .weapon-icon.grade-green  { border-color: #4caf7d; box-shadow: 0 0 8px rgba(76,175,125,0.25); }
+  .weapon-icon.grade-blue   { border-color: #4a9eff; box-shadow: 0 0 8px rgba(74,158,255,0.25); }
+  .weapon-icon.grade-purple { border-color: #a066d3; box-shadow: 0 0 8px rgba(160,102,211,0.25); }
+  .weapon-icon.grade-gold   { border-color: #c9a84c; box-shadow: 0 0 10px rgba(201,168,76,0.3); }
+  .weapon-icon.grade-red    { border-color: #e05050; box-shadow: 0 0 12px rgba(224,80,80,0.35); }
+  .weapon-title-area { flex: 1; }
+  .weapon-type {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: #8a9ab5;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .weapon-names {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-bottom: 10px;
+  }
+  .weapon-cn {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 24px;
+    color: var(--text-bright);
+  }
+  .weapon-en {
+    font-family: 'Cinzel', serif;
+    font-size: 17px;
+    color: var(--gold);
+    letter-spacing: 0.05em;
+  }
+  .weapon-badges { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .weapon-lv-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    padding: 5px 12px;
+    border-radius: 3px;
+    background: rgba(74,158,255,0.1);
+    color: var(--blue);
+    border: 1px solid rgba(74,158,255,0.3);
+  }
+  .weapon-lv-badge.grade-white  { background: rgba(200,200,200,0.08); color: #c8c8c8; border-color: rgba(200,200,200,0.35); }
+  .weapon-lv-badge.grade-green  { background: rgba(76,175,125,0.08); color: #4caf7d; border-color: rgba(76,175,125,0.35); }
+  .weapon-lv-badge.grade-blue   { background: rgba(74,158,255,0.08); color: #4a9eff; border-color: rgba(74,158,255,0.35); }
+  .weapon-lv-badge.grade-purple { background: rgba(160,102,211,0.08); color: #a066d3; border-color: rgba(160,102,211,0.35); }
+  .weapon-lv-badge.grade-gold   { background: rgba(201,168,76,0.08); color: #c9a84c; border-color: rgba(201,168,76,0.35); }
+  .weapon-lv-badge.grade-red    { background: rgba(224,80,80,0.08); color: #e05050; border-color: rgba(224,80,80,0.35); }
+  .weapon-lv-badge.sig {
+    background: rgba(201,168,76,0.12);
+    color: var(--gold-light);
+    border-color: rgba(201,168,76,0.4);
+  }
+  .weapon-body { padding: 28px 32px; display: grid; grid-template-columns: 300px 1fr; gap: 36px; }
+  .weapon-stats { display: flex; flex-direction: column; gap: 0; }
+  .weapon-stat-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(30,45,69,0.6);
+    font-size: 18px;
+  }
+  .weapon-stat-row:last-child { border-bottom: none; }
+  .weapon-stat-label { color: var(--text-dim); }
+  .weapon-stat-val { color: var(--text-bright); font-variant-numeric: tabular-nums; }
+  .weapon-right { display: flex; flex-direction: column; gap: 22px; }
+  .weapon-passive {
+    background: rgba(42,74,127,0.06);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue);
+    border-radius: 3px;
+    padding: 18px 20px;
+  }
+  .weapon-passive-name {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    letter-spacing: 0.2em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .weapon-passive-desc { font-size: 18px; line-height: 1.85; color: var(--text); }
+  .weapon-lore {
+    font-size: 17px;
+    line-height: 1.9;
+    color: var(--text-dim);
+    font-style: italic;
+    border-top: 1px solid var(--border);
+    padding-top: 18px;
+  }
+  .weapon-lore-label {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.3em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    font-style: normal;
+  }
+
+  /* CHINESE TOOLTIP */
+  .cn-tooltip {
+    position: relative;
+    cursor: help;
+    border-bottom: 1px dashed rgba(201,168,76,0.4);
+  }
+  .cn-tooltip::after {
+    content: attr(data-cn);
+    position: absolute;
+    bottom: calc(100% + 8px);
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(8,12,20,0.97);
+    border: 1px solid var(--gold-dim);
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    color: var(--gold-light);
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 999;
+    letter-spacing: 0.05em;
+  }
+  .cn-tooltip::before {
+    content: '';
+    position: absolute;
+    bottom: calc(100% + 2px);
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: var(--gold-dim);
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 999;
+    pointer-events: none;
+  }
+  .cn-tooltip:hover::after,
+  .cn-tooltip:hover::before { opacity: 1; }
+
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="hero">
+  <div class="hero-cn">星辰之子</div>
+  <div class="hero-name">Dong Fang Yao</div>
+  <div class="hero-sub">Complete Skill, Node & Weapon Reference</div>
+  <div class="star-divider"><span>✦</span></div>
+</div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#skills">Skills</a>
+  <a href="#nodes">Passive Nodes</a>
+  <a href="#breakthrough">Resonance Breakthrough</a>
+  <a href="#weapons">Weapons</a>
+</nav>
+
+<div class="container">
+
+  <!-- ===== SKILLS ===== -->
+  <div id="skills" class="section">
+    <div class="section-label">技能 · Active Skills</div>
+
+    <!-- NORMAL ATTACK -->
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-icon-slot"><img src="icon_normalattack.png" alt="Normal Attack"></div>
+        <div class="skill-title-area">
+          <div class="skill-key">Basic Attack</div>
+          <div class="skill-names">
+            <span class="skill-cn cn-tooltip" data-cn="普通攻击">Normal Attack</span>
+            <span class="skill-en">Normal Attack</span>
+          </div>
+          <div class="skill-meta">
+            <span class="tag tag-skill">Skill</span>
+            <span class="tag tag-damage">Damage</span>
+            <span class="tag tag-stun">Stun</span>
+          </div>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(this, 'na-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this, 'na-stats')">Level-Up Stats</button>
+        <button class="tab-btn" onclick="switchTab(this, 'na-pvp')">PvP</button>
+      </div>
+      <div id="na-desc" class="tab-content active">
+        <p class="desc-main">Continuously swing the sword, performing up to <span class="num">4</span> slash hits, dealing normal attack damage to enemies.</p>
+        <div class="sub-skill">
+          <div class="sub-skill-name">蓄力普攻 · Charged Normal Attack</div>
+          <div class="sub-skill-desc">Launches the enemy in front into the air, dealing normal attack damage.</div>
+        </div>
+        <div class="sub-skill">
+          <div class="sub-skill-name">碎星式 · Star-Shattering Strike</div>
+          <div class="sub-skill-desc">After casting an <span class="kw">Empowered Resonance Skill</span> or triggering a <span class="kw">Perfect Dodge</span>, the next normal attack is empowered into <span class="kw-gold">Star-Shattering Strike</span>, dealing normal attack damage. Can counter enemies' <span class="kw-red">Red-Light Skills</span>. Hold to charge for higher damage.</div>
+        </div>
+        <div class="sub-skill">
+          <div class="sub-skill-name">飞星式 · Shooting Star Strike</div>
+          <div class="sub-skill-desc">After activating the relevant <span class="kw">Passive Node</span>, can unleash <span class="kw-gold">Shooting Star Strike</span> under specific conditions. Slashes the space in front, dealing normal attack damage to enemies within range.</div>
+        </div>
+      </div>
+      <div id="na-stats" class="tab-content">
+        <table class="stats-table">
+          <tr><td>Ground Normal Attack Hit 1<span class="cn-label">地面普攻一段伤害</span></td><td>100%</td></tr>
+          <tr><td>Ground Normal Attack Hit 2<span class="cn-label">地面普攻二段伤害</span></td><td>120%</td></tr>
+          <tr><td>Ground Normal Attack Hit 3<span class="cn-label">地面普攻三段伤害</span></td><td>70%×2</td></tr>
+          <tr><td>Ground Normal Attack Hit 4<span class="cn-label">地面普攻四段伤害</span></td><td>160%</td></tr>
+          <tr><td>Ground Charged Attack<span class="cn-label">地面蓄力普攻伤害</span></td><td>100%</td></tr>
+          <tr><td>Ground Dodge Attack<span class="cn-label">地面闪身攻击伤害</span></td><td>104%</td></tr>
+          <tr><td>Aerial Normal Attack Hit 1<span class="cn-label">空中普攻一段伤害</span></td><td>80%</td></tr>
+          <tr><td>Aerial Normal Attack Hit 2<span class="cn-label">空中普攻二段伤害</span></td><td>93%</td></tr>
+          <tr><td>Aerial Normal Attack Hit 3<span class="cn-label">空中普攻三段伤害</span></td><td>112%</td></tr>
+          <tr><td>Aerial Normal Attack Hit 4<span class="cn-label">空中普攻四段伤害</span></td><td>178%</td></tr>
+          <tr><td>Aerial Charged Attack<span class="cn-label">空中蓄力普攻伤害</span></td><td>111%</td></tr>
+        </table>
+      </div>
+      <div id="na-pvp" class="tab-content">
+        <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
+      </div>
+    </div>
+
+    <!-- VOID RIFT -->
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-icon-slot"><img src="icon_voidrift.png" alt="Void Rift"></div>
+        <div class="skill-title-area">
+          <div class="skill-key">Q · Resonance Skill</div>
+          <div class="skill-names">
+            <span class="skill-cn cn-tooltip" data-cn="裂空">Void Rift</span>
+            <span class="skill-en">Void Rift</span>
+          </div>
+          <div class="skill-meta">
+            <span class="tag tag-skill">Skill</span>
+            <span class="tag tag-damage">Damage</span>
+            <span class="cd">Cooldown: 6.5s</span>
+          </div>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(this, 'q-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this, 'q-stats')">Level-Up Stats</button>
+        <button class="tab-btn" onclick="switchTab(this, 'q-pvp')">PvP</button>
+      </div>
+      <div id="q-desc" class="tab-content active">
+        <p class="desc-main">Rapidly spin the blade, dealing Resonance Skill damage to surrounding enemies.</p>
+        <p class="desc-main">In <span class="kw-gold">Radiant Light (辉光)</span> state, can use <span class="kw">Star Force (星辰之力)</span> to additionally deal <span class="num">1</span> instance of Resonance Skill damage to enemies.</p>
+      </div>
+      <div id="q-stats" class="tab-content">
+        <table class="stats-table">
+          <tr><td>Void Rift Damage<span class="cn-label">裂空伤害</span></td><td>166%</td></tr>
+          <tr><td>Empowered Void Rift Damage<span class="cn-label">强化裂空伤害</span></td><td>197%+197%</td></tr>
+        </table>
+      </div>
+      <div id="q-pvp" class="tab-content">
+        <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
+      </div>
+    </div>
+
+    <!-- STAR CHASE -->
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-icon-slot"><img src="icon_starchase.png" alt="Star Chase"></div>
+        <div class="skill-title-area">
+          <div class="skill-key">E · Resonance Skill</div>
+          <div class="skill-names">
+            <span class="skill-cn cn-tooltip" data-cn="逐星">Star Chase</span>
+            <span class="skill-en">Star Chase</span>
+          </div>
+          <div class="skill-meta">
+            <span class="tag tag-skill">Skill</span>
+            <span class="tag tag-damage">Damage</span>
+            <span class="tag tag-buff">Buff</span>
+            <span class="cd">Cooldown: 8s</span>
+          </div>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(this, 'e-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this, 'e-stats')">Level-Up Stats</button>
+        <button class="tab-btn" onclick="switchTab(this, 'e-pvp')">PvP</button>
+      </div>
+      <div id="e-desc" class="tab-content active">
+        <p class="desc-main">Rapidly dash forward along an arc and strike with the sword, dealing Resonance Skill damage to enemies.</p>
+        <p class="desc-main">In <span class="kw-gold">Radiant Light (辉光)</span> state, performs <span class="num">2</span> rapid dash strikes in an extremely short time, dealing higher damage, and inflicting enemies hit with the <span class="kw">Star Erosion (星削)</span> state for <span class="num">12</span> seconds.</p>
+        <p class="desc-main">In <span class="kw">Star Erosion (星削)</span> state, damage dealt by <span class="kw-gold">Star Child (星辰之子)</span> to the affected enemy is additionally increased by <span class="num">20%</span>.</p>
+      </div>
+      <div id="e-stats" class="tab-content">
+        <table class="stats-table">
+          <tr><td>Star Chase Damage<span class="cn-label">逐星伤害</span></td><td>155%</td></tr>
+          <tr><td>Empowered Star Chase Damage<span class="cn-label">强化逐星伤害</span></td><td>292%</td></tr>
+        </table>
+      </div>
+      <div id="e-pvp" class="tab-content">
+        <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
+      </div>
+    </div>
+
+    <!-- RETURN TO DUST -->
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-icon-slot"><img src="icon_returntodust.png" alt="Return to Dust"></div>
+        <div class="skill-title-area">
+          <div class="skill-key">R · Resonance Skill</div>
+          <div class="skill-names">
+            <span class="skill-cn cn-tooltip" data-cn="归尘">Return to Dust</span>
+            <span class="skill-en">Return to Dust</span>
+          </div>
+          <div class="skill-meta">
+            <span class="tag tag-skill">Skill</span>
+            <span class="tag tag-damage">Damage</span>
+            <span class="tag tag-recovery">Recovery</span>
+            <span class="tag tag-stun">Stun</span>
+            <span class="cd">Cooldown: 11s</span>
+          </div>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(this, 'r-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this, 'r-stats')">Level-Up Stats</button>
+        <button class="tab-btn" onclick="switchTab(this, 'r-pvp')">PvP</button>
+      </div>
+      <div id="r-desc" class="tab-content active">
+        <p class="desc-main">When casting a movement skill, generates a <span class="kw">Star Mark (星辰标记)</span>, recording the current position. Casting <span class="kw-gold">Return to Dust</span> returns to the Star Mark location, dealing Resonance Skill damage to enemies along the path.</p>
+        <p class="desc-main">In <span class="kw-gold">Radiant Light (辉光)</span> state, deals higher damage, recovers <span class="num">14%</span> of lost HP, and can counter enemies' <span class="kw-red">Red-Light Skills</span>.</p>
+      </div>
+      <div id="r-stats" class="tab-content">
+        <table class="stats-table">
+          <tr><td>Return to Dust Damage<span class="cn-label">归尘伤害</span></td><td>176%</td></tr>
+          <tr><td>Empowered Return to Dust Damage<span class="cn-label">强化归尘伤害</span></td><td>445%</td></tr>
+        </table>
+      </div>
+      <div id="r-pvp" class="tab-content">
+        <div class="pvp-box modified">
+          <p>In Ranked Mode, <span class="kw-gold">Return to Dust</span> removes damage detection at the starting position.</p>
+          <br>
+          <p>In <span class="kw-gold">Radiant Light</span> state, must hit an enemy to gain HP recovery, recovering <span class="num">12%</span> of lost HP.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- STAR BLESSING -->
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-icon-slot"><img src="icon_starblessing.png" alt="Star Blessing"></div>
+        <div class="skill-title-area">
+          <div class="skill-key">Passive Mechanic</div>
+          <div class="skill-names">
+            <span class="skill-cn cn-tooltip" data-cn="星辰之赐">Star Blessing</span>
+            <span class="skill-en">Star Blessing</span>
+          </div>
+          <div class="skill-meta">
+            <span class="tag tag-skill">Skill</span>
+            <span class="tag tag-empowered">Empowered Normal Attack</span>
+          </div>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(this, 'sb-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this, 'sb-stats')">Level-Up Stats</button>
+        <button class="tab-btn" onclick="switchTab(this, 'sb-pvp')">PvP</button>
+      </div>
+      <div id="sb-desc" class="tab-content active">
+        <p class="desc-main">Each time a Resonance Skill is cast, gain <span class="num">1</span> stack of <span class="kw">Star Force (星辰之力)</span>, up to <span class="num">3</span> stacks. When fully stacked, enter <span class="kw-gold">Radiant Light (辉光)</span> state, which empowers the next Resonance Skill cast.</p>
+        <p class="desc-main">The <span class="kw-gold">Radiant Light</span> state ends after casting the Empowered Resonance Skill, and empowers the next normal attack into <span class="kw-gold">Star-Shattering Strike (碎星式)</span>, dealing normal attack damage.</p>
+        <div class="sub-skill" style="margin-top:16px">
+          <div class="sub-skill-name">共流技 · Coordinated Resonance Skill</div>
+          <div class="sub-skill-desc">Triggered after the on-field Resonator casts their Resonance Liberation. Upon entering, quickly dashes through, dealing Resonance Skill damage to enemies within range.</div>
+        </div>
+      </div>
+      <div id="sb-stats" class="tab-content">
+        <table class="stats-table">
+          <tr><td>Coordinated Resonance Skill Damage<span class="cn-label">共流技伤害</span></td><td>160%×2+380%</td></tr>
+          <tr><td>Ground Star-Shattering Strike Damage<span class="cn-label">地面碎星式伤害</span></td><td>260%</td></tr>
+          <tr><td>Ground Star-Shattering Strike (Charged) Damage<span class="cn-label">地面碎星式（蓄力）伤害</span></td><td>400%</td></tr>
+          <tr><td>Aerial Star-Shattering Strike Damage<span class="cn-label">空中碎星式伤害</span></td><td>56%×4+220%</td></tr>
+          <tr><td>Aerial Star-Shattering Strike (Charged) Damage<span class="cn-label">空中碎星式（蓄力）伤害</span></td><td>336%</td></tr>
+        </table>
+      </div>
+      <div id="sb-pvp" class="tab-content">
+        <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
+      </div>
+    </div>
+
+    <!-- GALAXY BURST -->
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-icon-slot"><img src="icon_galaxyburst.png" alt="Galaxy Burst"></div>
+        <div class="skill-title-area">
+          <div class="skill-key">T · Resonance Liberation</div>
+          <div class="skill-names">
+            <span class="skill-cn cn-tooltip" data-cn="星河破裂">Galaxy Burst</span>
+            <span class="skill-en">Galaxy Burst</span>
+          </div>
+          <div class="skill-meta">
+            <span class="tag tag-skill">Skill</span>
+            <span class="tag tag-liberation">Liberation</span>
+            <span class="tag tag-stun">Stun</span>
+            <span class="cd">Cooldown: 15s</span>
+          </div>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(this, 't-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this, 't-stats')">Level-Up Stats</button>
+        <button class="tab-btn" onclick="switchTab(this, 't-pvp')">PvP</button>
+      </div>
+      <div id="t-desc" class="tab-content active">
+        <p class="desc-main">Channeling <span class="kw">Star Force (星辰之力)</span>, launches fierce slashing strikes at the enemy from <span class="num">6</span> different directions in an instant, dealing Resonance Liberation damage. Can counter enemies' <span class="kw-red">Red-Light Skills</span>.</p>
+      </div>
+      <div id="t-stats" class="tab-content">
+        <table class="stats-table">
+          <tr><td>Dash-Through Damage<span class="cn-label">穿梭伤害</span></td><td>302%×6</td><td>→ 321%×6 ▲</td></tr>
+          <tr><td>Return Damage<span class="cn-label">返回后伤害</span></td><td>924%</td><td>→ 982% ▲</td></tr>
+        </table>
+        <p style="font-size:12px; color:var(--text-dim); margin-top:12px; font-style:italic;">▲ Values shown for current level (8) and next level (9)</p>
+      </div>
+      <div id="t-pvp" class="tab-content">
+        <div class="pvp-box modified">In Ranked Mode, the untargetable effect is changed to reducing all damage received by <span class="num">50%</span>.</div>
+      </div>
+    </div>
+
+  </div><!-- end #skills -->
+
+  <!-- ===== PASSIVE NODES ===== -->
+  <div id="nodes" class="section">
+    <div class="section-label">流脉 · Passive Nodes</div>
+    <div class="nodes-list">
+
+      <div class="node-card">
+        <div class="node-left">
+          <div class="node-layer">Layer 2 · 第二层</div>
+          <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+            <img src="icon_node_swiftstar.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn cn-tooltip" data-cn="快意星驰">Swift Star Gallop</div><div class="node-en">Swift Star Gallop</div></div>
+          </div>
+        </div>
+        <div class="node-desc">After casting an Empowered Normal Attack, reduce the cooldown of all Resonance Skills by <span class="num">1</span> second.</div>
+      </div>
+
+      <div class="node-card">
+        <div class="node-left">
+          <div class="node-layer">Layer 4 · 第四层</div>
+          <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+            <img src="icon_node_fiercebattle.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn cn-tooltip" data-cn="激斗连星">Fierce Battle Star Chain</div><div class="node-en">Fierce Battle Star Chain</div></div>
+          </div>
+        </div>
+        <div class="node-desc">Enemies in the <span class="kw">Star Erosion (星削)</span> state take damage equal to <span class="num">20%</span> of Attack Power every <span class="num">0.5</span> seconds.</div>
+      </div>
+
+      <div class="node-card">
+        <div class="node-left">
+          <div class="node-layer">Layer 6 · 第六层 — Node A</div>
+          <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+            <img src="icon_node_soaringstar.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn cn-tooltip" data-cn="飞星凌空">Soaring Shooting Star</div><div class="node-en">Soaring Shooting Star</div></div>
+          </div>
+        </div>
+        <div class="node-desc">Normal Attacks, Resonance Skills, and Resonance Liberation cast while airborne gain an additional <span class="num">20%</span> Crit Rate. While airborne, Crit DMG increases by <span class="num">10%</span> per second, up to a maximum of <span class="num">40%</span>, disappearing upon landing.</div>
+      </div>
+
+      <div class="node-card">
+        <div class="node-left">
+          <div class="node-layer">Layer 6 · 第六层 — Node B</div>
+          <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+            <img src="icon_node_thundermist.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn cn-tooltip" data-cn="霹雾辰星">Thunder-Mist Morning Star</div><div class="node-en">Thunder-Mist Morning Star</div></div>
+          </div>
+        </div>
+        <div class="node-desc">Empowered Normal Attacks additionally apply <span class="kw-teal">Thunder (震)</span> attribute Trigger Value. Upon triggering the Thunder attribute, enemies enter the <span class="kw">Electrocuted (感电)</span> state for <span class="num">12</span> seconds, taking damage equal to <span class="num">90%</span> of Attack Power every <span class="num">2</span> seconds.</div>
+      </div>
+
+      <div class="node-card">
+        <div class="node-left">
+          <div class="node-layer">Layer 8 · 第八层</div>
+          <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+            <img src="icon_node_celestialstar.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn cn-tooltip" data-cn="天宇飞星">Celestial Shooting Star</div><div class="node-en">Celestial Shooting Star</div></div>
+          </div>
+        </div>
+        <div class="node-desc">Empowered Normal Attack damage increased by <span class="num">20%</span>. Charged Empowered Normal Attack is replaced by <span class="kw-gold">Shooting Star Strike (飞星式)</span>; upon release, quickly teleports to the target's side dealing normal attack damage, and can counter enemies' <span class="kw-red">Red-Light Skills</span>.</div>
+      </div>
+
+      <div class="node-card">
+        <div class="node-left">
+          <div class="node-layer">Layer 10 · 第十层 — Node A</div>
+          <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+            <img src="icon_node_chainflash.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn cn-tooltip" data-cn="飞星连闪">Shooting Star Chain Flash</div><div class="node-en">Shooting Star Chain Flash</div></div>
+          </div>
+        </div>
+        <div class="node-desc">After casting <span class="kw-gold">Shooting Star Strike (飞星式)</span>, the 3rd skill is replaced by <span class="kw">Return to Dust Flash (归尘闪回)</span>. Consumes <span class="num">30</span> combo points when cast, and can be used up to <span class="num">4</span> times. After casting 归尘闪回, the next normal attack is empowered into <span class="kw-gold">飞星式</span>.</div>
+      </div>
+
+      <div class="node-card">
+        <div class="node-left">
+          <div class="node-layer">Layer 10 · 第十层 — Node B</div>
+          <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+            <img src="icon_node_starsrain.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn cn-tooltip" data-cn="飞星如雨">Shooting Stars Like Rain</div><div class="node-en">Shooting Stars Like Rain</div></div>
+          </div>
+        </div>
+        <div class="node-desc">After casting the Empowered Normal Attack <span class="kw-gold">Star-Shattering Strike (碎星式)</span>, long-pressing Normal Attack again can release <span class="kw-gold">Shooting Star Strike (飞星式)</span>. Hitting with 碎星式 or 飞星式 grants <span class="num">1%</span> Resonance Liberation energy.</div>
+      </div>
+
+      <div class="node-card">
+        <div class="node-left">
+          <div class="node-layer">Layer 12 · 第十二层</div>
+          <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+            <img src="icon_node_vastgalaxy.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn cn-tooltip" data-cn="浩荡星河">Vast Flowing Galaxy</div><div class="node-en">Vast Flowing Galaxy</div></div>
+          </div>
+        </div>
+        <div class="node-desc">When <span class="kw-gold">Star-Shattering Strike (碎星式)</span> or <span class="kw-gold">Shooting Star Strike (飞星式)</span> hits enemies in the <span class="kw">Star Erosion (星削)</span> state, gain a <span class="num">4%</span> damage increase lasting <span class="num">12</span> seconds, up to a maximum of <span class="num">32%</span>.</div>
+      </div>
+
+    </div>
+  </div><!-- end #nodes -->
+
+  <!-- ===== RESONANCE BREAKTHROUGH ===== -->
+  <div id="breakthrough" class="section">
+    <div class="section-label">共鸣突破 · Resonance Breakthrough</div>
+    <div class="breakthrough-grid">
+
+      <div class="bt-card">
+        <div class="bt-header">
+          <img class="bt-icon" src="bt_dongfangyao_1_initialenlightenment.png" alt="初悟">
+          <div class="bt-title">
+            <span class="bt-cn">初悟</span>
+            <span class="bt-en">Initial Enlightenment</span>
+          </div>
+        </div>
+        <div class="bt-body">
+          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">4700</span><span class="bt-arrow">→</span><span class="bt-after">4840</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">1880</span><span class="bt-arrow">→</span><span class="bt-after">1960</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">68.3%</span><span class="bt-arrow">→</span><span class="bt-after">69.4%</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Weakness Exploit 流相克制强度</span><div class="bt-values"><span class="bt-before">5.0%</span><span class="bt-arrow">→</span><span class="bt-after">10.0%</span></div></div>
+        </div>
+      </div>
+
+      <div class="bt-card">
+        <div class="bt-header">
+          <img class="bt-icon" src="bt_dongfangyao_2_initialformation.png" alt="初成">
+          <div class="bt-title">
+            <span class="bt-cn">初成</span>
+            <span class="bt-en">Initial Formation</span>
+          </div>
+        </div>
+        <div class="bt-body">
+          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">4840</span><span class="bt-arrow">→</span><span class="bt-after">5070</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">1960</span><span class="bt-arrow">→</span><span class="bt-after">2040</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">69.4%</span><span class="bt-arrow">→</span><span class="bt-after">70.5%</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Attack Power 攻击力</span><div class="bt-values"><span class="bt-before">1330</span><span class="bt-arrow">→</span><span class="bt-after">1380</span></div></div>
+        </div>
+      </div>
+
+      <div class="bt-card">
+        <div class="bt-header">
+          <img class="bt-icon" src="bt_dongfangyao_3_refinement.png" alt="精进">
+          <div class="bt-title">
+            <span class="bt-cn">精进</span>
+            <span class="bt-en">Refinement</span>
+          </div>
+        </div>
+        <div class="bt-body">
+          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">5070</span><span class="bt-arrow">→</span><span class="bt-after">5390</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">2040</span><span class="bt-arrow">→</span><span class="bt-after">2200</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">70.5%</span><span class="bt-arrow">→</span><span class="bt-after">71.6%</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Weakness Exploit 流相克制强度</span><div class="bt-values"><span class="bt-before">10.0%</span><span class="bt-arrow">→</span><span class="bt-after">15.0%</span></div></div>
+        </div>
+      </div>
+
+      <div class="bt-card">
+        <div class="bt-header">
+          <img class="bt-icon" src="bt_dongfangyao_4_excellence.png" alt="精湛">
+          <div class="bt-title">
+            <span class="bt-cn">精湛</span>
+            <span class="bt-en">Excellence</span>
+          </div>
+        </div>
+        <div class="bt-body">
+          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">5390</span><span class="bt-arrow">→</span><span class="bt-after">5800</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">2200</span><span class="bt-arrow">→</span><span class="bt-after">2360</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">71.6%</span><span class="bt-arrow">→</span><span class="bt-after">72.7%</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Attack Power 攻击力</span><div class="bt-values"><span class="bt-before">1380</span><span class="bt-arrow">→</span><span class="bt-after">1456</span></div></div>
+        </div>
+      </div>
+
+      <div class="bt-card">
+        <div class="bt-header">
+          <img class="bt-icon" src="bt_dongfangyao_5_proficiency.png" alt="精通">
+          <div class="bt-title">
+            <span class="bt-cn">精通</span>
+            <span class="bt-en">Proficiency</span>
+          </div>
+        </div>
+        <div class="bt-body">
+          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">5800</span><span class="bt-arrow">→</span><span class="bt-after">6300</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">2360</span><span class="bt-arrow">→</span><span class="bt-after">2600</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">72.7%</span><span class="bt-arrow">→</span><span class="bt-after">74.9%</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Weakness Exploit 流相克制强度</span><div class="bt-values"><span class="bt-before">15.0%</span><span class="bt-arrow">→</span><span class="bt-after">20.0%</span></div></div>
+        </div>
+      </div>
+
+      <div class="bt-card">
+        <div class="bt-header">
+          <img class="bt-icon" src="bt_dongfangyao_6_finalenlightenment.png" alt="终悟">
+          <div class="bt-title">
+            <span class="bt-cn">终悟</span>
+            <span class="bt-en">Final Enlightenment</span>
+          </div>
+        </div>
+        <div class="bt-body">
+          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">6300</span><span class="bt-arrow">→</span><span class="bt-after">6890</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">2600</span><span class="bt-arrow">→</span><span class="bt-after">2840</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">74.9%</span><span class="bt-arrow">→</span><span class="bt-after">77.1%</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Attack Power 攻击力</span><div class="bt-values"><span class="bt-before">1456</span><span class="bt-arrow">→</span><span class="bt-after">1532</span></div></div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end #breakthrough -->
+
+  <!-- ===== WEAPONS ===== -->
+  <div id="weapons" class="section">
+    <div class="section-label">凝武 · Weapons</div>
+
+    <!-- PROGRESSION CHAIN -->
+    <div class="weapon-chain">
+      <div class="chain-item">
+        <a class="chain-badge" href="#w30">
+          <div class="chain-icon grade-white"><img src="weapon_dongfangyao_lv30_trainingsword.png" alt="Training Sword"></div>
+          <div class="chain-lv">Lv 30</div>
+        </a>
+      </div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-item">
+        <a class="chain-badge" href="#w40">
+          <div class="chain-icon grade-green"><img src="weapon_dongfangyao_lv40_flashbrilliance.png" alt="Flash Brilliance"></div>
+          <div class="chain-lv">Lv 40</div>
+        </a>
+      </div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-item">
+        <a class="chain-badge" href="#w50">
+          <div class="chain-icon grade-blue"><img src="weapon_dongfangyao_lv50_coldstar.png" alt="Cold Star"></div>
+          <div class="chain-lv">Lv 50</div>
+        </a>
+      </div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-item">
+        <a class="chain-badge" href="#w60a">
+          <div class="chain-icon grade-purple"><img src="weapon_dongfangyao_lv60_radiantstar.png" alt="Radiant Star"></div>
+          <div class="chain-lv">Lv 60</div>
+        </a>
+      </div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-item">
+        <a class="chain-badge" href="#w60b">
+          <div class="chain-icon grade-gold"><img src="weapon_dongfangyao_lv60_starforgedtaia.png" alt="Star-Forged Taia"></div>
+          <div class="chain-lv">Lv 60</div>
+        </a>
+      </div>
+      <div class="chain-arrow">›</div>
+      <div class="chain-item">
+        <a class="chain-badge" href="#w60sig">
+          <div class="chain-icon grade-red"><img src="weapon_dongfangyao_lv60_shiftingstars.png" alt="Shifting Stars"></div>
+          <div class="chain-lv sig">Lv 60 ✦</div>
+        </a>
+      </div>
+    </div>
+
+    <!-- WEAPON CARDS -->
+    <div class="weapon-cards">
+
+      <!-- LV 30 -->
+      <div class="weapon-card" id="w30">
+        <div class="weapon-header">
+          <div class="weapon-icon grade-white"><img src="weapon_dongfangyao_lv30_trainingsword.png" alt="Training Sword"></div>
+          <div class="weapon-title-area">
+            <div class="weapon-type">单手剑 · One-Handed Sword</div>
+            <div class="weapon-names">
+              <span class="weapon-cn cn-tooltip" data-cn="演武剑">Training Sword</span>
+              <span class="weapon-en">Training Sword</span>
+            </div>
+            <div class="weapon-badges">
+              <span class="weapon-lv-badge grade-white">Level 30</span>
+            </div>
+          </div>
+        </div>
+        <div class="weapon-body">
+          <div class="weapon-stats">
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">187</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">112</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">3.1%</span></div>
+          </div>
+          <div class="weapon-right">
+            <div class="weapon-lore">
+              <div class="weapon-lore-label">Lore · 剑铭</div>
+              A treasured sword held by those who pursue the ultimate in martial arts. The blade, repeatedly sharpened over time, has lost its original shape.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LV 40 -->
+      <div class="weapon-card" id="w40">
+        <div class="weapon-header">
+          <div class="weapon-icon grade-green"><img src="weapon_dongfangyao_lv40_flashbrilliance.png" alt="Flash Brilliance"></div>
+          <div class="weapon-title-area">
+            <div class="weapon-type">单手剑 · One-Handed Sword</div>
+            <div class="weapon-names">
+              <span class="weapon-cn cn-tooltip" data-cn="闪华剑">Flash Brilliance Sword</span>
+              <span class="weapon-en">Flash Brilliance Sword</span>
+            </div>
+            <div class="weapon-badges">
+              <span class="weapon-lv-badge grade-green">Level 40</span>
+            </div>
+          </div>
+        </div>
+        <div class="weapon-body">
+          <div class="weapon-stats">
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">292</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">176</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">6.0%</span></div>
+          </div>
+          <div class="weapon-right">
+            <div class="weapon-lore">
+              <div class="weapon-lore-label">Lore · 剑铭</div>
+              A longsword made of mysterious metal. Its surface is rough with faint mysterious patterns remaining, yet the blade stays as sharp as new, emanating a cold and intimidating light.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LV 50 -->
+      <div class="weapon-card" id="w50">
+        <div class="weapon-header">
+          <div class="weapon-icon grade-blue"><img src="weapon_dongfangyao_lv50_coldstar.png" alt="Cold Star"></div>
+          <div class="weapon-title-area">
+            <div class="weapon-type">单手剑 · One-Handed Sword</div>
+            <div class="weapon-names">
+              <span class="weapon-cn cn-tooltip" data-cn="寒星剑">Cold Star Sword</span>
+              <span class="weapon-en">Cold Star Sword</span>
+            </div>
+            <div class="weapon-badges">
+              <span class="weapon-lv-badge grade-blue">Level 50</span>
+            </div>
+          </div>
+        </div>
+        <div class="weapon-body">
+          <div class="weapon-stats">
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">447</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">263</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">7.4%</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Chase Rate 追击率</span><span class="weapon-stat-val">8.8%</span></div>
+          </div>
+          <div class="weapon-right">
+            <div class="weapon-passive">
+              <div class="weapon-passive-name">辉耀 · Radiance</div>
+              <div class="weapon-passive-desc">Empowered Normal Attack damage increased by <span class="num">20%</span>.</div>
+            </div>
+            <div class="weapon-lore">
+              <div class="weapon-lore-label">Lore · 剑铭</div>
+              A longsword made of mysterious metal. Its surface is rough with faint mysterious patterns remaining, yet the blade stays as sharp as new, emanating a cold and intimidating light.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LV 60 TIER 1 -->
+      <div class="weapon-card" id="w60a">
+        <div class="weapon-header">
+          <div class="weapon-icon grade-purple"><img src="weapon_dongfangyao_lv60_radiantstar.png" alt="Radiant Star"></div>
+          <div class="weapon-title-area">
+            <div class="weapon-type">单手剑 · One-Handed Sword</div>
+            <div class="weapon-names">
+              <span class="weapon-cn cn-tooltip" data-cn="辉星剑">Radiant Star Sword</span>
+              <span class="weapon-en">Radiant Star Sword</span>
+            </div>
+            <div class="weapon-badges">
+              <span class="weapon-lv-badge grade-purple">Level 60</span>
+            </div>
+          </div>
+        </div>
+        <div class="weapon-body">
+          <div class="weapon-stats">
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">640</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">380</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">11.1%</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Chase Rate 追击率</span><span class="weapon-stat-val">13.0%</span></div>
+          </div>
+          <div class="weapon-right">
+            <div class="weapon-passive">
+              <div class="weapon-passive-name">辉耀 · Radiance</div>
+              <div class="weapon-passive-desc">Empowered Normal Attack damage increased by <span class="num">40%</span>.</div>
+            </div>
+            <div class="weapon-lore">
+              <div class="weapon-lore-label">Lore · 剑铭</div>
+              A longsword forged from meteorite iron that fell with starlight. The patterns on the blade secretly correspond to the stars. When the light of countless stars falls upon the blade, the youth shall become a true hero.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LV 60 TIER 2 -->
+      <div class="weapon-card" id="w60b">
+        <div class="weapon-header">
+          <div class="weapon-icon grade-gold"><img src="weapon_dongfangyao_lv60_starforgedtaia.png" alt="Star-Forged Taia"></div>
+          <div class="weapon-title-area">
+            <div class="weapon-type">单手剑 · One-Handed Sword</div>
+            <div class="weapon-names">
+              <span class="weapon-cn cn-tooltip" data-cn="炼星·泰阿">Star-Forged Tai'a</span>
+              <span class="weapon-en">Star-Forged Tai'a</span>
+            </div>
+            <div class="weapon-badges">
+              <span class="weapon-lv-badge grade-gold">Level 60</span>
+            </div>
+          </div>
+        </div>
+        <div class="weapon-body">
+          <div class="weapon-stats">
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">720</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">430</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">13.3%</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Chase Rate 追击率</span><span class="weapon-stat-val">15.7%</span></div>
+          </div>
+          <div class="weapon-right">
+            <div class="weapon-passive">
+              <div class="weapon-passive-name">双星连袭 · Twin Star Consecutive Strike</div>
+              <div class="weapon-passive-desc">Empowered Normal Attack damage increased by <span class="num">40%</span>; the damage increase effect inflicted by <span class="kw">Star Erosion (星削)</span> state from <span class="kw-gold">Star Chase (逐星)</span> is additionally increased by <span class="num">16%</span>.</div>
+            </div>
+            <div class="weapon-lore">
+              <div class="weapon-lore-label">Lore · 剑铭</div>
+              A treasured sword recorded in the Southern Wilderness Miscellany "Nanjue Shu." After it was forged, a hegemon of the era once drew this sword atop a city wall. In that moment, the three armies were overwhelmed by the sword's aura, and soldiers lost their fighting spirit at its sharpness. After being offered by the Dragon Princess of the undersea Dragon Palace to the Eagle Yang Cavalry heading north, it disappeared from historical records.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LV 60 SIGNATURE -->
+      <div class="weapon-card signature" id="w60sig">
+        <div class="weapon-header">
+          <div class="weapon-icon grade-red"><img src="weapon_dongfangyao_lv60_shiftingstars.png" alt="Shifting Stars"></div>
+          <div class="weapon-title-area">
+            <div class="weapon-type">单手剑 · One-Handed Sword</div>
+            <div class="weapon-names">
+              <span class="weapon-cn cn-tooltip" data-cn="移星换月">Shifting Stars, Changing Moons</span>
+              <span class="weapon-en">Shifting Stars, Changing Moons</span>
+            </div>
+            <div class="weapon-badges">
+              <span class="weapon-lv-badge grade-red">Level 60 · Signature</span>
+            </div>
+          </div>
+        </div>
+        <div class="weapon-body">
+          <div class="weapon-stats">
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">800</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">480</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">14.8%</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Chase Rate 追击率</span><span class="weapon-stat-val">17.3%</span></div>
+          </div>
+          <div class="weapon-right">
+            <div class="weapon-passive">
+              <div class="weapon-passive-name">天河煌煌 · Milky Way Splendor</div>
+              <div class="weapon-passive-desc">Empowered Normal Attack <span class="kw-teal">Thunder Flow Intensity</span> +<span class="num">60%</span>. Every <span class="num">2nd</span> Empowered Normal Attack, Crit Effect +<span class="num">70%</span>.</div>
+            </div>
+            <div class="weapon-passive">
+              <div class="weapon-passive-name">双星连袭 · Twin Star Consecutive Strike</div>
+              <div class="weapon-passive-desc">Empowered Normal Attack damage increased by <span class="num">40%</span>; the damage increase effect inflicted by <span class="kw">Star Erosion (星削)</span> state from <span class="kw-gold">Star Chase (逐星)</span> is additionally increased by <span class="num">16%</span>.</div>
+            </div>
+            <div class="weapon-lore">
+              <div class="weapon-lore-label">Lore · 剑铭</div>
+              A slender, sharp, and elegantly crafted longsword. The blade, repeatedly forged, reveals star-like patterns. The entire sword radiates a gentle brilliance with an intricately carved guard resembling a butterfly just emerged from its chrysalis — its soaring appearance perfectly complementing the star patterns on the blade. The sword's inscription reads: <em>"To ascend to the highest heavens, chasing stars and grasping the moon."</em>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div><!-- end #weapons -->
+
+</div><!-- end .container -->
+
+<script>
+function switchTab(btn, targetId) {
+  const card = btn.closest('.skill-card');
+  card.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(targetId).classList.add('active');
+}
+</script>
+</body>
+</html>
