@@ -1072,6 +1072,26 @@
     .hero-nav-card.next { flex-direction: row; text-align: left; }
     .hero-nav-portrait { width: 46px; height: 46px; font-size: 18px; }
     .hero-nav-cn { font-size: 15px; }
+  
+    /* BREAKTHROUGH ROW — prevent stat label from breaking vertically */
+    .bt-row {
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+    .bt-stat {
+      min-width: 0;
+      flex: 1 1 100%;
+      font-size: 14px;
+    }
+    .bt-values {
+      flex: 0 0 auto;
+      font-size: 14px;
+    }
+    .bt-card { min-width: 0; }
+    .bt-header { padding: 16px 16px; gap: 12px; }
+    .bt-icon { height: 52px; }
+    .bt-cn { font-size: 16px; }
+
   }
 
 </style>
