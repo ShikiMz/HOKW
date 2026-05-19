@@ -295,12 +295,34 @@
   .roster-grid   { margin-bottom: 40px; }
 
   ::-webkit-scrollbar-thumb { background: var(--border-glow); border-radius: 3px; }
+
+  .header-nav { display: flex; gap: 0; }
+  .header-nav a {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: #8a9ab5;
+    text-decoration: none;
+    padding: 0 18px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .header-nav a:hover { color: var(--gold-light); }
+  .header-nav a.active { color: var(--gold-light); border-bottom-color: var(--gold); }
 </style>
 </head>
 <body>
 
 <header class="site-header">
   <a class="site-title" href="index.html">HOKW <span>Hero Reference</span></a>
+  <nav class="header-nav">
+    <a href="index.html" class="active">Roster</a>
+    <a href="stats.html">Stats</a>
+  </nav>
 </header>
 
 <section class="roster-section">
@@ -322,11 +344,12 @@
       <div class="hero-card-en">Dong Fang Yao</div>
       <div class="hero-card-type">星辰之子 · Star Child</div>
     </a>
-    <div class="hero-card placeholder">
-      <div class="hero-card-portrait">?</div>
-      <div class="hero-card-cn">未知</div>
-      <div class="hero-card-en">Coming Soon</div>
-    </div>
+    <a class="hero-card" href="jialuo.html">
+      <div class="hero-card-portrait">🏹</div>
+      <div class="hero-card-cn">珈罗</div>
+      <div class="hero-card-en">Jia Luo</div>
+      <div class="hero-card-type">破魔之箭 · Demon-Breaking Arrow</div>
+    </a>
     <div class="hero-card placeholder">
       <div class="hero-card-portrait">?</div>
       <div class="hero-card-cn">未知</div>
@@ -340,11 +363,12 @@
     <div class="class-section-line support-line"></div>
   </div>
   <div class="roster-grid">
-    <div class="hero-card placeholder">
-      <div class="hero-card-portrait">?</div>
-      <div class="hero-card-cn">未知</div>
-      <div class="hero-card-en">Coming Soon</div>
-    </div>
+    <a class="hero-card" href="luban.html">
+      <div class="hero-card-portrait">🔧</div>
+      <div class="hero-card-cn">鲁班大师</div>
+      <div class="hero-card-en">Master Luban</div>
+      <div class="hero-card-type">神匠 · Divine Craftsman</div>
+    </a>
     <div class="hero-card placeholder">
       <div class="hero-card-portrait">?</div>
       <div class="hero-card-cn">未知</div>
@@ -370,7 +394,7 @@
     </div>
   </div>
 
-  <div class="hero-count"><span>1</span> of many heroes documented</div>
+  <div class="hero-count"><span>3</span> of many heroes documented</div>
 </section>
 
 </body>

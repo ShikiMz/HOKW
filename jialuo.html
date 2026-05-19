@@ -3,10 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>东方曜 · Dong Fang Yao — HOKW</title>
+<title>珈罗 · Jia Luo — HOKW</title>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Spectral:wght@400;500&display=swap" rel="stylesheet">
 <style>
-
 
   :root {
     --bg: #080c14;
@@ -259,6 +258,12 @@
   .tag-recovery { background: rgba(94,207,207,0.12); color: var(--teal); border: 1px solid rgba(94,207,207,0.3); }
   .tag-liberation { background: rgba(150,80,200,0.15); color: #c090e8; border: 1px solid rgba(150,80,200,0.3); }
   .tag-empowered { background: rgba(201,168,76,0.08); color: var(--gold-dim); border: 1px solid rgba(201,168,76,0.2); }
+  /* Jialuo-specific tags */
+  .tag-switch  { background: rgba(94,207,207,0.10);  color: #7dd4d4; border: 1px solid rgba(94,207,207,0.25); }
+  .tag-control { background: rgba(220,140,60,0.12);  color: #e09060; border: 1px solid rgba(220,140,60,0.3); }
+  .tag-burst   { background: rgba(150,80,200,0.15);  color: #c090e8; border: 1px solid rgba(150,80,200,0.3); }
+  .tag-shield  { background: rgba(100,160,220,0.12); color: #80b4e0; border: 1px solid rgba(100,160,220,0.3); }
+
   .skill-level {
     margin-left: auto;
     font-family: 'Cinzel', serif;
@@ -681,8 +686,6 @@
     font-style: normal;
   }
 
-
-
   /* SIDEBAR */
   .page-layout {
     display: flex;
@@ -1000,10 +1003,10 @@
 
 <!-- HEADER -->
 <div class="hero">
-  <div class="hero-cn">东方曜</div>
-  <div class="hero-name">Dong Fang Yao</div>
+  <div class="hero-cn">珈罗</div>
+  <div class="hero-name">Jia Luo</div>
   <div class="hero-sub">Complete Skill, Node &amp; Weapon Reference</div>
-  <div class="hero-class">星辰之子 · Star Child &nbsp;·&nbsp; <span class="hero-class-role">强攻 · Assault</span></div>
+  <div class="hero-class">破魔之箭 · Demon-Breaking Arrow &nbsp;·&nbsp; <span class="hero-class-role">强攻 · Assault</span></div>
   <div class="star-divider"><span>✦</span></div>
 </div>
 
@@ -1040,7 +1043,7 @@
     <!-- NORMAL ATTACK -->
     <div class="skill-card">
       <div class="skill-header">
-        <div class="skill-icon-slot"><img src="dongfangyao/icon_normalattack.png" alt="Normal Attack"></div>
+        <div class="skill-icon-slot"><img src="jialuo/icon_normalattack.png" alt="Normal Attack"></div>
         <div class="skill-title-area">
           <div class="skill-key"><span class="skill-key-badge">AA</span><span class="skill-key-label">Basic Attack</span></div>
           <div class="skill-names">
@@ -1055,272 +1058,283 @@
         </div>
       </div>
       <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(this, 'na-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'na-stats')">Level-Up Stats</button>
-        <button class="tab-btn" onclick="switchTab(this, 'na-pvp')">PvP</button>
+        <button class="tab-btn active" onclick="switchTab(this,'na-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this,'na-stats')">Level-Up Stats</button>
+        <button class="tab-btn" onclick="switchTab(this,'na-pvp')">PvP</button>
       </div>
       <div id="na-desc" class="tab-content active">
-        <p class="desc-main">Continuously swing the sword, performing up to <span class="num">4</span> slash hits, dealing normal attack damage to enemies.</p>
+        <p class="desc-main">Continuously shoot, dealing normal attack damage.</p>
+        <p class="desc-main">After a <span class="kw">Perfect Dodge</span> or casting Skill 2 <span class="kw-gold">Silent Arrow (静默之箭)</span>, briefly gain <span class="kw-gold">Flash Consecutive Shot (瞬华连射)</span> effect, empowering the next normal attack. In <span class="kw">Short Bow State (短弓状态)</span>, the next normal attack rapidly fires four arrows — on hit, gain <span class="num">2</span> <span class="kw-gold">Soul Ferry Arrows (渡灵箭)</span> and can counter enemies' <span class="kw-red">Red-Light Skills</span>. In <span class="kw">Long Bow State (长弓状态)</span>, the next normal attack additionally fires one <span class="kw-gold">Demon-Chasing Arrow (追魔箭)</span> and can counter enemies' <span class="kw-red">Red-Light Skills</span>.</p>
         <div class="sub-skill">
           <div class="sub-skill-name">蓄力普攻 · Charged Normal Attack</div>
-          <div class="sub-skill-desc">Launches the enemy in front into the air, dealing normal attack damage.</div>
-        </div>
-        <div class="sub-skill">
-          <div class="sub-skill-name">碎星式 · Star-Shattering Strike</div>
-          <div class="sub-skill-desc">After casting an <span class="kw">Empowered Resonance Skill</span> or triggering a <span class="kw">Perfect Dodge</span>, the next normal attack is empowered into <span class="kw-gold">Star-Shattering Strike</span>, dealing normal attack damage. Can counter enemies' <span class="kw-red">Red-Light Skills</span>. Hold to charge for higher damage.</div>
-        </div>
-        <div class="sub-skill">
-          <div class="sub-skill-name">飞星式 · Shooting Star Strike</div>
-          <div class="sub-skill-desc">After activating the relevant <span class="kw">Passive Node</span>, can unleash <span class="kw-gold">Shooting Star Strike</span> under specific conditions. Slashes the space in front, dealing normal attack damage to enemies within range.</div>
+          <div class="sub-skill-desc">Pull the bowstring fully to enter <span class="kw">Precision Shot (精准射击)</span> state. Charge lasts up to <span class="num">1</span> second; the fierce arrow fired pierces through enemies.</div>
         </div>
       </div>
       <div id="na-stats" class="tab-content">
         <table class="stats-table">
-          <tr><td>Ground Normal Attack Hit 1<span class="cn-label">地面普攻一段伤害</span></td><td>100%</td></tr>
-          <tr><td>Ground Normal Attack Hit 2<span class="cn-label">地面普攻二段伤害</span></td><td>120%</td></tr>
-          <tr><td>Ground Normal Attack Hit 3<span class="cn-label">地面普攻三段伤害</span></td><td>70%×2</td></tr>
-          <tr><td>Ground Normal Attack Hit 4<span class="cn-label">地面普攻四段伤害</span></td><td>160%</td></tr>
-          <tr><td>Ground Charged Attack<span class="cn-label">地面蓄力普攻伤害</span></td><td>100%</td></tr>
-          <tr><td>Ground Dodge Attack<span class="cn-label">地面闪身攻击伤害</span></td><td>104%</td></tr>
-          <tr><td>Aerial Normal Attack Hit 1<span class="cn-label">空中普攻一段伤害</span></td><td>80%</td></tr>
-          <tr><td>Aerial Normal Attack Hit 2<span class="cn-label">空中普攻二段伤害</span></td><td>93%</td></tr>
-          <tr><td>Aerial Normal Attack Hit 3<span class="cn-label">空中普攻三段伤害</span></td><td>112%</td></tr>
-          <tr><td>Aerial Normal Attack Hit 4<span class="cn-label">空中普攻四段伤害</span></td><td>178%</td></tr>
-          <tr><td>Aerial Charged Attack<span class="cn-label">空中蓄力普攻伤害</span></td><td>111%</td></tr>
+          <tr><td>Hit 1 Damage<span class="cn-label">一段伤害</span></td><td>74%</td><td>→ 80% ▲</td></tr>
+          <tr><td>Hit 2 Damage<span class="cn-label">二段伤害</span></td><td>84%</td><td>→ 92% ▲</td></tr>
+          <tr><td>Hit 3 Damage<span class="cn-label">三段伤害</span></td><td>95%</td><td>→ 104% ▲</td></tr>
+          <tr><td>Hit 4 Damage<span class="cn-label">四段伤害</span></td><td>112%</td><td>→ 122% ▲</td></tr>
+          <tr><td>Charged Attack Damage<span class="cn-label">蓄力伤害</span></td><td>257%</td><td>→ 280% ▲</td></tr>
+          <tr><td>Dodge Attack Damage<span class="cn-label">闪身攻击伤害</span></td><td>112%</td><td>→ 122% ▲</td></tr>
+          <tr><td>Flash Consecutive Shot Damage<span class="cn-label">瞬华连射伤害</span></td><td>63%</td><td>→ 69% ▲</td></tr>
         </table>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown at current level (3) and next level (4)</p>
       </div>
       <div id="na-pvp" class="tab-content">
-        <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
+        <div class="pvp-box modified">In Ranked Mode, only Charged Attacks cause suppression; all other normal attacks do not.</div>
       </div>
     </div>
 
-    <!-- VOID RIFT -->
+    <!-- SOUL FERRY ARROW -->
     <div class="skill-card">
       <div class="skill-header">
-        <div class="skill-icon-slot"><img src="dongfangyao/icon_voidrift.png" alt="Void Rift"></div>
+        <div class="skill-icon-slot"><img src="jialuo/icon_soulferry.png" alt="Soul Ferry Arrow"></div>
         <div class="skill-title-area">
           <div class="skill-key"><span class="skill-key-badge">Q</span><span class="skill-key-label">Resonance Skill</span></div>
           <div class="skill-names">
-            <span class="skill-cn">裂空</span>
-            <span class="skill-en">Void Rift</span>
+            <span class="skill-cn">渡灵之箭</span>
+            <span class="skill-en">Soul Ferry Arrow</span>
           </div>
           <div class="skill-meta">
             <span class="tag tag-skill">Skill</span>
-            <span class="tag tag-damage">Damage</span>
-            <span class="cd">Cooldown: 6.5s</span>
+            <span class="tag tag-switch">Switch</span>
           </div>
         </div>
       </div>
       <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(this, 'q-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'q-stats')">Level-Up Stats</button>
-        <button class="tab-btn" onclick="switchTab(this, 'q-pvp')">PvP</button>
+        <button class="tab-btn active" onclick="switchTab(this,'sfa-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this,'sfa-stats')">Level-Up Stats</button>
+        <button class="tab-btn" onclick="switchTab(this,'sfa-pvp')">PvP</button>
       </div>
-      <div id="q-desc" class="tab-content active">
-        <p class="desc-main">Rapidly spin the blade, dealing Resonance Skill damage to surrounding enemies.</p>
-        <p class="desc-main">In <span class="kw-gold">Radiant Light (辉光)</span> state, can use <span class="kw">Star Force (星辰之力)</span> to additionally deal <span class="num">1</span> instance of Resonance Skill damage to enemies.</p>
+      <div id="sfa-desc" class="tab-content active">
+        <p class="desc-main">Enter <span class="kw">Long Bow State (长弓状态)</span>, empowering normal attacks to <span class="kw-gold">Soul Ferry Shot (渡灵射击)</span>. Casting again or when <span class="kw-gold">Soul Ferry Arrows (渡灵箭)</span> are exhausted, switch back to <span class="kw">Short Bow State (短弓状态)</span>.</p>
+        <div class="sub-skill">
+          <div class="sub-skill-name">渡灵射击 · Soul Ferry Shot</div>
+          <div class="sub-skill-desc">Fire <span class="kw-gold">Soul Ferry Arrows (渡灵箭)</span>, dealing normal attack damage on hit. Continuously casting <span class="kw-gold">Soul Ferry Shot</span> gradually increases attack speed. While inside <span class="kw-gold">Pure Domain (纯净领域)</span>, arrows fly like the wind — the attack speed increase effect is doubled.<br><br>On <span class="kw-gold">Soul Ferry Shot</span> critical hit, additionally fire one <span class="kw-gold">Demon-Chasing Arrow (追魔箭)</span>, dealing normal attack damage.</div>
+        </div>
+        <div class="assoc-nodes">
+          <div class="assoc-nodes-label">关联流脉 · Associated Nodes</div>
+          <div class="assoc-nodes-list">
+            <a class="assoc-node-chip" href="#node-demonslayer">
+              <div class="assoc-node-chip-icon"><img src="jialuo/icon_node_demonslayer.png" alt="Slay Every Demon"></div>
+              <span class="assoc-node-chip-name">诛魔必尽 · Slay Every Demon</span>
+              <span class="assoc-node-chip-arrow">›</span>
+            </a>
+            <a class="assoc-node-chip" href="#node-demonbreaker">
+              <div class="assoc-node-chip-icon"><img src="jialuo/icon_node_demonbreaker.png" alt="Demon-Breaking Consecutive Arrows"></div>
+              <span class="assoc-node-chip-name">破魔连矢 · Demon-Breaking Consecutive Arrows</span>
+              <span class="assoc-node-chip-arrow">›</span>
+            </a>
+            <a class="assoc-node-chip" href="#node-moonbow">
+              <div class="assoc-node-chip-icon"><img src="jialuo/icon_node_moonbow.png" alt="Draw Bow Like the Moon"></div>
+              <span class="assoc-node-chip-name">挽弓如月 · Draw Bow Like the Moon</span>
+              <span class="assoc-node-chip-arrow">›</span>
+            </a>
+            <a class="assoc-node-chip" href="#node-arrowunceasing">
+              <div class="assoc-node-chip-icon"><img src="jialuo/icon_node_arrowunceasing.png" alt="Arrow Intent Unceasing"></div>
+              <span class="assoc-node-chip-name">箭意不息 · Arrow Intent Unceasing</span>
+              <span class="assoc-node-chip-arrow">›</span>
+            </a>
+            <a class="assoc-node-chip" href="#node-arrowoverflow">
+              <div class="assoc-node-chip-icon"><img src="jialuo/icon_node_arrowoverflow.png" alt="Arrow Intent Overflowing"></div>
+              <span class="assoc-node-chip-name">箭意充盈 · Arrow Intent Overflowing</span>
+              <span class="assoc-node-chip-arrow">›</span>
+            </a>
+          </div>
+        </div>
       </div>
-      <div id="q-stats" class="tab-content">
+      <div id="sfa-stats" class="tab-content">
         <table class="stats-table">
-          <tr><td>Void Rift Damage<span class="cn-label">裂空伤害</span></td><td>166%</td></tr>
-          <tr><td>Empowered Void Rift Damage<span class="cn-label">强化裂空伤害</span></td><td>197%+197%</td></tr>
+          <tr><td>Soul Ferry Arrow Damage<span class="cn-label">渡灵箭造成伤害</span></td><td>196%</td><td>→ 213% ▲</td></tr>
+          <tr><td>Demon-Chasing Arrow Damage<span class="cn-label">追魔箭造成伤害</span></td><td>36.7%</td><td>→ 40% ▲</td></tr>
         </table>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown at current level (3) and next level (4)</p>
       </div>
-      <div id="q-pvp" class="tab-content">
-        <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
+      <div id="sfa-pvp" class="tab-content">
+        <div class="pvp-box modified">In Ranked Mode, <span class="kw-gold">Soul Ferry Shot (渡灵射击)</span> only causes suppression against airborne enemies.</div>
       </div>
     </div>
 
-    <!-- STAR CHASE -->
+    <!-- SILENT ARROW -->
     <div class="skill-card">
       <div class="skill-header">
-        <div class="skill-icon-slot"><img src="dongfangyao/icon_starchase.png" alt="Star Chase"></div>
+        <div class="skill-icon-slot"><img src="jialuo/icon_silentarrow.png" alt="Silent Arrow"></div>
         <div class="skill-title-area">
           <div class="skill-key"><span class="skill-key-badge">E</span><span class="skill-key-label">Resonance Skill</span></div>
           <div class="skill-names">
-            <span class="skill-cn">逐星</span>
-            <span class="skill-en">Star Chase</span>
+            <span class="skill-cn">静默之箭</span>
+            <span class="skill-en">Silent Arrow</span>
           </div>
           <div class="skill-meta">
             <span class="tag tag-skill">Skill</span>
-            <span class="tag tag-damage">Damage</span>
-            <span class="tag tag-buff">Buff</span>
-            <span class="cd">Cooldown: 8s</span>
+            <span class="tag tag-control">Control</span>
+            <span class="tag tag-stun">Stun</span>
+            <span class="cd">Cooldown: 20s</span>
           </div>
         </div>
       </div>
       <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(this, 'e-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'e-stats')">Level-Up Stats</button>
-        <button class="tab-btn" onclick="switchTab(this, 'e-pvp')">PvP</button>
+        <button class="tab-btn active" onclick="switchTab(this,'sa-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this,'sa-stats')">Level-Up Stats</button>
+        <button class="tab-btn" onclick="switchTab(this,'sa-pvp')">PvP</button>
       </div>
-      <div id="e-desc" class="tab-content active">
-        <p class="desc-main">Rapidly dash forward along an arc and strike with the sword, dealing Resonance Skill damage to enemies.</p>
-        <p class="desc-main">In <span class="kw-gold">Radiant Light (辉光)</span> state, performs <span class="num">2</span> rapid dash strikes in an extremely short time, dealing higher damage, and inflicting enemies hit with the <span class="kw">Star Erosion (星削)</span> state for <span class="num">12</span> seconds.</p>
-        <p class="desc-main">In <span class="kw">Star Erosion (星削)</span> state, damage dealt by <span class="kw-gold">Star Child (星辰之子)</span> to the affected enemy is additionally increased by <span class="num">20%</span>.</p>
+      <div id="sa-desc" class="tab-content active">
+        <p class="desc-main">Draw the bow and fire a piercing arrow in the specified direction, dealing Resonance Skill damage, knocking back enemies and leaving a rune. After a brief delay, the rune explodes, dealing Resonance Skill damage to nearby enemies, launching them airborne, and countering enemies' <span class="kw-red">Red-Light Skills</span>.</p>
+        <p class="desc-main">After casting, gain <span class="num">2</span> <span class="kw-gold">Soul Ferry Arrows (渡灵箭)</span>; the next normal attack within <span class="num">3</span> seconds is empowered to <span class="kw-gold">Flash Consecutive Shot (瞬华连射)</span>.</p>
         <div class="assoc-nodes">
           <div class="assoc-nodes-label">关联流脉 · Associated Nodes</div>
           <div class="assoc-nodes-list">
-            <a class="assoc-node-chip" href="#node-fiercebattle">
-              <div class="assoc-node-chip-icon"><img src="dongfangyao/icon_node_fiercebattle.png" alt="Fierce Battle Star Chain"></div>
-              <span class="assoc-node-chip-name">激斗连星 · Fierce Battle Star Chain</span>
+            <a class="assoc-node-chip" href="#node-flashshot">
+              <div class="assoc-node-chip-icon"><img src="jialuo/icon_node_flashshot.png" alt="Flash Consecutive Shot"></div>
+              <span class="assoc-node-chip-name">瞬华连射 · Flash Consecutive Shot</span>
               <span class="assoc-node-chip-arrow">›</span>
             </a>
           </div>
         </div>
       </div>
-      <div id="e-stats" class="tab-content">
+      <div id="sa-stats" class="tab-content">
         <table class="stats-table">
-          <tr><td>Star Chase Damage<span class="cn-label">逐星伤害</span></td><td>155%</td></tr>
-          <tr><td>Empowered Star Chase Damage<span class="cn-label">强化逐星伤害</span></td><td>292%</td></tr>
+          <tr><td>Damage per Instance<span class="cn-label">每段造成伤害</span></td><td>257%</td><td>→ 280% ▲</td></tr>
         </table>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown at current level (3) and next level (4)</p>
       </div>
-      <div id="e-pvp" class="tab-content">
-        <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
+      <div id="sa-pvp" class="tab-content">
+        <div class="pvp-box modified">In Ranked Mode, this skill is an <span class="kw-gold">Empowered Resonance Skill (强流技)</span>.</div>
       </div>
     </div>
 
-    <!-- RETURN TO DUST -->
+    <!-- PURE DOMAIN -->
     <div class="skill-card">
       <div class="skill-header">
-        <div class="skill-icon-slot"><img src="dongfangyao/icon_returntodust.png" alt="Return to Dust"></div>
+        <div class="skill-icon-slot"><img src="jialuo/icon_puredomain.png" alt="Pure Domain"></div>
         <div class="skill-title-area">
           <div class="skill-key"><span class="skill-key-badge">R</span><span class="skill-key-label">Resonance Skill</span></div>
           <div class="skill-names">
-            <span class="skill-cn">归尘</span>
-            <span class="skill-en">Return to Dust</span>
+            <span class="skill-cn">纯净之域</span>
+            <span class="skill-en">Pure Domain</span>
           </div>
           <div class="skill-meta">
             <span class="tag tag-skill">Skill</span>
-            <span class="tag tag-damage">Damage</span>
-            <span class="tag tag-recovery">Recovery</span>
-            <span class="tag tag-stun">Stun</span>
-            <span class="cd">Cooldown: 11s</span>
+            <span class="tag tag-buff">Buff</span>
+            <span class="cd">Cooldown: 30s</span>
           </div>
         </div>
       </div>
       <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(this, 'r-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'r-stats')">Level-Up Stats</button>
-        <button class="tab-btn" onclick="switchTab(this, 'r-pvp')">PvP</button>
+        <button class="tab-btn active" onclick="switchTab(this,'pd-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this,'pd-stats')">Level-Up Stats</button>
+        <button class="tab-btn" onclick="switchTab(this,'pd-pvp')">PvP</button>
       </div>
-      <div id="r-desc" class="tab-content active">
-        <p class="desc-main">When casting a movement skill, generates a <span class="kw">Star Mark (星辰标记)</span>, recording the current position. Casting <span class="kw-gold">Return to Dust</span> returns to the Star Mark location, dealing Resonance Skill damage to enemies along the path.</p>
-        <p class="desc-main">In <span class="kw-gold">Radiant Light (辉光)</span> state, deals higher damage, recovers <span class="num">14%</span> of lost HP, and can counter enemies' <span class="kw-red">Red-Light Skills</span>.</p>
-      </div>
-      <div id="r-stats" class="tab-content">
-        <table class="stats-table">
-          <tr><td>Return to Dust Damage<span class="cn-label">归尘伤害</span></td><td>176%</td></tr>
-          <tr><td>Empowered Return to Dust Damage<span class="cn-label">强化归尘伤害</span></td><td>445%</td></tr>
-        </table>
-      </div>
-      <div id="r-pvp" class="tab-content">
-        <div class="pvp-box modified">
-          <p>In Ranked Mode, <span class="kw-gold">Return to Dust</span> removes damage detection at the starting position.</p>
-          <br>
-          <p>In <span class="kw-gold">Radiant Light</span> state, must hit an enemy to gain HP recovery, recovering <span class="num">12%</span> of lost HP.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- STAR BLESSING -->
-    <div class="skill-card">
-      <div class="skill-header">
-        <div class="skill-icon-slot"><img src="dongfangyao/icon_starblessing.png" alt="Star Blessing"></div>
-        <div class="skill-title-area">
-          <div class="skill-key"><span class="skill-key-badge">✦</span><span class="skill-key-label">Passive Mechanic</span></div>
-          <div class="skill-names">
-            <span class="skill-cn">星辰之赐</span>
-            <span class="skill-en">Star Blessing</span>
-          </div>
-          <div class="skill-meta">
-            <span class="tag tag-skill">Skill</span>
-            <span class="tag tag-empowered">Empowered Normal Attack</span>
-          </div>
-        </div>
-      </div>
-      <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(this, 'sb-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'sb-stats')">Level-Up Stats</button>
-        <button class="tab-btn" onclick="switchTab(this, 'sb-pvp')">PvP</button>
-      </div>
-      <div id="sb-desc" class="tab-content active">
-        <p class="desc-main">Each time a Resonance Skill is cast, gain <span class="num">1</span> stack of <span class="kw">Star Force (星辰之力)</span>, up to <span class="num">3</span> stacks. When fully stacked, enter <span class="kw-gold">Radiant Light (辉光)</span> state, which empowers the next Resonance Skill cast.</p>
-        <p class="desc-main">The <span class="kw-gold">Radiant Light</span> state ends after casting the Empowered Resonance Skill, and empowers the next normal attack into <span class="kw-gold">Star-Shattering Strike (碎星式)</span>, dealing normal attack damage.</p>
-        <div class="sub-skill" style="margin-top:16px">
-          <div class="sub-skill-name">共流技 · Coordinated Resonance Skill</div>
-          <div class="sub-skill-desc">Triggered after the on-field Resonator casts their Resonance Liberation. Upon entering, quickly dashes through, dealing Resonance Skill damage to enemies within range.</div>
-        </div>
+      <div id="pd-desc" class="tab-content active">
+        <p class="desc-main">Release arcane power to deploy a <span class="kw-gold">Pure Domain (纯净领域)</span> lasting <span class="num">12</span> seconds, immediately launching airborne all enemies within the domain. While self is within the domain, Crit Rate is increased. Casting again closes the <span class="kw-gold">Pure Domain</span>.</p>
         <div class="assoc-nodes">
           <div class="assoc-nodes-label">关联流脉 · Associated Nodes</div>
           <div class="assoc-nodes-list">
-            <a class="assoc-node-chip" href="#node-vastgalaxy">
-              <div class="assoc-node-chip-icon"><img src="dongfangyao/icon_node_vastgalaxy.png" alt="Vast Stellar River"></div>
-              <span class="assoc-node-chip-name">浩荡星河 · Vast Stellar River</span>
+            <a class="assoc-node-chip" href="#node-thousandblessing">
+              <div class="assoc-node-chip-icon"><img src="jialuo/icon_node_thousandblessing.png" alt="Thousand Cavern Blessing"></div>
+              <span class="assoc-node-chip-name">千窟庇佑 · Thousand Cavern Blessing</span>
               <span class="assoc-node-chip-arrow">›</span>
             </a>
-            <a class="assoc-node-chip" href="#node-chainflash">
-              <div class="assoc-node-chip-icon"><img src="dongfangyao/icon_node_chainflash.png" alt="Shooting Star Chain Flash"></div>
-              <span class="assoc-node-chip-name">飞星连闪 · Shooting Star Chain Flash</span>
-              <span class="assoc-node-chip-arrow">›</span>
-            </a>
-            <a class="assoc-node-chip" href="#node-celestialstar">
-              <div class="assoc-node-chip-icon"><img src="dongfangyao/icon_node_celestialstar.png" alt="Celestial Shooting Star"></div>
-              <span class="assoc-node-chip-name">天宇飞星 · Celestial Shooting Star</span>
+            <a class="assoc-node-chip" href="#node-pureflow">
+              <div class="assoc-node-chip-icon"><img src="jialuo/icon_node_pureflow.png" alt="Pure Flow"></div>
+              <span class="assoc-node-chip-name">纯净之流 · Pure Flow</span>
               <span class="assoc-node-chip-arrow">›</span>
             </a>
           </div>
         </div>
       </div>
-      <div id="sb-stats" class="tab-content">
+      <div id="pd-stats" class="tab-content">
         <table class="stats-table">
-          <tr><td>Coordinated Resonance Skill Damage<span class="cn-label">共流技伤害</span></td><td>160%×2+380%</td></tr>
-          <tr><td>Ground Star-Shattering Strike Damage<span class="cn-label">地面碎星式伤害</span></td><td>260%</td></tr>
-          <tr><td>Ground Star-Shattering Strike (Charged) Damage<span class="cn-label">地面碎星式（蓄力）伤害</span></td><td>400%</td></tr>
-          <tr><td>Aerial Star-Shattering Strike Damage<span class="cn-label">空中碎星式伤害</span></td><td>56%×4+220%</td></tr>
-          <tr><td>Aerial Star-Shattering Strike (Charged) Damage<span class="cn-label">空中碎星式（蓄力）伤害</span></td><td>336%</td></tr>
+          <tr><td>Crit Rate Bonus<span class="cn-label">暴击率加成</span></td><td>17%</td><td>→ 18% ▲</td></tr>
         </table>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown at current level (3) and next level (4)</p>
       </div>
-      <div id="sb-pvp" class="tab-content">
-        <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
+      <div id="pd-pvp" class="tab-content">
+        <div class="pvp-box modified">In Ranked Mode, toggling <span class="kw-gold">Pure Domain (纯净领域)</span> on/off no longer has attack detection.</div>
       </div>
     </div>
 
-    <!-- GALAXY BURST -->
+    <!-- THOUSAND CAVERN DIVINE ARROW -->
     <div class="skill-card">
       <div class="skill-header">
-        <div class="skill-icon-slot"><img src="dongfangyao/icon_galaxyburst.png" alt="Galaxy Burst"></div>
+        <div class="skill-icon-slot"><img src="jialuo/icon_thousandcavernarrow.png" alt="Thousand Cavern Divine Arrow"></div>
         <div class="skill-title-area">
           <div class="skill-key"><span class="skill-key-badge">T</span><span class="skill-key-label">Resonance Liberation</span></div>
           <div class="skill-names">
-            <span class="skill-cn">星河破裂</span>
-            <span class="skill-en">Galaxy Burst</span>
+            <span class="skill-cn">千窟神箭</span>
+            <span class="skill-en">Thousand Cavern Divine Arrow</span>
           </div>
           <div class="skill-meta">
             <span class="tag tag-skill">Skill</span>
-            <span class="tag tag-liberation">Liberation</span>
+            <span class="tag tag-burst">Burst</span>
             <span class="tag tag-stun">Stun</span>
             <span class="cd">Cooldown: 15s</span>
           </div>
         </div>
       </div>
       <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(this, 't-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 't-stats')">Level-Up Stats</button>
-        <button class="tab-btn" onclick="switchTab(this, 't-pvp')">PvP</button>
+        <button class="tab-btn active" onclick="switchTab(this,'tca-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this,'tca-stats')">Level-Up Stats</button>
+        <button class="tab-btn" onclick="switchTab(this,'tca-pvp')">PvP</button>
       </div>
-      <div id="t-desc" class="tab-content active">
-        <p class="desc-main">Channeling <span class="kw">Star Force (星辰之力)</span>, launches fierce slashing strikes at the enemy from <span class="num">6</span> different directions in an instant, dealing Resonance Liberation damage. Can counter enemies' <span class="kw-red">Red-Light Skills</span>.</p>
+      <div id="tca-desc" class="tab-content active">
+        <p class="desc-main">Condense demon-breaking power into the <span class="kw-gold">Thousand Cavern Divine Arrow (千窟神箭)</span>, and fire it fully drawn in the specified direction, dealing massive Resonance Liberation damage to all enemies within range. Enemies hit are stunned from the powerful impact. Can counter enemies' <span class="kw-red">Red-Light Skills</span>.</p>
       </div>
-      <div id="t-stats" class="tab-content">
+      <div id="tca-stats" class="tab-content">
         <table class="stats-table">
-          <tr><td>Dash-Through Damage<span class="cn-label">穿梭伤害</span></td><td>302%×6</td><td>→ 321%×6 ▲</td></tr>
-          <tr><td>Return Damage<span class="cn-label">返回后伤害</span></td><td>924%</td><td>→ 982% ▲</td></tr>
+          <tr><td>Damage<span class="cn-label">造成伤害</span></td><td>1797%</td><td>→ 1960% ▲</td></tr>
         </table>
-        <p style="font-size:12px; color:var(--text-dim); margin-top:12px; font-style:italic;">▲ Values shown for current level (8) and next level (9)</p>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown at current level (3) and next level (4)</p>
       </div>
-      <div id="t-pvp" class="tab-content">
+      <div id="tca-pvp" class="tab-content">
         <div class="pvp-box modified">In Ranked Mode, the untargetable effect is changed to reducing all damage received by <span class="num">50%</span>.</div>
+      </div>
+    </div>
+
+    <!-- ARROW RAIN WIND BREATH -->
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-icon-slot"><img src="jialuo/icon_arrowrainbreath.png" alt="Arrow Rain Wind Breath"></div>
+        <div class="skill-title-area">
+          <div class="skill-key"><span class="skill-key-badge">✦</span><span class="skill-key-label">Passive Mechanic</span></div>
+          <div class="skill-names">
+            <span class="skill-cn">箭雨风息</span>
+            <span class="skill-en">Arrow Rain Wind Breath</span>
+          </div>
+          <div class="skill-meta">
+            <span class="tag tag-skill">Skill</span>
+            <span class="tag tag-shield">Shield Counter</span>
+          </div>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(this,'arwb-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this,'arwb-stats')">Level-Up Stats</button>
+        <button class="tab-btn" onclick="switchTab(this,'arwb-pvp')">PvP</button>
+      </div>
+      <div id="arwb-desc" class="tab-content active">
+        <p class="desc-main">All attacks deal <span class="num">100%</span> additional damage to shields.</p>
+        <p class="desc-main">In <span class="kw">Short Bow State (短弓状态)</span>, gain <span class="num">1</span> <span class="kw-gold">Soul Ferry Arrow (渡灵箭)</span> every <span class="num">3</span> seconds, up to a maximum of <span class="num">10</span>.</p>
+        <p class="desc-main">Using Skill 1 <span class="kw-gold">Soul Ferry Arrow (渡灵之箭)</span> switches between <span class="kw">Short Bow State</span> and <span class="kw">Long Bow State</span>.</p>
+        <div class="sub-skill" style="margin-top:16px">
+          <div class="sub-skill-name">共流技 · Coordinated Resonance Skill</div>
+          <div class="sub-skill-desc">Triggered after the on-field Resonator casts their Resonance Liberation. Upon entering, fire up to <span class="num">10</span> arrows at enemies, dealing Resonance Skill damage.</div>
+        </div>
+      </div>
+      <div id="arwb-stats" class="tab-content">
+        <table class="stats-table">
+          <tr><td>Co-Flow Skill Damage<span class="cn-label">共流技伤害</span></td><td>39%</td><td>→ 43% ▲</td></tr>
+        </table>
+        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown at current level (3) and next level (4)</p>
+      </div>
+      <div id="arwb-pvp" class="tab-content">
+        <div class="pvp-box modified">
+          <p>In Ranked Mode, <span class="kw-gold">Soul Ferry Arrow (渡灵箭)</span> default cap is changed to <span class="num">5</span>.</p>
+          <br>
+          <p><span class="kw-gold">Flash Consecutive Shot (瞬华连射)</span> hits no longer grant <span class="kw-gold">Soul Ferry Arrows</span>.</p>
+        </div>
       </div>
     </div>
 
@@ -1331,92 +1345,92 @@
     <div class="section-label">流脉 · Passive Nodes</div>
     <div class="nodes-list">
 
-      <div class="node-card">
+      <div class="node-card" id="node-flashshot">
         <div class="node-left">
           <div class="node-layer">Layer 2 · 第二层</div>
           <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
-            <img src="dongfangyao/icon_node_swiftstar.png" style="width:56px;height:56px;object-fit:contain;">
-            <div><div class="node-cn">快意星驰</div><div class="node-en">Swift Star Gallop</div></div>
+            <img src="jialuo/icon_node_flashshot.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn">瞬华连射</div><div class="node-en">Flash Consecutive Shot</div></div>
           </div>
         </div>
-        <div class="node-desc">After casting an Empowered Normal Attack, reduce the cooldown of all Resonance Skills by <span class="num">1</span> second.</div>
+        <div class="node-desc">Within <span class="num">3</span> seconds of activating or manually closing <span class="kw-gold">Pure Domain (纯净之域)</span>, using a normal attack triggers <span class="kw-gold">Flash Consecutive Shot (瞬华连射)</span> and grants <span class="num">2</span> <span class="kw-gold">Soul Ferry Arrows (渡灵箭)</span>.</div>
       </div>
 
-      <div class="node-card" id="node-fiercebattle">
+      <div class="node-card" id="node-arrowoverflow">
         <div class="node-left">
           <div class="node-layer">Layer 4 · 第四层</div>
           <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
-            <img src="dongfangyao/icon_node_fiercebattle.png" style="width:56px;height:56px;object-fit:contain;">
-            <div><div class="node-cn">激斗连星</div><div class="node-en">Fierce Battle Star Chain</div></div>
+            <img src="jialuo/icon_node_arrowoverflow.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn">箭意充盈</div><div class="node-en">Arrow Intent Overflowing</div></div>
           </div>
         </div>
-        <div class="node-desc">Enemies in the <span class="kw">Star Erosion (星削)</span> state take damage equal to <span class="num">20%</span> of Attack Power every <span class="num">0.5</span> seconds.</div>
+        <div class="node-desc"><span class="kw-gold">Soul Ferry Arrow (渡灵之箭)</span> capacity increased by <span class="num">5</span>.</div>
       </div>
 
-      <div class="node-card">
+      <div class="node-card" id="node-arrowunceasing">
         <div class="node-left">
           <div class="node-layer">Layer 6 · 第六层 — Node A</div>
           <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
-            <img src="dongfangyao/icon_node_soaringstar.png" style="width:56px;height:56px;object-fit:contain;">
-            <div><div class="node-cn">飞星凌空</div><div class="node-en">Soaring Shooting Star</div></div>
+            <img src="jialuo/icon_node_arrowunceasing.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn">箭意不息</div><div class="node-en">Arrow Intent Unceasing</div></div>
           </div>
         </div>
-        <div class="node-desc">Normal Attacks, Resonance Skills, and Resonance Liberation cast while airborne gain an additional <span class="num">20%</span> Crit Rate. While airborne, Crit DMG increases by <span class="num">10%</span> per second, up to a maximum of <span class="num">40%</span>, disappearing upon landing.</div>
+        <div class="node-desc"><span class="kw-gold">Demon-Chasing Arrow (追魔箭)</span> damage increased by <span class="num">30%</span>.</div>
       </div>
 
-      <div class="node-card">
+      <div class="node-card" id="node-moonbow">
         <div class="node-left">
           <div class="node-layer">Layer 6 · 第六层 — Node B</div>
           <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
-            <img src="dongfangyao/icon_node_thundermist.png" style="width:56px;height:56px;object-fit:contain;">
-            <div><div class="node-cn">霹雾辰星</div><div class="node-en">Thunder-Mist Morning Star</div></div>
+            <img src="jialuo/icon_node_moonbow.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn">挽弓如月</div><div class="node-en">Draw Bow Like the Moon</div></div>
           </div>
         </div>
-        <div class="node-desc">Empowered Normal Attacks additionally apply <span class="kw-teal">Thunder (震)</span> attribute Trigger Value. Upon triggering the Thunder attribute, enemies enter the <span class="kw">Electrocuted (感电)</span> state for <span class="num">12</span> seconds, taking damage equal to <span class="num">90%</span> of Attack Power every <span class="num">2</span> seconds.</div>
+        <div class="node-desc"><span class="kw-gold">Soul Ferry Shot (渡灵射击)</span> has an additional <span class="num">10%</span> Crit Rate.</div>
       </div>
 
-      <div class="node-card" id="node-celestialstar">
+      <div class="node-card" id="node-demonbreaker">
         <div class="node-left">
           <div class="node-layer">Layer 8 · 第八层</div>
           <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
-            <img src="dongfangyao/icon_node_celestialstar.png" style="width:56px;height:56px;object-fit:contain;">
-            <div><div class="node-cn">天宇飞星</div><div class="node-en">Celestial Shooting Star</div></div>
+            <img src="jialuo/icon_node_demonbreaker.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn">破魔连矢</div><div class="node-en">Demon-Breaking Consecutive Arrows</div></div>
           </div>
         </div>
-        <div class="node-desc">Empowered Normal Attack damage increased by <span class="num">20%</span>. Charged Empowered Normal Attack is replaced by <span class="kw-gold">Shooting Star Strike (飞星式)</span>; upon release, quickly teleports to the target's side dealing normal attack damage, and can counter enemies' <span class="kw-red">Red-Light Skills</span>.</div>
+        <div class="node-desc">While within <span class="kw-gold">Pure Domain (纯净领域)</span>, <span class="kw-gold">Soul Ferry Shot (渡灵射击)</span> critical hits additionally fire <span class="num">1</span> <span class="kw-gold">Demon-Chasing Arrow (追魔箭)</span>.</div>
       </div>
 
-      <div class="node-card" id="node-chainflash">
+      <div class="node-card" id="node-pureflow">
         <div class="node-left">
           <div class="node-layer">Layer 10 · 第十层 — Node A</div>
           <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
-            <img src="dongfangyao/icon_node_chainflash.png" style="width:56px;height:56px;object-fit:contain;">
-            <div><div class="node-cn">飞星连闪</div><div class="node-en">Shooting Star Chain Flash</div></div>
+            <img src="jialuo/icon_node_pureflow.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn">纯净之流</div><div class="node-en">Pure Flow</div></div>
           </div>
         </div>
-        <div class="node-desc">After casting <span class="kw-gold">Shooting Star Strike (飞星式)</span>, the 3rd skill is replaced by <span class="kw">Return to Dust Flash (归尘闪回)</span>. Consumes <span class="num">30</span> combo points when cast, and can be used up to <span class="num">4</span> times. After casting 归尘闪回, the next normal attack is empowered into <span class="kw-gold">飞星式</span>.</div>
+        <div class="node-desc">Skill 3 <span class="kw-gold">Pure Domain (纯净之域)</span> cooldown reduced by <span class="num">5</span> seconds.</div>
       </div>
 
-      <div class="node-card">
+      <div class="node-card" id="node-thousandblessing">
         <div class="node-left">
           <div class="node-layer">Layer 10 · 第十层 — Node B</div>
           <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
-            <img src="dongfangyao/icon_node_starsrain.png" style="width:56px;height:56px;object-fit:contain;">
-            <div><div class="node-cn">飞星如雨</div><div class="node-en">Shooting Stars Like Rain</div></div>
+            <img src="jialuo/icon_node_thousandblessing.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn">千窟庇佑</div><div class="node-en">Thousand Cavern Blessing</div></div>
           </div>
         </div>
-        <div class="node-desc">After casting the Empowered Normal Attack <span class="kw-gold">Star-Shattering Strike (碎星式)</span>, long-pressing Normal Attack again can release <span class="kw-gold">Shooting Star Strike (飞星式)</span>. Hitting with 碎星式 or 飞星式 grants <span class="num">1%</span> Resonance Liberation energy.</div>
+        <div class="node-desc">While within <span class="kw-gold">Pure Domain (纯净领域)</span>, self additionally gains <span class="num">15%</span> Attack Power.</div>
       </div>
 
-      <div class="node-card" id="node-vastgalaxy">
+      <div class="node-card" id="node-demonslayer">
         <div class="node-left">
           <div class="node-layer">Layer 12 · 第十二层</div>
           <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
-            <img src="dongfangyao/icon_node_vastgalaxy.png" style="width:56px;height:56px;object-fit:contain;">
-            <div><div class="node-cn">浩荡星河</div><div class="node-en">Vast Flowing Galaxy</div></div>
+            <img src="jialuo/icon_node_demonslayer.png" style="width:56px;height:56px;object-fit:contain;">
+            <div><div class="node-cn">诛魔必尽</div><div class="node-en">Slay Every Demon</div></div>
           </div>
         </div>
-        <div class="node-desc">When <span class="kw-gold">Star-Shattering Strike (碎星式)</span> or <span class="kw-gold">Shooting Star Strike (飞星式)</span> hits enemies in the <span class="kw">Star Erosion (星削)</span> state, gain a <span class="num">4%</span> damage increase lasting <span class="num">12</span> seconds, up to a maximum of <span class="num">32%</span>.</div>
+        <div class="node-desc">When passive node <span class="kw-gold">Demon-Breaking Consecutive Arrows (破魔连矢)</span> is active, the additionally fired <span class="kw-gold">Demon-Chasing Arrows (追魔箭)</span> increase by <span class="num">1</span>.</div>
       </div>
 
     </div>
@@ -1430,15 +1444,12 @@
       <div class="bt-card">
         <div class="bt-header">
           <img class="bt-icon" src="shared/bt_1_initialenlightenment.png" alt="初悟">
-          <div class="bt-title">
-            <span class="bt-cn">初悟</span>
-            <span class="bt-en">Initial Enlightenment</span>
-          </div>
+          <div class="bt-title"><span class="bt-cn">初悟</span><span class="bt-en">Initial Enlightenment</span></div>
         </div>
         <div class="bt-body">
-          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">4700</span><span class="bt-arrow">→</span><span class="bt-after">4840</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">1880</span><span class="bt-arrow">→</span><span class="bt-after">1960</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">68.3%</span><span class="bt-arrow">→</span><span class="bt-after">69.4%</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">4700</span><span class="bt-arrow">→</span><span class="bt-after">4760</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">1880</span><span class="bt-arrow">→</span><span class="bt-after">1950</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">9.7%</span><span class="bt-arrow">→</span><span class="bt-after">10.8%</span></div></div>
           <div class="bt-row"><span class="bt-stat">Weakness Exploit 流相克制强度</span><div class="bt-values"><span class="bt-before">5.0%</span><span class="bt-arrow">→</span><span class="bt-after">10.0%</span></div></div>
         </div>
       </div>
@@ -1446,31 +1457,25 @@
       <div class="bt-card">
         <div class="bt-header">
           <img class="bt-icon" src="shared/bt_2_initialformation.png" alt="初成">
-          <div class="bt-title">
-            <span class="bt-cn">初成</span>
-            <span class="bt-en">Initial Formation</span>
-          </div>
+          <div class="bt-title"><span class="bt-cn">初成</span><span class="bt-en">Initial Formation</span></div>
         </div>
         <div class="bt-body">
-          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">4840</span><span class="bt-arrow">→</span><span class="bt-after">5070</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">1960</span><span class="bt-arrow">→</span><span class="bt-after">2040</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">69.4%</span><span class="bt-arrow">→</span><span class="bt-after">70.5%</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Attack Power 攻击力</span><div class="bt-values"><span class="bt-before">1330</span><span class="bt-arrow">→</span><span class="bt-after">1380</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">4760</span><span class="bt-arrow">→</span><span class="bt-after">4860</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">1950</span><span class="bt-arrow">→</span><span class="bt-after">2020</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">10.8%</span><span class="bt-arrow">→</span><span class="bt-after">11.9%</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Attack Power 攻击力</span><div class="bt-values"><span class="bt-before">270</span><span class="bt-arrow">→</span><span class="bt-after">283</span></div></div>
         </div>
       </div>
 
       <div class="bt-card">
         <div class="bt-header">
           <img class="bt-icon" src="shared/bt_3_refinement.png" alt="精进">
-          <div class="bt-title">
-            <span class="bt-cn">精进</span>
-            <span class="bt-en">Refinement</span>
-          </div>
+          <div class="bt-title"><span class="bt-cn">精进</span><span class="bt-en">Refinement</span></div>
         </div>
         <div class="bt-body">
-          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">5070</span><span class="bt-arrow">→</span><span class="bt-after">5390</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">2040</span><span class="bt-arrow">→</span><span class="bt-after">2200</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">70.5%</span><span class="bt-arrow">→</span><span class="bt-after">71.6%</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">4860</span><span class="bt-arrow">→</span><span class="bt-after">5000</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">2020</span><span class="bt-arrow">→</span><span class="bt-after">2160</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">11.9%</span><span class="bt-arrow">→</span><span class="bt-after">13.0%</span></div></div>
           <div class="bt-row"><span class="bt-stat">Weakness Exploit 流相克制强度</span><div class="bt-values"><span class="bt-before">10.0%</span><span class="bt-arrow">→</span><span class="bt-after">15.0%</span></div></div>
         </div>
       </div>
@@ -1478,31 +1483,25 @@
       <div class="bt-card">
         <div class="bt-header">
           <img class="bt-icon" src="shared/bt_4_excellence.png" alt="精湛">
-          <div class="bt-title">
-            <span class="bt-cn">精湛</span>
-            <span class="bt-en">Excellence</span>
-          </div>
+          <div class="bt-title"><span class="bt-cn">精湛</span><span class="bt-en">Excellence</span></div>
         </div>
         <div class="bt-body">
-          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">5390</span><span class="bt-arrow">→</span><span class="bt-after">5800</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">2200</span><span class="bt-arrow">→</span><span class="bt-after">2360</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">71.6%</span><span class="bt-arrow">→</span><span class="bt-after">72.7%</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Attack Power 攻击力</span><div class="bt-values"><span class="bt-before">1380</span><span class="bt-arrow">→</span><span class="bt-after">1456</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">5000</span><span class="bt-arrow">→</span><span class="bt-after">5180</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">2160</span><span class="bt-arrow">→</span><span class="bt-after">2300</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">13.0%</span><span class="bt-arrow">→</span><span class="bt-after">14.1%</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Attack Power 攻击力</span><div class="bt-values"><span class="bt-before">283</span><span class="bt-arrow">→</span><span class="bt-after">303</span></div></div>
         </div>
       </div>
 
       <div class="bt-card">
         <div class="bt-header">
           <img class="bt-icon" src="shared/bt_5_proficiency.png" alt="精通">
-          <div class="bt-title">
-            <span class="bt-cn">精通</span>
-            <span class="bt-en">Proficiency</span>
-          </div>
+          <div class="bt-title"><span class="bt-cn">精通</span><span class="bt-en">Proficiency</span></div>
         </div>
         <div class="bt-body">
-          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">5800</span><span class="bt-arrow">→</span><span class="bt-after">6300</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">2360</span><span class="bt-arrow">→</span><span class="bt-after">2600</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">72.7%</span><span class="bt-arrow">→</span><span class="bt-after">74.9%</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">5180</span><span class="bt-arrow">→</span><span class="bt-after">5400</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">2300</span><span class="bt-arrow">→</span><span class="bt-after">2520</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">14.1%</span><span class="bt-arrow">→</span><span class="bt-after">16.3%</span></div></div>
           <div class="bt-row"><span class="bt-stat">Weakness Exploit 流相克制强度</span><div class="bt-values"><span class="bt-before">15.0%</span><span class="bt-arrow">→</span><span class="bt-after">20.0%</span></div></div>
         </div>
       </div>
@@ -1510,16 +1509,13 @@
       <div class="bt-card">
         <div class="bt-header">
           <img class="bt-icon" src="shared/bt_6_finalenlightenment.png" alt="终悟">
-          <div class="bt-title">
-            <span class="bt-cn">终悟</span>
-            <span class="bt-en">Final Enlightenment</span>
-          </div>
+          <div class="bt-title"><span class="bt-cn">终悟</span><span class="bt-en">Final Enlightenment</span></div>
         </div>
         <div class="bt-body">
-          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">6300</span><span class="bt-arrow">→</span><span class="bt-after">6890</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">2600</span><span class="bt-arrow">→</span><span class="bt-after">2840</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">74.9%</span><span class="bt-arrow">→</span><span class="bt-after">77.1%</span></div></div>
-          <div class="bt-row"><span class="bt-stat">Attack Power 攻击力</span><div class="bt-values"><span class="bt-before">1456</span><span class="bt-arrow">→</span><span class="bt-after">1532</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">5400</span><span class="bt-arrow">→</span><span class="bt-after">5660</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Base Defense 基础防御力</span><div class="bt-values"><span class="bt-before">2520</span><span class="bt-arrow">→</span><span class="bt-after">2740</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Crit Rate 暴击率</span><div class="bt-values"><span class="bt-before">16.3%</span><span class="bt-arrow">→</span><span class="bt-after">18.5%</span></div></div>
+          <div class="bt-row"><span class="bt-stat">Attack Power 攻击力</span><div class="bt-values"><span class="bt-before">303</span><span class="bt-arrow">→</span><span class="bt-after">324</span></div></div>
         </div>
       </div>
 
@@ -1533,44 +1529,44 @@
     <!-- PROGRESSION CHAIN -->
     <div class="weapon-chain">
       <div class="chain-item">
-        <a class="chain-badge" href="#w30">
-          <div class="chain-icon grade-white"><img src="dongfangyao/weapon_dongfangyao_lv30_trainingsword.png" alt="Training Sword"></div>
+        <a class="chain-badge" href="#w-hunter">
+          <div class="chain-icon grade-white"><img src="jialuo/weapon_jialuo_huntersbow.png" alt="Hunter's Bow"></div>
           <div class="chain-lv">Lv 30</div>
         </a>
       </div>
       <div class="chain-arrow">›</div>
       <div class="chain-item">
-        <a class="chain-badge" href="#w40">
-          <div class="chain-icon grade-green"><img src="dongfangyao/weapon_dongfangyao_lv40_flashbrilliance.png" alt="Flash Brilliance"></div>
+        <a class="chain-badge" href="#w-cloudpiercing">
+          <div class="chain-icon grade-green"><img src="jialuo/weapon_jialuo_cloudpiercingbow.png" alt="Cloud-Piercing Bow"></div>
           <div class="chain-lv">Lv 40</div>
         </a>
       </div>
       <div class="chain-arrow">›</div>
       <div class="chain-item">
-        <a class="chain-badge" href="#w50">
-          <div class="chain-icon grade-blue"><img src="dongfangyao/weapon_dongfangyao_lv50_coldstar.png" alt="Cold Star"></div>
+        <a class="chain-badge" href="#w-spirithunt">
+          <div class="chain-icon grade-blue"><img src="jialuo/weapon_jialuo_spirithuntbow.png" alt="Spirit-Hunt Bow"></div>
           <div class="chain-lv">Lv 50</div>
         </a>
       </div>
       <div class="chain-arrow">›</div>
       <div class="chain-item">
-        <a class="chain-badge" href="#w60a">
-          <div class="chain-icon grade-purple"><img src="dongfangyao/weapon_dongfangyao_lv60_radiantstar.png" alt="Radiant Star"></div>
+        <a class="chain-badge" href="#w-soulhunt">
+          <div class="chain-icon grade-purple"><img src="jialuo/weapon_jialuo_soulhuntbow.png" alt="Soul-Hunt Bow"></div>
           <div class="chain-lv">Lv 60</div>
         </a>
       </div>
       <div class="chain-arrow">›</div>
       <div class="chain-item">
-        <a class="chain-badge" href="#w60b">
-          <div class="chain-icon grade-gold"><img src="dongfangyao/weapon_dongfangyao_lv60_starforgedtaia.png" alt="Star-Forged Taia"></div>
+        <a class="chain-badge" href="#w-yaoqin">
+          <div class="chain-icon grade-gold"><img src="jialuo/weapon_jialuo_yaoqin.png" alt="Mournful Battle Yaoqin"></div>
           <div class="chain-lv">Lv 60</div>
         </a>
       </div>
       <div class="chain-arrow">›</div>
       <div class="chain-item">
-        <a class="chain-badge" href="#w60sig">
-          <div class="chain-icon grade-red"><img src="dongfangyao/weapon_dongfangyao_lv60_shiftingstars.png" alt="Shifting Stars"></div>
-          <div class="chain-lv sig">Lv 60 ✦</div>
+        <a class="chain-badge" href="#w-clarity">
+          <div class="chain-icon grade-red"><img src="jialuo/weapon_jialuo_claritybow.png" alt="Clarity Bow"></div>
+          <div class="chain-lv sig">Lv 60</div>
         </a>
       </div>
     </div>
@@ -1578,15 +1574,15 @@
     <!-- WEAPON CARDS -->
     <div class="weapon-cards">
 
-      <!-- LV 30 -->
-      <div class="weapon-card" id="w30">
+      <!-- HUNTER'S BOW -->
+      <div class="weapon-card" id="w-hunter">
         <div class="weapon-header">
-          <div class="weapon-icon grade-white"><img src="dongfangyao/weapon_dongfangyao_lv30_trainingsword.png" alt="Training Sword"></div>
+          <div class="weapon-icon grade-white"><img src="jialuo/weapon_jialuo_huntersbow.png" alt="Hunter's Bow"></div>
           <div class="weapon-title-area">
-            <div class="weapon-type">单手剑 · One-Handed Sword</div>
+            <div class="weapon-type">弓 · Bow</div>
             <div class="weapon-names">
-              <span class="weapon-cn">演武剑</span>
-              <span class="weapon-en">Training Sword</span>
+              <span class="weapon-cn">猎弓</span>
+              <span class="weapon-en">Hunter's Bow</span>
             </div>
             <div class="weapon-badges">
               <span class="weapon-lv-badge grade-white">Level 30</span>
@@ -1595,28 +1591,28 @@
         </div>
         <div class="weapon-body">
           <div class="weapon-stats">
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">187</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">112</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">3.1%</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">83</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">29</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Chase Rate 追击率</span><span class="weapon-stat-val">1.4%</span></div>
           </div>
           <div class="weapon-right">
             <div class="weapon-lore">
-              <div class="weapon-lore-label">Lore · 剑铭</div>
-              A treasured sword held by those who pursue the ultimate in martial arts. The blade, repeatedly sharpened over time, has lost its original shape.
+              <div class="weapon-lore-label">Lore · 弓铭</div>
+              A common weapon of hunters — sturdy and durable.
             </div>
           </div>
         </div>
       </div>
 
-      <!-- LV 40 -->
-      <div class="weapon-card" id="w40">
+      <!-- CLOUD-PIERCING BOW -->
+      <div class="weapon-card" id="w-cloudpiercing">
         <div class="weapon-header">
-          <div class="weapon-icon grade-green"><img src="dongfangyao/weapon_dongfangyao_lv40_flashbrilliance.png" alt="Flash Brilliance"></div>
+          <div class="weapon-icon grade-green"><img src="jialuo/weapon_jialuo_cloudpiercingbow.png" alt="Cloud-Piercing Bow"></div>
           <div class="weapon-title-area">
-            <div class="weapon-type">单手剑 · One-Handed Sword</div>
+            <div class="weapon-type">弓 · Bow</div>
             <div class="weapon-names">
-              <span class="weapon-cn">闪华剑</span>
-              <span class="weapon-en">Flash Brilliance Sword</span>
+              <span class="weapon-cn">穿云弓</span>
+              <span class="weapon-en">Cloud-Piercing Bow</span>
             </div>
             <div class="weapon-badges">
               <span class="weapon-lv-badge grade-green">Level 40</span>
@@ -1625,28 +1621,28 @@
         </div>
         <div class="weapon-body">
           <div class="weapon-stats">
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">292</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">176</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">6.0%</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">100</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">35</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Chase Rate 追击率</span><span class="weapon-stat-val">2.1%</span></div>
           </div>
           <div class="weapon-right">
             <div class="weapon-lore">
-              <div class="weapon-lore-label">Lore · 剑铭</div>
-              A longsword made of mysterious metal. Its surface is rough with faint mysterious patterns remaining, yet the blade stays as sharp as new, emanating a cold and intimidating light.
+              <div class="weapon-lore-label">Lore · 弓铭</div>
+              Crafted with powerful string materials; the arrows fired shoot straight through the sky.
             </div>
           </div>
         </div>
       </div>
 
-      <!-- LV 50 -->
-      <div class="weapon-card" id="w50">
+      <!-- SPIRIT-HUNT BOW -->
+      <div class="weapon-card" id="w-spirithunt">
         <div class="weapon-header">
-          <div class="weapon-icon grade-blue"><img src="dongfangyao/weapon_dongfangyao_lv50_coldstar.png" alt="Cold Star"></div>
+          <div class="weapon-icon grade-blue"><img src="jialuo/weapon_jialuo_spirithuntbow.png" alt="Spirit-Hunt Bow"></div>
           <div class="weapon-title-area">
-            <div class="weapon-type">单手剑 · One-Handed Sword</div>
+            <div class="weapon-type">弓 · Bow</div>
             <div class="weapon-names">
-              <span class="weapon-cn">寒星剑</span>
-              <span class="weapon-en">Cold Star Sword</span>
+              <span class="weapon-cn">狩灵弓</span>
+              <span class="weapon-en">Spirit-Hunt Bow</span>
             </div>
             <div class="weapon-badges">
               <span class="weapon-lv-badge grade-blue">Level 50</span>
@@ -1655,33 +1651,33 @@
         </div>
         <div class="weapon-body">
           <div class="weapon-stats">
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">447</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">263</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">7.4%</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Chase Rate 追击率</span><span class="weapon-stat-val">8.8%</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">116</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">42</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Chase Rate 追击率</span><span class="weapon-stat-val">2.1%</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">1.8%</span></div>
           </div>
           <div class="weapon-right">
             <div class="weapon-passive">
-              <div class="weapon-passive-name">辉耀 · Radiance</div>
-              <div class="weapon-passive-desc">Empowered Normal Attack damage increased by <span class="num">20%</span>.</div>
+              <div class="weapon-passive-name">流星 · Shooting Star</div>
+              <div class="weapon-passive-desc"><span class="kw-gold">Soul Ferry Arrow (渡灵之箭)</span> damage increased by <span class="num">18%</span>.</div>
             </div>
             <div class="weapon-lore">
-              <div class="weapon-lore-label">Lore · 剑铭</div>
-              A longsword made of mysterious metal. Its surface is rough with faint mysterious patterns remaining, yet the blade stays as sharp as new, emanating a cold and intimidating light.
+              <div class="weapon-lore-label">Lore · 弓铭</div>
+              A longbow hidden in lost history. The gleaming golden patterns are engraved with content that can no longer be deciphered.
             </div>
           </div>
         </div>
       </div>
 
-      <!-- LV 60 TIER 1 -->
-      <div class="weapon-card" id="w60a">
+      <!-- SOUL-HUNT BOW -->
+      <div class="weapon-card" id="w-soulhunt">
         <div class="weapon-header">
-          <div class="weapon-icon grade-purple"><img src="dongfangyao/weapon_dongfangyao_lv60_radiantstar.png" alt="Radiant Star"></div>
+          <div class="weapon-icon grade-purple"><img src="jialuo/weapon_jialuo_soulhuntbow.png" alt="Soul-Hunt Bow"></div>
           <div class="weapon-title-area">
-            <div class="weapon-type">单手剑 · One-Handed Sword</div>
+            <div class="weapon-type">弓 · Bow</div>
             <div class="weapon-names">
-              <span class="weapon-cn">辉星剑</span>
-              <span class="weapon-en">Radiant Star Sword</span>
+              <span class="weapon-cn">狩魂弓</span>
+              <span class="weapon-en">Soul-Hunt Bow</span>
             </div>
             <div class="weapon-badges">
               <span class="weapon-lv-badge grade-purple">Level 60</span>
@@ -1690,33 +1686,33 @@
         </div>
         <div class="weapon-body">
           <div class="weapon-stats">
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">640</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">380</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">11.1%</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Chase Rate 追击率</span><span class="weapon-stat-val">13.0%</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">133</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">48</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Chase Rate 追击率</span><span class="weapon-stat-val">2.6%</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">2.2%</span></div>
           </div>
           <div class="weapon-right">
             <div class="weapon-passive">
-              <div class="weapon-passive-name">辉耀 · Radiance</div>
-              <div class="weapon-passive-desc">Empowered Normal Attack damage increased by <span class="num">40%</span>.</div>
+              <div class="weapon-passive-name">流星 · Shooting Star</div>
+              <div class="weapon-passive-desc"><span class="kw-gold">Soul Ferry Arrow (渡灵之箭)</span> damage increased by <span class="num">36%</span>.</div>
             </div>
             <div class="weapon-lore">
-              <div class="weapon-lore-label">Lore · 剑铭</div>
-              A longsword forged from meteorite iron that fell with starlight. The patterns on the blade secretly correspond to the stars. When the light of countless stars falls upon the blade, the youth shall become a true hero.
+              <div class="weapon-lore-label">Lore · 弓铭</div>
+              A shortbow that can hunt souls, with strange magical formations carved on its body. When a breeze stirs, the dark blue streamers sway with it, while the wind chimes hanging from the bowstring fall as silent as a cicada in winter.
             </div>
           </div>
         </div>
       </div>
 
-      <!-- LV 60 TIER 2 -->
-      <div class="weapon-card" id="w60b">
+      <!-- MOURNFUL BATTLE YAOQIN -->
+      <div class="weapon-card" id="w-yaoqin">
         <div class="weapon-header">
-          <div class="weapon-icon grade-gold"><img src="dongfangyao/weapon_dongfangyao_lv60_starforgedtaia.png" alt="Star-Forged Taia"></div>
+          <div class="weapon-icon grade-gold"><img src="jialuo/weapon_jialuo_yaoqin.png" alt="Mournful Battle Yaoqin"></div>
           <div class="weapon-title-area">
-            <div class="weapon-type">单手剑 · One-Handed Sword</div>
+            <div class="weapon-type">弓 · Bow</div>
             <div class="weapon-names">
-              <span class="weapon-cn">炼星·泰阿</span>
-              <span class="weapon-en">Star-Forged Tai'a</span>
+              <span class="weapon-cn">哀战瑶琴</span>
+              <span class="weapon-en">Mournful Battle Yaoqin</span>
             </div>
             <div class="weapon-badges">
               <span class="weapon-lv-badge grade-gold">Level 60</span>
@@ -1725,58 +1721,58 @@
         </div>
         <div class="weapon-body">
           <div class="weapon-stats">
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">720</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">430</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">13.3%</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Chase Rate 追击率</span><span class="weapon-stat-val">15.7%</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">150</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">54</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Chase Rate 追击率</span><span class="weapon-stat-val">3.1%</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">2.7%</span></div>
           </div>
           <div class="weapon-right">
             <div class="weapon-passive">
-              <div class="weapon-passive-name">双星连袭 · Twin Star Consecutive Strike</div>
-              <div class="weapon-passive-desc">Empowered Normal Attack damage increased by <span class="num">40%</span>; the damage increase effect inflicted by <span class="kw">Star Erosion (星削)</span> state from <span class="kw-gold">Star Chase (逐星)</span> is additionally increased by <span class="num">16%</span>.</div>
+              <div class="weapon-passive-name">连珠 · Linked Pearls</div>
+              <div class="weapon-passive-desc"><span class="kw-gold">Soul Ferry Arrow (渡灵之箭)</span> damage increased by <span class="num">36%</span>; in <span class="kw">Long Bow State (长弓状态)</span>, Crit Rate increased by <span class="num">15%</span>.</div>
             </div>
             <div class="weapon-lore">
-              <div class="weapon-lore-label">Lore · 剑铭</div>
-              A treasured sword recorded in the Southern Wilderness Miscellany "Nanjue Shu." After it was forged, a hegemon of the era once drew this sword atop a city wall. In that moment, the three armies were overwhelmed by the sword's aura, and soldiers lost their fighting spirit at its sharpness. After being offered by the Dragon Princess of the undersea Dragon Palace to the Eagle Yang Cavalry heading north, it disappeared from historical records.
+              <div class="weapon-lore-label">Lore · 弓铭</div>
+              A longbow cast from metal, with archaic patterns painted on its body. The patterns seem to play a mournful melody like an ancient score. Drawing the bow feels as if it narrates ancient legends. A broken string can be restrung, but a reunion may never come.
             </div>
           </div>
         </div>
       </div>
 
-      <!-- LV 60 SIGNATURE -->
-      <div class="weapon-card signature" id="w60sig">
+      <!-- CLARITY BOW — SIGNATURE -->
+      <div class="weapon-card signature" id="w-clarity">
         <div class="weapon-header">
-          <div class="weapon-icon grade-red"><img src="dongfangyao/weapon_dongfangyao_lv60_shiftingstars.png" alt="Shifting Stars"></div>
+          <div class="weapon-icon grade-red"><img src="jialuo/weapon_jialuo_claritybow.png" alt="Clarity Bow"></div>
           <div class="weapon-title-area">
-            <div class="weapon-type">单手剑 · One-Handed Sword</div>
+            <div class="weapon-type">弓 · Bow</div>
             <div class="weapon-names">
-              <span class="weapon-cn">移星换月</span>
-              <span class="weapon-en">Shifting Stars, Changing Moons</span>
+              <span class="weapon-cn">澄明弓</span>
+              <span class="weapon-en">Clarity Bow</span>
             </div>
             <div class="weapon-badges">
-              <span class="weapon-lv-badge grade-red">Level 60 · Signature</span>
+              <span class="weapon-lv-badge grade-red">Level 60</span><span class="weapon-lv-badge sig">Signature</span>
             </div>
           </div>
         </div>
         <div class="weapon-body">
           <div class="weapon-stats">
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">800</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">480</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">14.8%</span></div>
-            <div class="weapon-stat-row"><span class="weapon-stat-label">Chase Rate 追击率</span><span class="weapon-stat-val">17.3%</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Base Attack 基础攻击力</span><span class="weapon-stat-val">166</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">60</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Chase Rate 追击率</span><span class="weapon-stat-val">3.5%</span></div>
+            <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">3.0%</span></div>
           </div>
           <div class="weapon-right">
             <div class="weapon-passive">
-              <div class="weapon-passive-name">天河煌煌 · Milky Way Splendor</div>
-              <div class="weapon-passive-desc">Empowered Normal Attack <span class="kw-teal">Thunder Flow Intensity</span> +<span class="num">60%</span>. Every <span class="num">2nd</span> Empowered Normal Attack, Crit Effect +<span class="num">70%</span>.</div>
+              <div class="weapon-passive-name">粹光 · Pure Light</div>
+              <div class="weapon-passive-desc">While within <span class="kw-gold">Pure Domain (纯净领域)</span>, gradually gain <span class="num">35%</span> <span class="kw-teal">Flow Penetration (贯流强度)</span> over <span class="num">2</span> seconds; leaving the domain removes all benefits.</div>
             </div>
             <div class="weapon-passive">
-              <div class="weapon-passive-name">双星连袭 · Twin Star Consecutive Strike</div>
-              <div class="weapon-passive-desc">Empowered Normal Attack damage increased by <span class="num">40%</span>; the damage increase effect inflicted by <span class="kw">Star Erosion (星削)</span> state from <span class="kw-gold">Star Chase (逐星)</span> is additionally increased by <span class="num">16%</span>.</div>
+              <div class="weapon-passive-name">连珠 · Linked Pearls</div>
+              <div class="weapon-passive-desc"><span class="kw-gold">Soul Ferry Arrow (渡灵之箭)</span> damage increased by <span class="num">36%</span>; in <span class="kw">Long Bow State (长弓状态)</span>, Crit Rate increased by <span class="num">15%</span>.</div>
             </div>
             <div class="weapon-lore">
-              <div class="weapon-lore-label">Lore · 剑铭</div>
-              A slender, sharp, and elegantly crafted longsword. The blade, repeatedly forged, reveals star-like patterns. The entire sword radiates a gentle brilliance with an intricately carved guard resembling a butterfly just emerged from its chrysalis — its soaring appearance perfectly complementing the star patterns on the blade. The sword's inscription reads: <em>"To ascend to the highest heavens, chasing stars and grasping the moon."</em>
+              <div class="weapon-lore-label">Lore · 弓铭</div>
+              A longbow forged from ore gleaming beneath the morning star, repeatedly hammered; the bow body shines with scattered fragments of light. When drawing the string, the star-like fragments condense on the bowstring into arrows of light — lightning-fast, striking like a shooting star. At the moment of release, the stars compete through the night sky, calling forth the clarity of dawn's light.
             </div>
           </div>
         </div>
@@ -1790,41 +1786,29 @@
     <div class="hero-nav-footer-label">探索英雄 · Explore Heroes</div>
     <div class="hero-nav-grid">
 
-      <a class="hero-nav-card prev placeholder-card" href="index.html">
+      <a class="hero-nav-card prev" href="dongfangyao.html">
         <div class="hero-nav-arrow">‹</div>
-        <div class="hero-nav-portrait">?</div>
+        <div class="hero-nav-portrait">⚔️</div>
         <div class="hero-nav-info">
           <span class="hero-nav-direction">Previous Hero</span>
+          <span class="hero-nav-cn">东方曜</span>
+          <span class="hero-nav-en">Dong Fang Yao</span>
+          <span class="hero-nav-type">星辰之子 · Star Child</span>
+        </div>
+      </a>
+
+      <a class="hero-nav-card next" href="luban.html">
+        <div class="hero-nav-arrow">›</div>
+        <div class="hero-nav-portrait">?</div>
+        <div class="hero-nav-info">
+          <span class="hero-nav-direction">Next Hero</span>
           <span class="hero-nav-cn">未知</span>
           <span class="hero-nav-en">Coming Soon</span>
         </div>
       </a>
 
-      <a class="hero-nav-card next" href="jialuo.html">
-        <div class="hero-nav-arrow">›</div>
-        <div class="hero-nav-portrait">🏹</div>
-        <div class="hero-nav-info">
-          <span class="hero-nav-direction">Next Hero</span>
-          <span class="hero-nav-cn">珈罗</span>
-          <span class="hero-nav-en">Jia Luo</span>
-          <span class="hero-nav-type">破魔之箭 · Demon-Breaking Arrow</span>
-        </div>
-      </a>
-
     </div>
   </div>
-
-</div><!-- end .container -->
-
-<script>
-function switchTab(btn, targetId) {
-  const card = btn.closest('.skill-card');
-  card.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-  btn.classList.add('active');
-  document.getElementById(targetId).classList.add('active');
-}
-</script>
 
 </div><!-- end .container -->
 </div><!-- end .page-layout -->

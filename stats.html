@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Stats Reference — HOKW</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Spectral:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #080c14;
+    --bg2: #0d1420;
+    --bg3: #111827;
+    --border: #1e2d45;
+    --border-glow: #2a4a7f;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim: #7a5e2a;
+    --blue: #4a9eff;
+    --blue-dim: #1a3a6a;
+    --teal: #5ecfcf;
+    --red: #e06060;
+    --green: #6dbf8a;
+    --text: #d4cfc7;
+    --text-dim: #7a7a8a;
+    --text-bright: #f0ead8;
+    --tag-bg: #12202f;
+
+    /* Flow type colours */
+    --flow-ji:   #7ab8e8;   /* 疾 Gale — blue-grey crescent */
+    --flow-guan: #9b7ecf;   /* 贯 Pierce — purple */
+    --flow-beng: #c97a3a;   /* 崩 Shatter — amber-orange placeholder */
+    --flow-zhuo: #e07840;   /* 灼 Fire — orange flame */
+    --flow-ning: #a8d4f0;   /* 凝 Frost — ice blue */
+    --flow-zhen: #60b8f0;   /* 震 Lightning — electric blue-white */
+    --flow-nian: #4ecfb8;   /* 念 Soul — teal */
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(42,74,127,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.07) 0%, transparent 50%);
+  }
+
+  /* ── SITE HEADER ── */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: rgba(8,12,20,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0 40px;
+    height: 56px;
+  }
+  .site-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 16px;
+    color: var(--gold-light);
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    margin-right: 32px;
+  }
+  .site-title span {
+    color: var(--text-dim);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    margin-left: 12px;
+    font-family: 'Cinzel', serif;
+  }
+  .header-nav { display: flex; gap: 0; }
+  .header-nav a {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: #8a9ab5;
+    text-decoration: none;
+    padding: 0 18px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .header-nav a:hover { color: var(--gold-light); }
+  .header-nav a.active { color: var(--gold-light); border-bottom-color: var(--gold); }
+
+  /* ── PAGE LAYOUT ── */
+  .page-layout {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+    min-height: calc(100vh - 56px);
+  }
+
+  /* ── SIDEBAR ── */
+  .sidebar {
+    position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    overflow-y: auto;
+    border-right: 1px solid var(--border);
+    padding: 32px 0;
+  }
+  .sidebar::-webkit-scrollbar { width: 3px; }
+  .sidebar::-webkit-scrollbar-track { background: transparent; }
+  .sidebar::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+  .sidebar-section {
+    margin-bottom: 24px;
+    padding: 0 20px;
+  }
+  .sidebar-section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .sidebar-link {
+    display: block;
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: #8a9ab5;
+    text-decoration: none;
+    padding: 7px 10px;
+    border-radius: 3px;
+    border-left: 2px solid transparent;
+    transition: all 0.2s;
+    margin-bottom: 2px;
+    text-transform: uppercase;
+  }
+  .sidebar-link:hover { color: var(--gold-light); background: rgba(201,168,76,0.05); }
+  .sidebar-link.active { color: var(--gold-light); border-left-color: var(--gold); background: rgba(201,168,76,0.07); }
+
+  /* ── MAIN CONTENT ── */
+  .main { padding: 48px 48px 80px; }
+
+  /* PAGE HEADER */
+  .page-header {
+    margin-bottom: 56px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .page-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 0% 50%, rgba(74,158,255,0.06) 0%, transparent 60%);
+    pointer-events: none;
+  }
+  .page-eyebrow {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 11px;
+    letter-spacing: 0.5em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .page-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 32px;
+    color: var(--gold-light);
+    text-shadow: 0 0 40px rgba(201,168,76,0.2);
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+  .page-sub {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+  }
+
+  /* SECTION HEADERS */
+  .section { margin-bottom: 56px; }
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.35em;
+    color: #8a9ab5;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-label .section-cn {
+    font-size: 11px;
+    color: var(--text-dim);
+    letter-spacing: 0.2em;
+  }
+
+  /* STAT ROWS */
+  .stat-grid { display: flex; flex-direction: column; gap: 2px; }
+  .stat-row {
+    display: grid;
+    grid-template-columns: 200px 160px 1fr;
+    align-items: baseline;
+    gap: 24px;
+    padding: 14px 20px;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    transition: border-color 0.2s;
+  }
+  .stat-row:hover { border-color: var(--border-glow); }
+  .stat-en {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--text-bright);
+    text-transform: uppercase;
+  }
+  .stat-cn {
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    color: var(--gold);
+    font-weight: 500;
+  }
+  .stat-desc {
+    font-family: 'Spectral', serif;
+    font-size: 15px;
+    color: var(--text-dim);
+    line-height: 1.5;
+  }
+
+  /* CALLOUT BOX */
+  .callout {
+    background: rgba(74,158,255,0.06);
+    border: 1px solid rgba(74,158,255,0.2);
+    border-left: 3px solid var(--blue);
+    border-radius: 3px;
+    padding: 18px 22px;
+    margin-bottom: 16px;
+  }
+  .callout-title {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--blue);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .callout-body {
+    font-family: 'Spectral', serif;
+    font-size: 15px;
+    color: var(--text);
+    line-height: 1.7;
+  }
+  .callout-body .mechanic-line {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 5px 0;
+    border-bottom: 1px solid rgba(74,158,255,0.1);
+  }
+  .callout-body .mechanic-line:last-child { border-bottom: none; }
+  .callout-body .mval {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: var(--gold-light);
+    min-width: 90px;
+  }
+  .callout-body .marrow {
+    color: var(--text-dim);
+    font-size: 13px;
+  }
+
+  /* ATK BREAKDOWN */
+  .atk-breakdown {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 20px 24px;
+    margin-top: 8px;
+    margin-bottom: 16px;
+  }
+  .atk-breakdown-title {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.35em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-bottom: 14px;
+  }
+  .atk-tree {
+    display: flex;
+    gap: 40px;
+  }
+  .atk-branch { flex: 1; }
+  .atk-branch-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid rgba(201,168,76,0.2);
+  }
+  .atk-branch-label .atk-cn { color: var(--text-dim); font-size: 13px; font-family: 'EB Garamond', serif; margin-left: 6px; }
+  .atk-leaf {
+    font-family: 'Spectral', serif;
+    font-size: 14px;
+    color: var(--text-dim);
+    padding: 4px 0 4px 14px;
+    border-left: 1px solid var(--border);
+    margin-bottom: 3px;
+  }
+  .atk-leaf .leaf-cn { color: var(--gold-dim); font-family: 'EB Garamond', serif; }
+
+  /* ── FLOW AFFINITY GRID ── */
+  .flow-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .flow-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px 18px;
+    transition: all 0.2s;
+    position: relative;
+    overflow: hidden;
+  }
+  .flow-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+  .flow-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.4); }
+
+  .flow-card.ji    { --fc: var(--flow-ji); }
+  .flow-card.guan  { --fc: var(--flow-guan); }
+  .flow-card.beng  { --fc: var(--flow-beng); }
+  .flow-card.zhuo  { --fc: var(--flow-zhuo); }
+  .flow-card.ning  { --fc: var(--flow-ning); }
+  .flow-card.zhen  { --fc: var(--flow-zhen); }
+  .flow-card.nian  { --fc: var(--flow-nian); }
+
+  .flow-card::before { background: var(--fc); }
+  .flow-card:hover { border-color: var(--fc); }
+
+  .flow-card-top {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .flow-dot {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: color-mix(in srgb, var(--fc) 20%, var(--bg3));
+    border: 1.5px solid var(--fc);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+  }
+  .flow-names { flex: 1; }
+  .flow-cn {
+    font-family: 'EB Garamond', serif;
+    font-size: 20px;
+    color: var(--fc);
+    font-weight: 500;
+    line-height: 1.1;
+  }
+  .flow-en {
+    font-family: 'Cinzel', serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .flow-desc {
+    font-family: 'Spectral', serif;
+    font-size: 13.5px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    border-top: 1px solid var(--border);
+    padding-top: 12px;
+  }
+  .flow-tags {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 10px;
+  }
+  .flow-tag {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 2px;
+    background: color-mix(in srgb, var(--fc) 12%, var(--bg3));
+    border: 1px solid color-mix(in srgb, var(--fc) 30%, transparent);
+    color: var(--fc);
+  }
+  .flow-card.coming-soon {
+    --fc: var(--text-dim);
+    opacity: 0.4;
+    border-style: dashed;
+  }
+
+  /* ── RESISTANCE GRID ── */
+  .resist-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+  .resist-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 14px 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    transition: border-color 0.2s;
+  }
+  .resist-card:hover { border-color: var(--border-glow); }
+  .resist-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 1.5px solid var(--rc, var(--border-glow));
+    background: color-mix(in srgb, var(--rc, var(--border-glow)) 12%, var(--bg3));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 13px;
+  }
+  .resist-info { flex: 1; }
+  .resist-cn {
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    color: var(--rc, var(--gold));
+    font-weight: 500;
+    line-height: 1.1;
+  }
+  .resist-en {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+  .resist-desc {
+    font-family: 'Spectral', serif;
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  /* ── WEAPON TYPE GRID ── */
+  .weapon-type-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 10px;
+  }
+  .weapon-type-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    padding: 16px 18px;
+    transition: border-color 0.2s;
+  }
+  .weapon-type-card:hover { border-color: var(--gold-dim); }
+  .weapon-type-en {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 3px;
+  }
+  .weapon-type-cn {
+    font-family: 'EB Garamond', serif;
+    font-size: 17px;
+    color: var(--text-bright);
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .weapon-type-desc {
+    font-family: 'Spectral', serif;
+    font-size: 13.5px;
+    color: var(--text-dim);
+    line-height: 1.5;
+    border-top: 1px solid var(--border);
+    padding-top: 8px;
+  }
+
+  /* NOTE BOX */
+  .note-box {
+    background: rgba(201,168,76,0.05);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-left: 3px solid var(--gold-dim);
+    border-radius: 3px;
+    padding: 14px 18px;
+    margin-bottom: 20px;
+    font-family: 'Spectral', serif;
+    font-size: 14.5px;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+  .note-box strong {
+    color: var(--gold);
+    font-weight: 500;
+  }
+
+  .num { color: var(--gold-light); font-weight: 500; }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border-glow); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- ── SITE HEADER ── -->
+<header class="site-header">
+  <a class="site-title" href="index.html">HOKW <span>Hero Reference</span></a>
+  <nav class="header-nav">
+    <a href="index.html">Roster</a>
+    <a href="stats.html" class="active">Stats</a>
+  </nav>
+</header>
+
+<div class="page-layout">
+
+  <!-- ── SIDEBAR ── -->
+  <aside class="sidebar">
+    <div class="sidebar-section">
+      <div class="sidebar-section-label">Sections</div>
+      <a class="sidebar-link active" href="#core" data-section="core">基础属性 · Core</a>
+      <a class="sidebar-link" href="#advanced" data-section="advanced">进阶属性 · Advanced</a>
+      <a class="sidebar-link" href="#flow" data-section="flow">流相 · Flow Affinities</a>
+      <a class="sidebar-link" href="#resistance" data-section="resistance">抗性 · Resistances</a>
+      <a class="sidebar-link" href="#weapon" data-section="weapon">凝武强度 · Weapon DMG</a>
+    </div>
+  </aside>
+
+  <!-- ── MAIN ── -->
+  <main class="main">
+
+    <div class="page-header">
+      <div class="page-eyebrow">属性系统</div>
+      <div class="page-title">Stats Reference</div>
+      <div class="page-sub">Complete attribute, flow &amp; weapon system reference</div>
+    </div>
+
+    <!-- ══════════════════════════════════════════
+         CORE STATS
+    ══════════════════════════════════════════ -->
+    <section class="section" id="core">
+      <div class="section-label">基础属性 <span class="section-cn">· Core Stats</span></div>
+
+      <div class="stat-grid">
+
+        <div class="stat-row">
+          <div class="stat-en">Health</div>
+          <div class="stat-cn">生命值</div>
+          <div class="stat-desc">Maximum Health of your character.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Attack</div>
+          <div class="stat-cn">攻击力</div>
+          <div class="stat-desc">Increases your character's Attack Power.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Defense</div>
+          <div class="stat-cn">防御力</div>
+          <div class="stat-desc">Reduces Damage Taken by your character.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Critical Rate</div>
+          <div class="stat-cn">暴击率</div>
+          <div class="stat-desc">Increases the chance of landing a critical hit on attacks.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Attribute Skill DMG</div>
+          <div class="stat-cn">流技强度</div>
+          <div class="stat-desc">Increases damage dealt by your character's Skills.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Follow-Up Attack Rate</div>
+          <div class="stat-cn">追击率</div>
+          <div class="stat-desc">Chance to trigger additional Normal Attack damage after an attack.</div>
+        </div>
+
+      </div>
+
+      <!-- ATK Breakdown -->
+      <div class="atk-breakdown">
+        <div class="atk-breakdown-title">攻击力构成 · Attack Breakdown</div>
+        <div class="atk-tree">
+          <div class="atk-branch">
+            <div class="atk-branch-label">Base ATK <span class="atk-cn">基础攻击力</span></div>
+            <div class="atk-leaf">Character Base <span class="leaf-cn">共鸣基础</span></div>
+            <div class="atk-leaf">Weapon Base <span class="leaf-cn">凝武基础</span></div>
+          </div>
+          <div class="atk-branch">
+            <div class="atk-branch-label">Bonus ATK <span class="atk-cn">加成攻击力</span></div>
+            <div class="atk-leaf">Flow Bonus <span class="leaf-cn">流脉加成</span></div>
+            <div class="atk-leaf">Gear Bonus <span class="leaf-cn">装备加成</span></div>
+            <div class="atk-leaf">Inscription Bonus <span class="leaf-cn">铭文加成</span></div>
+            <div class="atk-leaf">Other Bonuses <span class="leaf-cn">其他加成</span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Follow-Up Callout -->
+      <div class="callout">
+        <div class="callout-title">追击率 · Follow-Up Attack Rate Mechanics</div>
+        <div class="callout-body">
+          <div class="mechanic-line">
+            <span class="mval">100%</span>
+            <span class="marrow">→</span>
+            Guarantees <span class="num">1</span> additional Normal Attack follow-up.
+          </div>
+          <div class="mechanic-line">
+            <span class="mval">150%</span>
+            <span class="marrow">→</span>
+            Guarantees <span class="num">1</span> follow-up + <span class="num">50%</span> chance for an additional 2nd Normal Attack follow-up.
+          </div>
+          <div class="mechanic-line">
+            <span class="mval">200%</span>
+            <span class="marrow">→</span>
+            Guarantees <span class="num">2</span> follow-up Normal Attacks.
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         ADVANCED STATS
+    ══════════════════════════════════════════ -->
+    <section class="section" id="advanced">
+      <div class="section-label">进阶属性 <span class="section-cn">· Advanced Stats</span></div>
+
+      <div class="stat-grid">
+
+        <div class="stat-row">
+          <div class="stat-en">Critical Damage</div>
+          <div class="stat-cn">暴击效果</div>
+          <div class="stat-desc">Increases damage dealt when landing a critical hit.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">All Attribute Damage</div>
+          <div class="stat-cn">全流强度</div>
+          <div class="stat-desc">Increases damage dealt by all Flow types (疾/贯/崩/灼/凝/震/念).</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Weakness Exploit</div>
+          <div class="stat-cn">流相克制强度</div>
+          <div class="stat-desc">Increases damage against enemies weak to your own Flow/Attribute type.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Break Damage</div>
+          <div class="stat-cn">破势强度</div>
+          <div class="stat-desc">Increases damage dealt to enemies in the Broken (破势) state.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Ultimate Charge Rate</div>
+          <div class="stat-cn">绝技充能效率</div>
+          <div class="stat-desc">Increases the rate at which Ultimate Energy is generated.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Valor</div>
+          <div class="stat-cn">英勇</div>
+          <div class="stat-desc">When fighting enemies at close range: reduces damage received and increases damage dealt.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Healing Power</div>
+          <div class="stat-cn">治愈强度</div>
+          <div class="stat-desc">Increases shield effects and healing effects by Healing Power × 100%.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         FLOW AFFINITIES
+    ══════════════════════════════════════════ -->
+    <section class="section" id="flow">
+      <div class="section-label">流相 <span class="section-cn">· Flow Affinities</span></div>
+
+      <div class="note-box">
+        Each hero has a <strong>Flow Affinity (流相)</strong> that determines the damage type their attacks deal. Attacking enemies with a matching weakness triggers bonus damage based on <strong>Weakness Exploit (流相克制强度)</strong>. The individual flow DMG bonus stat (e.g. 贯流强度) increases that damage type specifically.
+      </div>
+
+      <div class="flow-grid">
+
+        <!-- 疾 Gale -->
+        <div class="flow-card ji">
+          <div class="flow-card-top">
+            <div class="flow-dot" style="color:var(--flow-ji)">☽</div>
+            <div class="flow-names">
+              <div class="flow-cn">疾</div>
+              <div class="flow-en">Gale · Swift</div>
+            </div>
+          </div>
+          <div class="flow-desc">Attacks deal Gale-type damage. Deals bonus damage to enemies with the Gale weakness, based on Weakness Exploit.</div>
+          <div class="flow-tags">
+            <span class="flow-tag">疾流强度</span>
+            <span class="flow-tag">Gale DMG Bonus</span>
+          </div>
+        </div>
+
+        <!-- 贯 Pierce -->
+        <div class="flow-card guan">
+          <div class="flow-card-top">
+            <div class="flow-dot" style="color:var(--flow-guan)">◈</div>
+            <div class="flow-names">
+              <div class="flow-cn">贯</div>
+              <div class="flow-en">Pierce</div>
+            </div>
+          </div>
+          <div class="flow-desc">Attacks deal Pierce-type damage. Deals bonus damage to enemies with the Pierce weakness, based on Weakness Exploit.</div>
+          <div class="flow-tags">
+            <span class="flow-tag">贯流强度</span>
+            <span class="flow-tag">Pierce DMG Bonus</span>
+          </div>
+        </div>
+
+        <!-- 灼 Fire -->
+        <div class="flow-card zhuo">
+          <div class="flow-card-top">
+            <div class="flow-dot" style="color:var(--flow-zhuo)">🔥</div>
+            <div class="flow-names">
+              <div class="flow-cn">灼</div>
+              <div class="flow-en">Scorch · Fire</div>
+            </div>
+          </div>
+          <div class="flow-desc">Attacks deal Fire-type damage. Deals bonus damage to enemies with the Fire weakness, based on Weakness Exploit.</div>
+          <div class="flow-tags">
+            <span class="flow-tag">灼流强度</span>
+            <span class="flow-tag">Fire DMG Bonus</span>
+          </div>
+        </div>
+
+        <!-- 凝 Frost -->
+        <div class="flow-card ning">
+          <div class="flow-card-top">
+            <div class="flow-dot" style="color:var(--flow-ning)">✳</div>
+            <div class="flow-names">
+              <div class="flow-cn">凝</div>
+              <div class="flow-en">Frost · Ice</div>
+            </div>
+          </div>
+          <div class="flow-desc">Attacks deal Ice-type damage. Deals bonus damage to enemies with the Frost weakness, based on Weakness Exploit.</div>
+          <div class="flow-tags">
+            <span class="flow-tag">凝流强度</span>
+            <span class="flow-tag">Frost DMG Bonus</span>
+          </div>
+        </div>
+
+        <!-- 震 Lightning -->
+        <div class="flow-card zhen">
+          <div class="flow-card-top">
+            <div class="flow-dot" style="color:var(--flow-zhen)">⚡</div>
+            <div class="flow-names">
+              <div class="flow-cn">震</div>
+              <div class="flow-en">Lightning</div>
+            </div>
+          </div>
+          <div class="flow-desc">Attacks deal Lightning-type damage. Deals bonus damage to enemies with the Lightning weakness, based on Weakness Exploit.</div>
+          <div class="flow-tags">
+            <span class="flow-tag">震流强度</span>
+            <span class="flow-tag">Lightning DMG Bonus</span>
+          </div>
+        </div>
+
+        <!-- 念 Soul -->
+        <div class="flow-card nian">
+          <div class="flow-card-top">
+            <div class="flow-dot" style="color:var(--flow-nian)">◎</div>
+            <div class="flow-names">
+              <div class="flow-cn">念</div>
+              <div class="flow-en">Psychic · Soul</div>
+            </div>
+          </div>
+          <div class="flow-desc">Attacks deal Soul-type damage. Deals bonus damage to enemies with the Soul weakness, based on Weakness Exploit.</div>
+          <div class="flow-tags">
+            <span class="flow-tag">念流强度</span>
+            <span class="flow-tag">Soul DMG Bonus</span>
+          </div>
+        </div>
+
+        <!-- 崩 Shatter — coming soon -->
+        <div class="flow-card beng coming-soon">
+          <div class="flow-card-top">
+            <div class="flow-dot">?</div>
+            <div class="flow-names">
+              <div class="flow-cn">崩</div>
+              <div class="flow-en">Shatter · Impact</div>
+            </div>
+          </div>
+          <div class="flow-desc">No hero currently carries this Flow Affinity. Resistance data confirmed; affinity details pending.</div>
+          <div class="flow-tags">
+            <span class="flow-tag">崩流强度</span>
+            <span class="flow-tag">Coming Soon</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         RESISTANCES
+    ══════════════════════════════════════════ -->
+    <section class="section" id="resistance">
+      <div class="section-label">其他属性 — 抗性 <span class="section-cn">· Resistances</span></div>
+
+      <div class="resist-grid">
+        <div class="resist-card" style="--rc: var(--flow-ji)">
+          <div class="resist-dot" style="--rc: var(--flow-ji)">🛡</div>
+          <div class="resist-info">
+            <div class="resist-cn">疾流抗性</div>
+            <div class="resist-en">Gale Resistance</div>
+            <div class="resist-desc">Reduces Gale-type damage received.</div>
+          </div>
+        </div>
+        <div class="resist-card" style="--rc: var(--flow-guan)">
+          <div class="resist-dot" style="--rc: var(--flow-guan)">🛡</div>
+          <div class="resist-info">
+            <div class="resist-cn">贯流抗性</div>
+            <div class="resist-en">Pierce Resistance</div>
+            <div class="resist-desc">Reduces Pierce-type damage received.</div>
+          </div>
+        </div>
+        <div class="resist-card" style="--rc: var(--flow-beng)">
+          <div class="resist-dot" style="--rc: var(--flow-beng)">🛡</div>
+          <div class="resist-info">
+            <div class="resist-cn">崩流抗性</div>
+            <div class="resist-en">Shatter Resistance</div>
+            <div class="resist-desc">Reduces Shatter/Impact-type damage received.</div>
+          </div>
+        </div>
+        <div class="resist-card" style="--rc: var(--flow-zhuo)">
+          <div class="resist-dot" style="--rc: var(--flow-zhuo)">🛡</div>
+          <div class="resist-info">
+            <div class="resist-cn">灼流抗性</div>
+            <div class="resist-en">Fire Resistance</div>
+            <div class="resist-desc">Reduces Fire-type damage received.</div>
+          </div>
+        </div>
+        <div class="resist-card" style="--rc: var(--flow-ning)">
+          <div class="resist-dot" style="--rc: var(--flow-ning)">🛡</div>
+          <div class="resist-info">
+            <div class="resist-cn">凝流抗性</div>
+            <div class="resist-en">Frost Resistance</div>
+            <div class="resist-desc">Reduces Frost/Ice-type damage received.</div>
+          </div>
+        </div>
+        <div class="resist-card" style="--rc: var(--flow-zhen)">
+          <div class="resist-dot" style="--rc: var(--flow-zhen)">🛡</div>
+          <div class="resist-info">
+            <div class="resist-cn">震流抗性</div>
+            <div class="resist-en">Lightning Resistance</div>
+            <div class="resist-desc">Reduces Lightning-type damage received.</div>
+          </div>
+        </div>
+        <div class="resist-card" style="--rc: var(--flow-nian)">
+          <div class="resist-dot" style="--rc: var(--flow-nian)">🛡</div>
+          <div class="resist-info">
+            <div class="resist-cn">念流抗性</div>
+            <div class="resist-en">Soul Resistance</div>
+            <div class="resist-desc">Reduces Soul/Psychic-type damage received.</div>
+          </div>
+        </div>
+        <div class="resist-card" style="--rc: #c06090">
+          <div class="resist-dot" style="--rc: #c06090">🛡</div>
+          <div class="resist-info">
+            <div class="resist-cn">激发抗性</div>
+            <div class="resist-en">Debuff Resistance</div>
+            <div class="resist-desc">Reduces the duration of Debuff (激发) status effects on yourself.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         WEAPON TYPE DAMAGE
+    ══════════════════════════════════════════ -->
+    <section class="section" id="weapon">
+      <div class="section-label">凝武强度 <span class="section-cn">· Weapon Type Damage</span></div>
+
+      <div class="note-box">
+        Each hero has <strong>one</strong> Weapon Type Damage stat corresponding to their 凝武 (Weapon) category. Only that stat appears in their Attributes sheet. Weapons and gear can grant additional bonuses to the matching type.
+      </div>
+
+      <div class="weapon-type-grid">
+
+        <div class="weapon-type-card">
+          <div class="weapon-type-en">One-Handed Sword DMG</div>
+          <div class="weapon-type-cn">单手剑强度</div>
+          <div class="weapon-type-desc">Increases damage dealt with One-Handed Sword type 凝武.</div>
+        </div>
+
+        <div class="weapon-type-card">
+          <div class="weapon-type-en">Focus Core DMG</div>
+          <div class="weapon-type-cn">聚能核心强度</div>
+          <div class="weapon-type-desc">Increases damage dealt with Focus Core type 凝武.</div>
+        </div>
+
+        <div class="weapon-type-card">
+          <div class="weapon-type-en">Bow DMG</div>
+          <div class="weapon-type-cn">弓强度</div>
+          <div class="weapon-type-desc">Increases damage dealt with Bow type 凝武.</div>
+        </div>
+
+        <div class="weapon-type-card">
+          <div class="weapon-type-en">Staff DMG</div>
+          <div class="weapon-type-cn">法杖强度</div>
+          <div class="weapon-type-desc">Increases damage dealt with Staff type 凝武.</div>
+        </div>
+
+        <div class="weapon-type-card">
+          <div class="weapon-type-en">Greatsword DMG</div>
+          <div class="weapon-type-cn">重剑强度</div>
+          <div class="weapon-type-desc">Increases damage dealt with Greatsword type 凝武.</div>
+        </div>
+
+        <div class="weapon-type-card">
+          <div class="weapon-type-en">Arcane Focus DMG</div>
+          <div class="weapon-type-cn">法器强度</div>
+          <div class="weapon-type-desc">Increases damage dealt with Arcane Focus type 凝武.</div>
+        </div>
+
+        <div class="weapon-type-card">
+          <div class="weapon-type-en">Dual Blade DMG</div>
+          <div class="weapon-type-cn">双刀强度</div>
+          <div class="weapon-type-desc">Increases damage dealt with Dual Blade type 凝武.</div>
+        </div>
+
+        <div class="weapon-type-card">
+          <div class="weapon-type-en">Burst Core DMG</div>
+          <div class="weapon-type-cn">爆发核心强度</div>
+          <div class="weapon-type-desc">Increases damage dealt with Burst Core type 凝武.</div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+</div><!-- end .page-layout -->
+
+<script>
+// Scroll spy
+const sections = document.querySelectorAll('.section[id]');
+const links = document.querySelectorAll('.sidebar-link');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.sidebar-link[href="#${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.2, rootMargin: '-10% 0px -70% 0px' });
+sections.forEach(s => observer.observe(s));
+</script>
+
+</body>
+</html>
