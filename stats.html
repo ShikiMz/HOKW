@@ -624,6 +624,7 @@
       <a class="sidebar-link" href="#flow" data-section="flow">流相 · Flow Affinities</a>
       <a class="sidebar-link" href="#resistance" data-section="resistance">抗性 · Resistances</a>
       <a class="sidebar-link" href="#weapon" data-section="weapon">凝武强度 · Weapon DMG</a>
+      <a class="sidebar-link" href="#breakdown" data-section="breakdown">细分标签 · Breakdown Labels</a>
     </div>
   </aside>
 
@@ -680,25 +681,6 @@
           <div class="stat-desc">Chance to trigger additional Normal Attack damage after an attack.</div>
         </div>
 
-      </div>
-
-      <!-- ATK Breakdown -->
-      <div class="atk-breakdown">
-        <div class="atk-breakdown-title">攻击力构成 · Attack Breakdown</div>
-        <div class="atk-tree">
-          <div class="atk-branch">
-            <div class="atk-branch-label">Base ATK <span class="atk-cn">基础攻击力</span></div>
-            <div class="atk-leaf">Character Base <span class="leaf-cn">共鸣基础</span></div>
-            <div class="atk-leaf">Weapon Base <span class="leaf-cn">凝武基础</span></div>
-          </div>
-          <div class="atk-branch">
-            <div class="atk-branch-label">Bonus ATK <span class="atk-cn">加成攻击力</span></div>
-            <div class="atk-leaf">Flow Bonus <span class="leaf-cn">流脉加成</span></div>
-            <div class="atk-leaf">Gear Bonus <span class="leaf-cn">装备加成</span></div>
-            <div class="atk-leaf">Inscription Bonus <span class="leaf-cn">铭文加成</span></div>
-            <div class="atk-leaf">Other Bonuses <span class="leaf-cn">其他加成</span></div>
-          </div>
-        </div>
       </div>
 
       <!-- Follow-Up Callout -->
@@ -1037,6 +1019,69 @@
           <div class="weapon-type-en">Burst Core DMG</div>
           <div class="weapon-type-cn">爆发核心强度</div>
           <div class="weapon-type-desc">Increases damage dealt with Burst Core type 凝武.</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ══════════════════════════════════════════
+         BREAKDOWN LABELS
+    ══════════════════════════════════════════ -->
+    <section class="section" id="breakdown">
+      <div class="section-label">细分标签 <span class="section-cn">· Breakdown Labels</span></div>
+
+      <div class="note-box">
+        Tapping any stat in-game reveals a breakdown of its sources. These labels appear across all stats — here are their translations.
+      </div>
+
+      <div class="stat-grid">
+
+        <div class="stat-row">
+          <div class="stat-en">Base</div>
+          <div class="stat-cn">基础</div>
+          <div class="stat-desc">The total base value of the stat before any bonuses.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Character Base</div>
+          <div class="stat-cn">共鸣基础</div>
+          <div class="stat-desc">The portion of the base stat that comes from your character's own level and growth.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Weapon Base</div>
+          <div class="stat-cn">凝武基础</div>
+          <div class="stat-desc">The portion of the base stat contributed by your equipped 凝武 (Resonance Weapon).</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Bonus</div>
+          <div class="stat-cn">加成</div>
+          <div class="stat-desc">The total bonus added on top of the base stat from all sources.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Flow Bonus</div>
+          <div class="stat-cn">流脉加成</div>
+          <div class="stat-desc">Bonus from your character's Flow Vein (流脉) passive node tree.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Gear Bonus</div>
+          <div class="stat-cn">装备加成</div>
+          <div class="stat-desc">Bonus from equipped gear and accessories.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Inscription Bonus</div>
+          <div class="stat-cn">铭文加成</div>
+          <div class="stat-desc">Bonus from Inscriptions (铭文) applied to your equipment.</div>
+        </div>
+
+        <div class="stat-row">
+          <div class="stat-en">Other Bonuses</div>
+          <div class="stat-cn">其他加成</div>
+          <div class="stat-desc">Miscellaneous bonuses from buffs, temporary effects, or other sources.</div>
         </div>
 
       </div>
