@@ -547,6 +547,59 @@
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--border-glow); border-radius: 3px; }
+
+  /* ══════════════════════════════════════════
+     MOBILE RESPONSIVE — max-width: 768px
+  ══════════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* SITE HEADER */
+    .site-header { padding: 0 16px; }
+    .site-title span { display: none; }
+    .header-nav a { padding: 0 12px; font-size: 10px; }
+
+    /* PAGE LAYOUT — hide sidebar, full width main */
+    .page-layout { grid-template-columns: 1fr; }
+    .sidebar { display: none; }
+    .main { padding: 28px 16px 60px; }
+
+    /* PAGE HEADER */
+    .page-title { font-size: 22px; }
+
+    /* STAT ROWS — stack 3-col into 2-col then 1-col */
+    .stat-row {
+      grid-template-columns: 1fr;
+      gap: 4px;
+      padding: 14px 16px;
+    }
+    .stat-en { font-size: 11px; color: var(--gold); }
+    .stat-cn { font-size: 14px; }
+    .stat-desc { font-size: 14px; color: var(--text-dim); border-top: 1px solid rgba(30,45,69,0.4); padding-top: 8px; margin-top: 4px; }
+
+    /* ATK BREAKDOWN — stack branches */
+    .atk-tree { flex-direction: column; gap: 16px; }
+
+    /* CALLOUT */
+    .callout-body .mechanic-line { flex-wrap: wrap; gap: 6px; }
+    .callout-body .mval { min-width: auto; }
+
+    /* FLOW GRID — 2 columns */
+    .flow-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .flow-cn { font-size: 17px; }
+    .flow-desc { font-size: 12.5px; }
+
+    /* RESIST GRID — 2 columns */
+    .resist-grid { grid-template-columns: repeat(2, 1fr); }
+    .resist-desc { font-size: 12px; }
+
+    /* WEAPON TYPE GRID — 2 columns */
+    .weapon-type-grid { grid-template-columns: repeat(2, 1fr); }
+    .weapon-type-desc { font-size: 12.5px; }
+
+    /* NOTE BOX */
+    .note-box { font-size: 13.5px; }
+  }
+
 </style>
 </head>
 <body>

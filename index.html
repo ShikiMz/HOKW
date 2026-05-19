@@ -313,6 +313,25 @@
   }
   .header-nav a:hover { color: var(--gold-light); }
   .header-nav a.active { color: var(--gold-light); border-bottom-color: var(--gold); }
+
+  /* ══════════════════════════════════════════
+     MOBILE RESPONSIVE — max-width: 768px
+  ══════════════════════════════════════════ */
+  @media (max-width: 768px) {
+    .site-header { padding: 0 16px; }
+    .site-title span { display: none; }
+    .header-nav a { padding: 0 10px; font-size: 10px; }
+    .roster-section { padding: 40px 16px; }
+    .roster-heading { font-size: 28px; }
+    .roster-sub { font-size: 11px; margin-bottom: 36px; }
+    .roster-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .hero-card { padding: 22px 12px 18px; }
+    .hero-card-portrait { width: 60px; height: 60px; font-size: 24px; }
+    .hero-card-cn { font-size: 13px; }
+    .hero-card-en { font-size: 9px; }
+    .class-section-label { font-size: 10px; padding: 4px 10px; }
+  }
+
 </style>
 </head>
 <body>

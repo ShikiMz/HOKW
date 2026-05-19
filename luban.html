@@ -828,9 +828,6 @@
     padding: 40px 48px 80px;
     min-width: 0;
   }
-
-  @media (max-width: 768px) {
-    .sidebar { display: none; }
     .container { padding: 24px 16px 60px; }
   }
   .site-header {
@@ -995,6 +992,93 @@
   /* Set .hero-class-role color per hero class:
      Assault 强攻: var(--red)  |  Support 辅助: var(--green)  |  Clash 对抗: var(--gold) */
   .hero-class-role { color: var(--green); } /* Support */
+
+  /* ══════════════════════════════════════════
+     MOBILE RESPONSIVE — max-width: 768px
+  ══════════════════════════════════════════ */
+  @media (max-width: 768px) {
+
+    /* SITE HEADER */
+    .site-header { padding: 0 16px; }
+    .site-title span { display: none; }
+    .back-btn span { display: none; }
+
+    /* HERO HEADER */
+    .hero { padding: 36px 20px 28px; }
+    .hero-name { font-size: 24px; letter-spacing: 0.05em; }
+    .hero-sub { font-size: 11px; }
+    .hero-class { font-size: 11px; }
+
+    /* CONTAINER */
+    .container { padding: 24px 16px 60px; }
+
+    /* SKILL HEADER */
+    .skill-header { padding: 16px 16px; gap: 12px; }
+    .skill-icon-slot { width: 42px; height: 42px; }
+    .skill-cn { font-size: 16px; }
+    .skill-en { font-size: 12px; }
+    .skill-level { display: none; }
+
+    /* TABS */
+    .tab-btn { padding: 10px 12px; font-size: 10px; letter-spacing: 0.1em; }
+    .tab-content { padding: 16px 14px; }
+
+    /* DESCRIPTION TEXT */
+    .desc-main, .sub-skill-desc { font-size: 15px; line-height: 1.8; }
+
+    /* STATS TABLE */
+    .stats-table td { font-size: 14px; padding: 9px 0; }
+    .stats-table td:first-child { width: 50%; }
+
+    /* NODE CARDS — stack left/desc into single column */
+    .node-card {
+      grid-template-columns: 1fr;
+      gap: 14px;
+      padding: 18px 16px;
+    }
+    .node-left {
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+      padding-right: 0;
+      padding-bottom: 14px;
+    }
+    .node-desc { font-size: 15px; line-height: 1.8; }
+    .node-cn { font-size: 18px; }
+
+    /* BREAKTHROUGH — single column */
+    .breakthrough-grid { grid-template-columns: 1fr; }
+    .bt-row { font-size: 15px; }
+
+    /* WEAPON CHAIN */
+    .chain-icon { width: 54px; height: 54px; }
+    .chain-badge { padding: 8px 8px; }
+    .chain-lv { font-size: 10px; }
+
+    /* WEAPON HEADER */
+    .weapon-header { padding: 16px 16px; gap: 14px; }
+    .weapon-icon { width: 64px; height: 64px; }
+    .weapon-cn { font-size: 17px; }
+    .weapon-en { font-size: 13px; }
+    .weapon-type { font-size: 11px; }
+
+    /* WEAPON BODY — stack stats + right column */
+    .weapon-body {
+      grid-template-columns: 1fr;
+      gap: 18px;
+      padding: 18px 16px;
+    }
+    .weapon-stat-row { font-size: 15px; }
+    .weapon-passive-desc { font-size: 15px; }
+    .weapon-lore { font-size: 14px; }
+
+    /* HERO NAV FOOTER — stack vertically */
+    .hero-nav-grid { grid-template-columns: 1fr; }
+    .hero-nav-card { padding: 18px 18px; }
+    .hero-nav-card.next { flex-direction: row; text-align: left; }
+    .hero-nav-portrait { width: 46px; height: 46px; font-size: 18px; }
+    .hero-nav-cn { font-size: 15px; }
+  }
+
 </style>
 </head>
 <body>
