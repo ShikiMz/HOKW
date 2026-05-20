@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>花木兰 · Hua Mulan — HOKW</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Spectral:wght@400;500&display=swap" rel="stylesheet">
+<style>
+
+  :root {
+    --bg: #080c14;
+    --bg2: #0d1420;
+    --bg3: #111827;
+    --border: #1e2d45;
+    --border-glow: #2a4a7f;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim: #7a5e2a;
+    --blue: #4a9eff;
+    --blue-dim: #1a3a6a;
+    --teal: #5ecfcf;
+    --red: #e06060;
+    --green: #6dbf8a;
+    --text: #d4cfc7;
+    --text-dim: #7a7a8a;
+    --text-bright: #f0ead8;
+    --tag-bg: #12202f;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'EB Garamond', serif;
+    font-size: 19px;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(42,74,127,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.07) 0%, transparent 50%);
+  }
+
+  /* SITE HEADER */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: rgba(8,12,20,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 56px;
+  }
+  .site-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 16px;
+    color: var(--gold-light);
+    letter-spacing: 0.15em;
+    text-decoration: none;
+  }
+  .site-title span {
+    color: var(--text-dim);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    margin-left: 12px;
+    font-family: 'Cinzel', serif;
+  }
+  .back-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: #8a9ab5;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border: 1px solid var(--border);
+    border-radius: 3px;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .back-btn::before { content: '‹'; font-size: 16px; }
+  .back-btn:hover { color: var(--gold-light); border-color: var(--gold-dim); }
+
+  /* HERO HEADER */
+  .hero {
+    position: relative;
+    text-align: center;
+    padding: 60px 40px 40px;
+    border-bottom: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(74,158,255,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-cn {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 13px;
+    letter-spacing: 0.4em;
+    color: var(--gold-dim);
+    text-transform: uppercase;
+    margin-bottom: 10px;
+  }
+  .hero-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--gold-light);
+    letter-spacing: 0.1em;
+    text-shadow: 0 0 40px rgba(201,168,76,0.3);
+    margin-bottom: 6px;
+  }
+  .hero-sub {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.3em;
+    color: var(--text-dim);
+  }
+  .hero-class {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--text-dim);
+    margin-top: 10px;
+  }
+  .hero-class-title { color: var(--gold); }
+  .hero-class-role { color: #a066d3; }
+  .star-divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    justify-content: center;
+    margin: 20px 0 0;
+  }
+  .star-divider::before, .star-divider::after {
+    content: '';
+    flex: 1;
+    max-width: 200px;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-dim));
+  }
+  .star-divider::after { background: linear-gradient(to left, transparent, var(--gold-dim)); }
+  .star-divider span { color: var(--gold); font-size: 14px; }
+
+  /* PAGE LAYOUT */
+  .page-layout {
+    display: grid;
+    grid-template-columns: 230px 1fr;
+    max-width: 1340px;
+    margin: 0 auto;
+    min-height: calc(100vh - 56px);
+  }
+
+  /* SIDEBAR */
+  .sidebar {
+            position: sticky;
+    top: 56px;
+    height: calc(100vh - 56px);
+    background: rgba(8,12,20,0.97);
+    border-right: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    padding: 28px 0;
+    overflow-y: auto;
+  }
+  .sidebar-nav { display: flex; flex-direction: column; gap: 2px; flex: 1; }
+  .sidebar-link {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #7a7a8a;
+    text-decoration: none;
+    padding: 14px 22px;
+    border-left: 2px solid transparent;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.2s;
+  }
+  .sidebar-link:hover { color: var(--text-bright); background: rgba(255,255,255,0.02); }
+  .sidebar-link.active { color: var(--gold-light); border-left-color: var(--gold); background: rgba(201,168,76,0.05); }
+  .sidebar-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; opacity: 0.7; flex-shrink: 0; }
+  .sidebar-back { padding: 20px 22px 0; border-top: 1px solid var(--border); margin-top: 16px; }
+  .sidebar-back-link {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: #7a7a8a;
+    text-decoration: none;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+  }
+  .sidebar-back-link:hover { color: var(--gold-light); }
+
+  /* CONTAINER */
+  .container { flex: 1; max-width: 1100px; padding: 40px 48px 80px; min-width: 0; }
+
+  /* SECTION */
+  .section { margin-bottom: 48px; }
+  .section-label {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.35em;
+    color: #8a9ab5;
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+  /* FORM TABS (dual-blade / greatsword toggle) */
+  .form-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 28px;
+  }
+  .form-tab-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 13px 24px;
+    color: #7a7a8a;
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    transition: color 0.2s;
+    margin-bottom: -1px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .form-tab-btn:hover:not(.active) { color: var(--text-bright); }
+  .form-tab-btn.active { color: var(--gold-light); border-bottom-color: var(--gold); }
+  .form-tab-badge {
+    font-size: 9px;
+    padding: 2px 7px;
+    border-radius: 3px;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+  }
+  .badge-light { background: rgba(74,158,255,0.12); color: #4a9eff; border: 1px solid rgba(74,158,255,0.3); }
+  .badge-heavy { background: rgba(224,96,96,0.12); color: #e06060; border: 1px solid rgba(224,96,96,0.3); }
+  .badge-shared { background: rgba(201,168,76,0.1); color: var(--gold); border: 1px solid rgba(201,168,76,0.25); }
+
+  .form-panel { display: none; }
+  .form-panel.active { display: block; }
+
+  /* SKILL CARDS */
+  .skill-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    margin-bottom: 24px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .skill-card:hover { border-color: var(--border-glow); }
+  .skill-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px 28px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(to right, rgba(42,74,127,0.08), transparent);
+  }
+  .skill-icon-slot {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background: var(--bg3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    border: 1px solid var(--border-glow);
+  }
+  .skill-icon-slot img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .skill-title-area { flex: 1; }
+  .skill-key { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .skill-key-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #c9a84c;
+    background: transparent;
+    border: 1px solid rgba(201,168,76,0.4);
+    border-radius: 4px;
+    padding: 3px 10px;
+    flex-shrink: 0;
+  }
+  .skill-key-label {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    color: #8a9ab5;
+    text-transform: uppercase;
+  }
+  .skill-names { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+  .skill-cn { font-family: 'Cinzel Decorative', serif; font-size: 20px; color: var(--text-bright); }
+  .skill-en { font-family: 'Cinzel', serif; font-size: 14px; color: var(--gold); letter-spacing: 0.05em; }
+  .skill-meta { display: flex; align-items: center; gap: 10px; margin-top: 8px; flex-wrap: wrap; }
+  .skill-level { margin-left: auto; font-family: 'Cinzel', serif; font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em; white-space: nowrap; }
+  .skill-level span { color: var(--gold); }
+  .cd { font-family: 'EB Garamond', serif; font-size: 16px; color: var(--teal); font-style: italic; }
+
+  .tag {
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    padding: 3px 8px;
+    border-radius: 2px;
+    text-transform: uppercase;
+  }
+  .tag-skill    { background: rgba(74,158,255,0.12);   color: var(--blue);  border: 1px solid rgba(74,158,255,0.3); }
+  .tag-damage   { background: rgba(224,96,96,0.12);    color: var(--red);   border: 1px solid rgba(224,96,96,0.3); }
+  .tag-buff     { background: rgba(109,191,138,0.12);  color: var(--green); border: 1px solid rgba(109,191,138,0.3); }
+  .tag-stun     { background: rgba(201,168,76,0.12);   color: var(--gold);  border: 1px solid rgba(201,168,76,0.3); }
+  .tag-recovery { background: rgba(94,207,207,0.12);   color: var(--teal);  border: 1px solid rgba(94,207,207,0.3); }
+  .tag-liberation { background: rgba(150,80,200,0.15); color: #c090e8;      border: 1px solid rgba(150,80,200,0.3); }
+  .tag-switch   { background: rgba(94,207,207,0.10);   color: #7dd4d4;      border: 1px solid rgba(94,207,207,0.25); }
+  .tag-resource { background: rgba(220,160,60,0.12);   color: #e0a040;      border: 1px solid rgba(220,160,60,0.3); }
+  .tag-invuln   { background: rgba(160,102,211,0.12);  color: #b080d8;      border: 1px solid rgba(160,102,211,0.3); }
+  .tag-counter  { background: rgba(224,96,96,0.08);    color: #d08080;      border: 1px solid rgba(224,96,96,0.2); }
+
+  /* TABS inside skill cards */
+  .tabs { display: flex; border-bottom: 1px solid var(--border); }
+  .tab-btn {
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    padding: 14px 22px;
+    color: #8a9ab5;
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+    position: relative;
+    top: 1px;
+  }
+  .tab-btn:hover { color: var(--text-bright); }
+  .tab-btn.active { color: var(--gold-light); border-bottom-color: var(--gold); }
+  .tab-content { display: none; padding: 24px 28px; }
+  .tab-content.active { display: block; }
+
+  /* DESCRIPTION */
+  .desc-main { font-family: 'Spectral', serif; font-size: 17px; line-height: 1.9; color: var(--text); margin-bottom: 20px; }
+  .desc-main:last-child { margin-bottom: 0; }
+  .sub-skill { margin-top: 16px; padding-left: 16px; border-left: 2px solid rgba(201,168,76,0.3); }
+  .sub-skill-name {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    letter-spacing: 0.2em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .sub-skill-desc { font-family: 'Spectral', serif; font-size: 17px; line-height: 1.9; color: var(--text); }
+  .kw      { color: var(--blue);       font-weight: 500; }
+  .kw-gold { color: var(--gold-light); font-weight: 500; }
+  .kw-red  { color: var(--red);        font-weight: 500; }
+  .kw-teal { color: var(--teal);       font-weight: 500; }
+  .num     { color: var(--gold-light); font-weight: 600; }
+
+  /* PVP */
+  .pvp-box {
+    background: rgba(42,74,127,0.08);
+    border: 1px solid rgba(42,74,127,0.3);
+    border-radius: 3px;
+    padding: 14px 18px;
+    font-family: 'Spectral', serif;
+    font-size: 16px;
+    line-height: 1.85;
+    color: var(--text);
+    margin-bottom: 12px;
+  }
+  .pvp-box:last-child { margin-bottom: 0; }
+  .pvp-box.modified { background: rgba(201,168,76,0.05); border-color: rgba(201,168,76,0.2); }
+  .pvp-box.nochange { background: rgba(30,45,69,0.3); border-color: rgba(30,45,69,0.6); color: var(--text-dim); }
+
+  /* NODE CARDS */
+  .nodes-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 40px; }
+  .node-card {
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gold-dim);
+    padding: 30px 36px;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 36px;
+    align-items: start;
+    transition: border-color 0.2s, background 0.2s;
+  }
+  .node-card:first-child { border-radius: 4px 4px 0 0; }
+  .node-card:last-child  { border-radius: 0 0 4px 4px; }
+  .node-card:hover { border-left-color: var(--gold); background: rgba(13,20,32,0.9); }
+  .node-left { display: flex; flex-direction: column; gap: 10px; border-right: 1px solid var(--border); padding-right: 28px; }
+  .node-layer {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: var(--text-bright);
+    text-transform: uppercase;
+    background: rgba(42,74,127,0.2);
+    border: 1px solid var(--border-glow);
+    border-radius: 3px;
+    padding: 4px 10px;
+    display: inline-block;
+    margin-bottom: 4px;
+  }
+  .node-cn { font-family: 'Cinzel Decorative', serif; font-size: 21px; color: var(--text-bright); line-height: 1.3; }
+  .node-en { font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold); letter-spacing: 0.05em; margin-top: 3px; }
+  .node-desc { font-family: 'Spectral', serif; font-size: 17px; line-height: 1.9; color: var(--text); }
+
+  /* BREAKTHROUGH */
+  .breakthrough-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .bt-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; }
+  .bt-header {
+    padding: 20px 24px;
+    background: linear-gradient(to right, rgba(201,168,76,0.07), transparent);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .bt-icon { height: 72px; width: auto; object-fit: contain; flex-shrink: 0; }
+  .bt-title { display: flex; flex-direction: column; gap: 6px; flex: 1; }
+  .bt-cn { font-family: 'Cinzel Decorative', serif; font-size: 19px; color: var(--gold); }
+  .bt-en { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 0.15em; color: #8a9ab5; }
+  .bt-body { padding: 16px 24px; }
+  .bt-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(30,45,69,0.5);
+    font-size: 17px;
+  }
+  .bt-row:last-child { border-bottom: none; }
+  .bt-stat { color: var(--text-dim); }
+  .bt-values { display: flex; align-items: center; gap: 10px; }
+  .bt-before { color: var(--text-dim); }
+  .bt-arrow { color: var(--border-glow); font-size: 12px; }
+  .bt-after { color: var(--green); font-weight: 600; }
+
+  /* WEAPONS */
+  .weapon-chain {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 40px;
+    overflow-x: auto;
+    padding-bottom: 8px;
+  }
+  .chain-item { display: flex; align-items: center; gap: 0; flex-shrink: 0; }
+  .chain-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+    padding: 10px 14px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    transition: all 0.2s;
+    text-align: center;
+    text-decoration: none;
+  }
+  .chain-badge:hover { border-color: var(--border-glow); background: var(--bg2); }
+  .chain-badge:hover .chain-icon { transform: translateY(-3px); }
+  .chain-icon {
+    width: 72px; height: 72px;
+    border-radius: 6px;
+    background: var(--bg3);
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-dim);
+    font-size: 10px; font-family: 'Cinzel', serif;
+    overflow: hidden;
+    transition: transform 0.2s;
+  }
+  .chain-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 5px; }
+  .chain-icon.grade-white  { border-color: #c8c8c8; box-shadow: 0 0 6px rgba(200,200,200,0.2); }
+  .chain-icon.grade-green  { border-color: #4caf7d; box-shadow: 0 0 6px rgba(76,175,125,0.25); }
+  .chain-icon.grade-blue   { border-color: #4a9eff; box-shadow: 0 0 6px rgba(74,158,255,0.25); }
+  .chain-icon.grade-purple { border-color: #a066d3; box-shadow: 0 0 6px rgba(160,102,211,0.25); }
+  .chain-icon.grade-gold   { border-color: #c9a84c; box-shadow: 0 0 8px rgba(201,168,76,0.3); }
+  .chain-icon.grade-red    { border-color: #e05050; box-shadow: 0 0 10px rgba(224,80,80,0.35); }
+  .chain-lv { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 0.15em; color: #8a9ab5; }
+  .chain-lv.sig { color: var(--gold); }
+  .chain-arrow { color: var(--border-glow); font-size: 22px; padding: 0 6px; flex-shrink: 0; }
+
+  .weapon-cards { display: flex; flex-direction: column; gap: 20px; }
+  .weapon-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; transition: border-color 0.2s; }
+  .weapon-card:hover { border-color: var(--border-glow); }
+  .weapon-header {
+    display: flex; align-items: center; gap: 24px;
+    padding: 26px 32px;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(to right, rgba(42,74,127,0.06), transparent);
+  }
+  .weapon-icon {
+    width: 90px; height: 90px;
+    border-radius: 6px;
+    background: var(--bg3);
+    border: 2px solid var(--border);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--text-dim);
+    font-size: 10px; font-family: 'Cinzel', serif;
+    flex-shrink: 0; text-align: center; line-height: 1.4;
+    overflow: hidden;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.4);
+  }
+  .weapon-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 5px; }
+  .weapon-icon.grade-white  { border-color: #c8c8c8; box-shadow: 0 0 8px rgba(200,200,200,0.2); }
+  .weapon-icon.grade-green  { border-color: #4caf7d; box-shadow: 0 0 8px rgba(76,175,125,0.25); }
+  .weapon-icon.grade-blue   { border-color: #4a9eff; box-shadow: 0 0 8px rgba(74,158,255,0.25); }
+  .weapon-icon.grade-purple { border-color: #a066d3; box-shadow: 0 0 8px rgba(160,102,211,0.25); }
+  .weapon-icon.grade-gold   { border-color: #c9a84c; box-shadow: 0 0 10px rgba(201,168,76,0.3); }
+  .weapon-icon.grade-red    { border-color: #e05050; box-shadow: 0 0 12px rgba(224,80,80,0.35); }
+  .weapon-title-area { flex: 1; }
+  .weapon-type { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 0.25em; color: #8a9ab5; text-transform: uppercase; margin-bottom: 6px; }
+  .weapon-names { display: flex; align-items: baseline; gap: 14px; flex-wrap: wrap; margin-bottom: 10px; }
+  .weapon-cn { font-family: 'Cinzel Decorative', serif; font-size: 24px; color: var(--text-bright); }
+  .weapon-en { font-family: 'Cinzel', serif; font-size: 17px; color: var(--gold); letter-spacing: 0.05em; }
+  .weapon-badges { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+  .weapon-lv-badge {
+    font-family: 'Cinzel', serif;
+    font-size: 12px; letter-spacing: 0.15em;
+    padding: 5px 12px; border-radius: 3px;
+    background: rgba(74,158,255,0.1); color: var(--blue); border: 1px solid rgba(74,158,255,0.3);
+  }
+  .weapon-lv-badge.grade-white  { background: rgba(200,200,200,0.08); color: #c8c8c8; border-color: rgba(200,200,200,0.35); }
+  .weapon-lv-badge.grade-green  { background: rgba(76,175,125,0.08);  color: #4caf7d; border-color: rgba(76,175,125,0.35); }
+  .weapon-lv-badge.grade-blue   { background: rgba(74,158,255,0.08);  color: #4a9eff; border-color: rgba(74,158,255,0.35); }
+  .weapon-lv-badge.grade-purple { background: rgba(160,102,211,0.08); color: #a066d3; border-color: rgba(160,102,211,0.35); }
+  .weapon-lv-badge.grade-gold   { background: rgba(201,168,76,0.08);  color: #c9a84c; border-color: rgba(201,168,76,0.35); }
+  .weapon-lv-badge.grade-red    { background: rgba(224,80,80,0.08);   color: #e05050; border-color: rgba(224,80,80,0.35); }
+  .weapon-lv-badge.sig { background: rgba(201,168,76,0.12); color: var(--gold-light); border-color: rgba(201,168,76,0.4); }
+  .weapon-body { padding: 28px 32px; display: grid; grid-template-columns: 300px 1fr; gap: 36px; }
+  .weapon-stats { display: flex; flex-direction: column; gap: 0; }
+  .weapon-stat-row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 12px 0; border-bottom: 1px solid rgba(30,45,69,0.6); font-size: 18px;
+  }
+  .weapon-stat-row:last-child { border-bottom: none; }
+  .weapon-stat-label { color: var(--text-dim); }
+  .weapon-stat-val { color: var(--text-bright); font-variant-numeric: tabular-nums; }
+  .weapon-right { display: flex; flex-direction: column; gap: 22px; }
+  .weapon-passive {
+    background: rgba(42,74,127,0.06);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--blue);
+    border-radius: 3px;
+    padding: 18px 20px;
+  }
+  .weapon-passive-name { font-family: 'Cinzel', serif; font-size: 14px; letter-spacing: 0.2em; color: var(--blue); text-transform: uppercase; margin-bottom: 10px; }
+  .weapon-passive-desc { font-size: 18px; line-height: 1.85; color: var(--text); }
+  .weapon-lore { font-size: 17px; line-height: 1.9; color: var(--text-dim); font-style: italic; border-top: 1px solid var(--border); padding-top: 18px; }
+  .weapon-lore-label { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.3em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 10px; font-style: normal; }
+
+  /* SCROLLBAR */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--border-glow); border-radius: 3px; }
+
+  /* HERO NAV FOOTER */
+  .hero-nav-footer { margin-top: 64px; padding-top: 40px; border-top: 1px solid var(--border); }
+  .hero-nav-footer-label {
+    font-family: 'Cinzel', serif;
+    font-size: 11px; letter-spacing: 0.35em; color: var(--text-dim); text-transform: uppercase;
+    margin-bottom: 20px; display: flex; align-items: center; gap: 14px;
+  }
+  .hero-nav-footer-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+  .hero-nav-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .hero-nav-card {
+    background: var(--bg2); border: 1px solid var(--border); border-radius: 4px;
+    padding: 28px 32px; text-decoration: none;
+    display: flex; align-items: center; gap: 20px;
+    transition: border-color 0.2s, background 0.2s, transform 0.2s;
+    position: relative; overflow: hidden;
+  }
+  .hero-nav-card::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(74,158,255,0.05) 0%, transparent 70%);
+    opacity: 0; transition: opacity 0.2s;
+  }
+  .hero-nav-card:hover { border-color: var(--gold-dim); transform: translateY(-3px); }
+  .hero-nav-card:hover::before { opacity: 1; }
+  .hero-nav-card.next { flex-direction: row-reverse; text-align: right; }
+  .hero-nav-card.placeholder-card { opacity: 0.35; border-style: dashed; cursor: default; pointer-events: none; }
+  .hero-nav-portrait {
+    width: 64px; height: 64px; border-radius: 50%; background: var(--bg3);
+    border: 2px solid var(--border-glow);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 26px; flex-shrink: 0; transition: border-color 0.2s;
+  }
+  .hero-nav-card:hover .hero-nav-portrait { border-color: var(--gold-dim); }
+  .hero-nav-info { display: flex; flex-direction: column; gap: 4px; }
+  .hero-nav-direction { font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 0.3em; color: var(--text-dim); text-transform: uppercase; }
+  .hero-nav-cn { font-family: 'Cinzel Decorative', serif; font-size: 18px; color: var(--text-bright); }
+  .hero-nav-en { font-family: 'Cinzel', serif; font-size: 13px; color: var(--gold); letter-spacing: 0.1em; }
+  .hero-nav-type { font-family: 'Cinzel', serif; font-size: 11px; color: var(--text-dim); letter-spacing: 0.1em; }
+  .hero-nav-arrow { font-size: 32px; color: var(--border-glow); flex-shrink: 0; transition: color 0.2s; }
+  .hero-nav-card:hover .hero-nav-arrow { color: var(--gold-dim); }
+
+  /* ASSOCIATED NODES CHIPS */
+  .assoc-nodes { margin-top: 24px; padding-top: 20px; border-top: 1px solid var(--border); }
+  .assoc-nodes-label { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.3em; color: var(--text-dim); text-transform: uppercase; margin-bottom: 12px; }
+  .assoc-nodes-list { display: flex; flex-wrap: wrap; gap: 10px; }
+  .assoc-node-chip {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--bg3); border: 1px solid var(--border); border-radius: 4px;
+    padding: 8px 14px 8px 10px; text-decoration: none;
+    transition: border-color 0.2s, background 0.2s; cursor: pointer;
+  }
+  .assoc-node-chip:hover { border-color: var(--gold-dim); background: rgba(201,168,76,0.05); }
+  .assoc-node-chip-icon {
+    width: 28px; height: 28px; border-radius: 50%; background: var(--bg2);
+    border: 1px solid var(--border-glow);
+    display: flex; align-items: center; justify-content: center; overflow: hidden; flex-shrink: 0;
+  }
+  .assoc-node-chip-icon img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+  .assoc-node-chip-name { font-family: 'Cinzel', serif; font-size: 12px; letter-spacing: 0.1em; color: var(--text-bright); }
+  .assoc-node-chip-arrow { font-size: 13px; color: var(--text-dim); margin-left: 2px; }
+
+  /* SHARED SKILLS DIVIDER */
+  .shared-skills-header {
+    display: flex; align-items: center; gap: 14px;
+    margin: 36px 0 24px;
+  }
+  .shared-skills-header::before, .shared-skills-header::after {
+    content: ''; flex: 1; height: 1px; background: var(--border);
+  }
+  .shared-skills-label {
+    font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.35em;
+    color: var(--gold-dim); text-transform: uppercase; white-space: nowrap;
+    padding: 4px 14px; border: 1px solid rgba(201,168,76,0.2); border-radius: 3px;
+    background: rgba(201,168,76,0.04);
+  }
+
+  /* ══════════════════════════════════════════
+     MOBILE RESPONSIVE — max-width: 768px
+  ══════════════════════════════════════════ */
+  @media (max-width: 768px) {
+    .sidebar { display: none !important; }
+    .page-layout { display: block !important; max-width: 100% !important; }
+    .container { max-width: 100% !important; padding: 24px 16px 60px !important; }
+    .site-header { padding: 0 16px; }
+    .site-title span { display: none; }
+    .hero { padding: 40px 20px 30px; }
+    .hero-name { font-size: 26px; }
+    .skill-header { padding: 16px 18px; gap: 14px; }
+    .skill-icon-slot { width: 44px; height: 44px; }
+    .tab-content { padding: 18px; }
+    .node-card { grid-template-columns: 1fr; gap: 16px; padding: 20px; }
+    .node-left { border-right: none; padding-right: 0; border-bottom: 1px solid var(--border); padding-bottom: 16px; }
+    .weapon-body { grid-template-columns: 1fr; }
+    .weapon-header { padding: 18px 20px; gap: 16px; }
+    .hero-nav-grid { grid-template-columns: 1fr; }
+    .breakthrough-grid { grid-template-columns: 1fr; }
+  }
+
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="site-title" href="index.html">HOKW <span>Hero Reference</span></a>
+  <a class="back-btn" href="index.html">Roster</a>
+</header>
+
+<!-- HERO HEADER -->
+<div class="hero">
+  <div class="hero-cn">花木兰</div>
+  <div class="hero-name">Hua Mulan</div>
+  <div class="hero-sub">Complete Skill, Node &amp; Weapon Reference</div>
+  <div class="hero-class">
+    <span class="hero-class-title">长城守卫军队长 · Commander of the Great Wall Guard</span>
+    &nbsp;·&nbsp;
+    <span class="hero-class-role">对抗 · Clash</span>
+  </div>
+  <div class="star-divider"><span>✦</span></div>
+</div>
+
+<div class="page-layout">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <nav class="sidebar-nav">
+      <a class="sidebar-link active" href="#skills" data-section="skills"><span class="sidebar-dot"></span>Skills</a>
+      <a class="sidebar-link" href="#nodes" data-section="nodes"><span class="sidebar-dot"></span>Nodes</a>
+      <a class="sidebar-link" href="#breakthrough" data-section="breakthrough"><span class="sidebar-dot"></span>Breakthrough</a>
+      <a class="sidebar-link" href="#weapons" data-section="weapons"><span class="sidebar-dot"></span>Weapons</a>
+    </nav>
+    <div class="sidebar-back">
+      <a class="sidebar-back-link" href="index.html">‹ &nbsp;Back to Roster</a>
+    </div>
+  </aside>
+
+  <div class="container">
+
+    <!-- ===== SKILLS ===== -->
+    <div id="skills" class="section">
+      <div class="section-label">技能 · Skills</div>
+
+      <!-- FORM TABS -->
+      <div class="form-tabs">
+        <button class="form-tab-btn active" onclick="switchForm('light')" id="formTabLight">
+          <span class="form-tab-badge badge-light">轻剑</span>
+          Dual Blades
+        </button>
+        <button class="form-tab-btn" onclick="switchForm('heavy')" id="formTabHeavy">
+          <span class="form-tab-badge badge-heavy">重剑</span>
+          Greatsword
+        </button>
+      </div>
+
+      <!-- ══════════════════════════════
+           DUAL BLADES PANEL (轻剑)
+      ══════════════════════════════ -->
+      <div id="panelLight" class="form-panel active">
+
+        <!-- LMB · Normal Attack (Dual Blades) -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon-slot"><img src="mulan/icon_normalattack.png" alt="Normal Attack"></div>
+            <div class="skill-title-area">
+              <div class="skill-key">
+                <span class="skill-key-badge">LMB</span>
+                <span class="skill-key-label">Normal Attack</span>
+              </div>
+              <div class="skill-names">
+                <span class="skill-cn">普通攻击</span>
+                <span class="skill-en">Normal Attack</span>
+              </div>
+              <div class="skill-meta">
+                <span class="tag tag-skill">Skill</span>
+                <span class="tag tag-damage">Damage</span>
+                <span class="tag tag-stun">Stun</span>
+              </div>
+            </div>
+          </div>
+          <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(this,'ml-aa-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'ml-aa-pvp')">PvP</button>
+          </div>
+          <div id="ml-aa-desc" class="tab-content active">
+            <p class="desc-main">Swing the dual blades in up to <span class="num">5</span> consecutive slash strikes. Each hit deals normal attack damage and grants <span class="kw">Fierce Blade Intent (迅烈剑意)</span>.</p>
+            <div class="sub-skill">
+              <div class="sub-skill-name">Charged Attack · 蓄力普攻</div>
+              <div class="sub-skill-desc">Spin continuously and slash, launching enemies into the air. Each hit deals normal attack damage and grants <span class="kw">Fierce Blade Intent</span>.</div>
+            </div>
+            <div class="sub-skill">
+              <div class="sub-skill-name">Perfect Dodge Counter · 完美闪避反击</div>
+              <div class="sub-skill-desc">After triggering a <span class="kw">Perfect Dodge</span>, the next normal attack is empowered into <span class="num">2</span> rapid slashes. Each hit deals normal attack damage and grants <span class="kw">Fierce Blade Intent</span>. Can counter enemy <span class="kw-red">Red-Light Skills</span>.</div>
+            </div>
+            <div class="assoc-nodes">
+              <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
+              <div class="assoc-nodes-list">
+                <a class="assoc-node-chip" href="#node-buqihuwei"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_buqihuwei.png" alt="不怯虎威"></div><span class="assoc-node-chip-name">不怯虎威</span><span class="assoc-node-chip-arrow">›</span></a>
+                <a class="assoc-node-chip" href="#node-junfenglinarr"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_junfenglinarr.png" alt="军锋临阵"></div><span class="assoc-node-chip-name">军锋临阵</span><span class="assoc-node-chip-arrow">›</span></a>
+              </div>
+            </div>
+          </div>
+          <div id="ml-aa-pvp" class="tab-content">
+            <div class="pvp-box nochange">This skill has no changes in Ranked Mode.</div>
+          </div>
+        </div>
+
+        <!-- Q · 空裂斩 (Dual Blades) -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon-slot"><img src="mulan/icon_kongliexan.png" alt="空裂斩"></div>
+            <div class="skill-title-area">
+              <div class="skill-key">
+                <span class="skill-key-badge">Q</span>
+                <span class="skill-key-label">Resonance Skill I</span>
+              </div>
+              <div class="skill-names">
+                <span class="skill-cn">空裂斩</span>
+                <span class="skill-en">Void Rend</span>
+              </div>
+              <div class="skill-meta">
+                <span class="tag tag-skill">Skill</span>
+                <span class="tag tag-resource">Resource</span>
+                <span class="tag tag-stun">Major Stun</span>
+                <span class="cd">Cooldown: 12s</span>
+              </div>
+            </div>
+          </div>
+          <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(this,'ml-q-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'ml-q-pvp')">PvP</button>
+          </div>
+          <div id="ml-q-desc" class="tab-content active">
+            <p class="desc-main">Spin the dual blades and dash forward, dealing multiple hits of <span class="kw">Attribute Skill DMG</span>. Re-activating leaps airborne and unleashes a spinning wheel-slash with the dual blades, dealing multiple hits of <span class="kw">Attribute Skill DMG</span>. On hit, grants <span class="kw">Fierce Blade Intent (迅烈剑意)</span>.</p>
+            <div class="assoc-nodes">
+              <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
+              <div class="assoc-nodes-list">
+                <a class="assoc-node-chip" href="#node-hanhaiaobinh"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_hanhaiaobinh.png" alt="瀚海鏖兵"></div><span class="assoc-node-chip-name">瀚海鏖兵</span><span class="assoc-node-chip-arrow">›</span></a>
+                <a class="assoc-node-chip" href="#node-wangwohanzhan"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_wangwohanzhan.png" alt="忘我酣战"></div><span class="assoc-node-chip-name">忘我酣战</span><span class="assoc-node-chip-arrow">›</span></a>
+              </div>
+            </div>
+          </div>
+          <div id="ml-q-pvp" class="tab-content">
+            <div class="pvp-box modified">In Ranked Mode, <span class="kw-gold">苍破斩</span> is treated as a <span class="kw">Strong Attribute Skill (强流技)</span>, and <span class="kw-gold">苍破强袭</span> is treated as an <span class="kw">Ultimate</span>.</div>
+          </div>
+        </div>
+
+        <!-- E · 旋舞之华 (Dual Blades) -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon-slot"><img src="mulan/icon_xuanwuzhihua.png" alt="旋舞之华"></div>
+            <div class="skill-title-area">
+              <div class="skill-key">
+                <span class="skill-key-badge">E</span>
+                <span class="skill-key-label">Resonance Skill II</span>
+              </div>
+              <div class="skill-names">
+                <span class="skill-cn">旋舞之华</span>
+                <span class="skill-en">Spinning Petal</span>
+              </div>
+              <div class="skill-meta">
+                <span class="tag tag-skill">Skill</span>
+                <span class="tag tag-resource">Resource</span>
+                <span class="cd">Cooldown: 12s</span>
+              </div>
+            </div>
+          </div>
+          <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(this,'ml-e-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'ml-e-pvp')">PvP</button>
+          </div>
+          <div id="ml-e-desc" class="tab-content active">
+            <p class="desc-main">Throw a dual blade forward; on hit it attaches to the enemy and orbits them, dealing <span class="kw">Attribute Skill DMG</span> once every <span class="num">0.5s</span> for <span class="num">6s</span>. Re-activating instantly teleports to the blade's location, picks it up, and delivers a powerful slash dealing <span class="kw">Attribute Skill DMG</span>. On hit, grants <span class="kw">Fierce Blade Intent (迅烈剑意)</span>.</p>
+            <div class="assoc-nodes">
+              <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
+              <div class="assoc-nodes-list">
+                <a class="assoc-node-chip" href="#node-xunshouyizhi"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_xunshouyizhi.png" alt="巡守者意志"></div><span class="assoc-node-chip-name">巡守者意志</span><span class="assoc-node-chip-arrow">›</span></a>
+              </div>
+            </div>
+          </div>
+          <div id="ml-e-pvp" class="tab-content">
+            <div class="pvp-box modified">In Ranked Mode, the attached blade's orbit duration is reduced to <span class="num">1s</span>. The blade does not apply <span class="kw">Suppression (压制)</span> and is treated as a normal attack. <span class="kw-gold">迅烈之华</span> — the first <span class="num">3</span> hits are treated as <span class="kw">Strong Attribute Skills (强流技)</span>; the final hit is treated as an <span class="kw">Ultimate</span>.</div>
+          </div>
+        </div>
+
+        <!-- R · 绕放刀锋 (Dual Blades → Greatsword) -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon-slot"><img src="mulan/icon_raofaodofeng_light.png" alt="绕放刀锋"></div>
+            <div class="skill-title-area">
+              <div class="skill-key">
+                <span class="skill-key-badge">R</span>
+                <span class="skill-key-label">Resonance Skill III</span>
+              </div>
+              <div class="skill-names">
+                <span class="skill-cn">绕放刀锋</span>
+                <span class="skill-en">Whirling Blade Edge</span>
+              </div>
+              <div class="skill-meta">
+                <span class="tag tag-skill">Skill</span>
+                <span class="tag tag-switch">Switch</span>
+                <span class="tag tag-stun">Major Stun</span>
+                <span class="cd">Cooldown: 1s</span>
+              </div>
+            </div>
+          </div>
+          <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(this,'ml-r-light-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'ml-r-light-pvp')">PvP</button>
+          </div>
+          <div id="ml-r-light-desc" class="tab-content active">
+            <p class="desc-main">Instantly switch to <span class="kw-gold">Greatsword Form (重剑形态)</span>, unleashing rapid consecutive slashes with the dual blades to deal <span class="kw">Attribute Skill DMG</span> and grant <span class="kw">Fierce Blade Intent (迅烈剑意)</span>. On successful <span class="kw">Parry (化解)</span>, counters the enemy's <span class="kw-red">Red-Light Skill</span>.</p>
+            <div class="assoc-nodes">
+              <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
+              <div class="assoc-nodes-list">
+                <a class="assoc-node-chip" href="#node-jianychong"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_jianyichong.png" alt="剑意充盈"></div><span class="assoc-node-chip-name">剑意充盈</span><span class="assoc-node-chip-arrow">›</span></a>
+                <a class="assoc-node-chip" href="#node-raodasword"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_raodaojianwu.png" alt="绕刀剑舞"></div><span class="assoc-node-chip-name">绕刀剑舞</span><span class="assoc-node-chip-arrow">›</span></a>
+              </div>
+            </div>
+          </div>
+          <div id="ml-r-light-pvp" class="tab-content">
+            <div class="pvp-box modified">In Ranked Mode, <span class="kw-gold">绕放刀锋</span> does not have a <span class="kw">Parry (化解)</span> mechanic.</div>
+          </div>
+        </div>
+
+      </div><!-- end panelLight -->
+
+      <!-- ══════════════════════════════
+           GREATSWORD PANEL (重剑)
+      ══════════════════════════════ -->
+      <div id="panelHeavy" class="form-panel">
+
+        <!-- LMB · Normal Attack (Greatsword) -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon-slot"><img src="mulan/icon_normalattack_heavy.png" alt="Normal Attack (Greatsword)"></div>
+            <div class="skill-title-area">
+              <div class="skill-key">
+                <span class="skill-key-badge">LMB</span>
+                <span class="skill-key-label">Normal Attack</span>
+              </div>
+              <div class="skill-names">
+                <span class="skill-cn">普通攻击</span>
+                <span class="skill-en">Normal Attack</span>
+              </div>
+              <div class="skill-meta">
+                <span class="tag tag-skill">Skill</span>
+                <span class="tag tag-damage">Damage</span>
+                <span class="tag tag-stun">Stun</span>
+              </div>
+            </div>
+          </div>
+          <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(this,'mh-aa-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'mh-aa-pvp')">PvP</button>
+          </div>
+          <div id="mh-aa-desc" class="tab-content active">
+            <p class="desc-main">Swing the greatsword in up to <span class="num">4</span> consecutive slash strikes. Each hit deals normal attack damage.</p>
+            <div class="sub-skill">
+              <div class="sub-skill-name">Charged Attack · 蓄力普攻</div>
+              <div class="sub-skill-desc">Dash forward and deliver a powerful downward smash, dealing normal attack damage.</div>
+            </div>
+            <div class="sub-skill">
+              <div class="sub-skill-name">Perfect Dodge Counter · 完美闪避反击</div>
+              <div class="sub-skill-desc">After triggering a <span class="kw">Perfect Dodge</span>, the next normal attack is empowered into a swift and powerful leap-slash, dealing normal attack damage. Can counter enemy <span class="kw-red">Red-Light Skills</span>.</div>
+            </div>
+            <div class="assoc-nodes">
+              <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
+              <div class="assoc-nodes-list">
+                <a class="assoc-node-chip" href="#node-buqihuwei"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_buqihuwei.png" alt="不怯虎威"></div><span class="assoc-node-chip-name">不怯虎威</span><span class="assoc-node-chip-arrow">›</span></a>
+                <a class="assoc-node-chip" href="#node-junfenglinarr"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_junfenglinarr.png" alt="军锋临阵"></div><span class="assoc-node-chip-name">军锋临阵</span><span class="assoc-node-chip-arrow">›</span></a>
+              </div>
+            </div>
+          </div>
+          <div id="mh-aa-pvp" class="tab-content">
+            <div class="pvp-box nochange">This skill has no changes in Ranked Mode.</div>
+          </div>
+        </div>
+
+        <!-- Q · 苍破斩 (Greatsword) -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon-slot"><img src="mulan/icon_cangpoxan.png" alt="苍破斩"></div>
+            <div class="skill-title-area">
+              <div class="skill-key">
+                <span class="skill-key-badge">Q</span>
+                <span class="skill-key-label">Resonance Skill I</span>
+              </div>
+              <div class="skill-names">
+                <span class="skill-cn">苍破斩</span>
+                <span class="skill-en">Azure Cleave</span>
+              </div>
+              <div class="skill-meta">
+                <span class="tag tag-skill">Skill</span>
+                <span class="tag tag-resource">Resource</span>
+                <span class="tag tag-stun">Major Stun</span>
+              </div>
+            </div>
+          </div>
+          <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(this,'mh-q-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'mh-q-pvp')">PvP</button>
+          </div>
+          <div id="mh-q-desc" class="tab-content active">
+            <p class="desc-main">Launch a <span class="kw">Charge (冲撞)</span> forward, <span class="kw">Parrying (化解)</span> enemy attacks during the dash; then follow up with a sword slash dealing <span class="kw">Attribute Skill DMG</span>. Mulan gains <span class="num">50%</span> damage reduction while this skill is active. Long-press to charge the skill — Mulan enters <span class="kw">Armored (霸体)</span> state during the charge. If charge time exceeds <span class="num">3.3s</span>, <span class="kw-gold">苍破斩</span> upgrades into <span class="kw-gold">苍破强袭</span>.</p>
+            <div class="sub-skill">
+              <div class="sub-skill-name">Azure Surge · 苍破强袭</div>
+              <div class="sub-skill-desc">Mulan enters an <span class="kw-teal">Invincible</span> state and deals <span class="kw">Attribute Skill DMG</span>. Can counter enemy <span class="kw-red">Red-Light Skills</span>. <span class="kw-gold">苍破强袭</span> consumes all <span class="kw">Azure Marks (苍破印记)</span> to call down a giant greatsword from above, dealing <span class="kw">Attribute Skill DMG</span> as a follow-up pursuit strike.</div>
+            </div>
+            <div class="assoc-nodes">
+              <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
+              <div class="assoc-nodes-list">
+                <a class="assoc-node-chip" href="#node-hanhaiaobinh"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_hanhaiaobinh.png" alt="瀚海鏖兵"></div><span class="assoc-node-chip-name">瀚海鏖兵</span><span class="assoc-node-chip-arrow">›</span></a>
+                <a class="assoc-node-chip" href="#node-wangwohanzhan"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_wangwohanzhan.png" alt="忘我酣战"></div><span class="assoc-node-chip-name">忘我酣战</span><span class="assoc-node-chip-arrow">›</span></a>
+              </div>
+            </div>
+          </div>
+          <div id="mh-q-pvp" class="tab-content">
+            <div class="pvp-box modified">In Ranked Mode, <span class="kw-gold">苍破斩</span> is treated as a <span class="kw">Strong Attribute Skill (强流技)</span>, and <span class="kw-gold">苍破强袭</span> is treated as an <span class="kw">Ultimate</span>.</div>
+          </div>
+        </div>
+
+        <!-- E · 迅烈之华 (Greatsword) -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon-slot"><img src="mulan/icon_xunliexihua.png" alt="迅烈之华"></div>
+            <div class="skill-title-area">
+              <div class="skill-key">
+                <span class="skill-key-badge">E</span>
+                <span class="skill-key-label">Resonance Skill II</span>
+              </div>
+              <div class="skill-names">
+                <span class="skill-cn">迅烈之华</span>
+                <span class="skill-en">Fierce Bloom</span>
+              </div>
+              <div class="skill-meta">
+                <span class="tag tag-skill">Skill</span>
+                <span class="tag tag-resource">Resource</span>
+              </div>
+            </div>
+          </div>
+          <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(this,'mh-e-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'mh-e-pvp')">PvP</button>
+          </div>
+          <div id="mh-e-desc" class="tab-content active">
+            <p class="desc-main">Launch up to <span class="num">4</span> consecutive forward slashes dealing <span class="kw">Attribute Skill DMG</span>. Mulan enters <span class="kw">Armored (霸体)</span> state and gains <span class="num">50%</span> damage reduction during the skill. Each slash consumes <span class="num">250</span> points of <span class="kw">Fierce Blade Intent (迅烈剑意)</span> and grants <span class="num">1</span> stack of <span class="kw-gold">Azure Mark (苍破印记)</span>.</p>
+            <div class="assoc-nodes">
+              <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
+              <div class="assoc-nodes-list">
+                <a class="assoc-node-chip" href="#node-xunshouyizhi"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_xunshouyizhi.png" alt="巡守者意志"></div><span class="assoc-node-chip-name">巡守者意志</span><span class="assoc-node-chip-arrow">›</span></a>
+              </div>
+            </div>
+          </div>
+          <div id="mh-e-pvp" class="tab-content">
+            <div class="pvp-box modified">In Ranked Mode, <span class="kw-gold">迅烈之华</span> — the first <span class="num">3</span> hits are treated as <span class="kw">Strong Attribute Skills (强流技)</span>; the final hit is treated as an <span class="kw">Ultimate</span>.</div>
+          </div>
+        </div>
+
+        <!-- R · 绕放刀锋 (Greatsword → Dual Blades) -->
+        <div class="skill-card">
+          <div class="skill-header">
+            <div class="skill-icon-slot"><img src="mulan/icon_raofaodofeng_heavy.png" alt="绕放刀锋 (Greatsword)"></div>
+            <div class="skill-title-area">
+              <div class="skill-key">
+                <span class="skill-key-badge">R</span>
+                <span class="skill-key-label">Resonance Skill III</span>
+              </div>
+              <div class="skill-names">
+                <span class="skill-cn">绕放刀锋</span>
+                <span class="skill-en">Whirling Blade Edge</span>
+              </div>
+              <div class="skill-meta">
+                <span class="tag tag-skill">Skill</span>
+                <span class="tag tag-switch">Switch</span>
+                <span class="tag tag-stun">Major Stun</span>
+                <span class="cd">Cooldown: 1s</span>
+              </div>
+            </div>
+          </div>
+          <div class="tabs">
+            <button class="tab-btn active" onclick="switchTab(this,'mh-r-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'mh-r-pvp')">PvP</button>
+          </div>
+          <div id="mh-r-desc" class="tab-content active">
+            <p class="desc-main">Instantly switch to <span class="kw-gold">Dual Blades Form (轻剑形态)</span>, striking enemies with the heavy sword's momentum to deal <span class="kw">Attribute Skill DMG</span>. On successful <span class="kw">Parry (化解)</span>, counters the enemy's <span class="kw-red">Red-Light Skill</span>.</p>
+            <div class="assoc-nodes">
+              <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
+              <div class="assoc-nodes-list">
+                <a class="assoc-node-chip" href="#node-jianychong"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_jianyichong.png" alt="剑意充盈"></div><span class="assoc-node-chip-name">剑意充盈</span><span class="assoc-node-chip-arrow">›</span></a>
+                <a class="assoc-node-chip" href="#node-raodasword"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_raodaojianwu.png" alt="绕刀剑舞"></div><span class="assoc-node-chip-name">绕刀剑舞</span><span class="assoc-node-chip-arrow">›</span></a>
+              </div>
+            </div>
+          </div>
+          <div id="mh-r-pvp" class="tab-content">
+            <div class="pvp-box modified">In Ranked Mode, <span class="kw-gold">绕放刀锋</span> does not have a <span class="kw">Parry (化解)</span> mechanic.</div>
+          </div>
+        </div>
+
+      </div><!-- end panelHeavy -->
+
+      <!-- ══════════════════════════════
+           SHARED SKILLS
+      ══════════════════════════════ -->
+      <div class="shared-skills-header">
+        <span class="shared-skills-label">⇌ &nbsp;Shared Skills · 共用技能</span>
+      </div>
+
+      <!-- T · 巡守者之刀 -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <div class="skill-icon-slot"><img src="mulan/icon_xunshouzhedezhi.png" alt="巡守者之刀"></div>
+          <div class="skill-title-area">
+            <div class="skill-key">
+              <span class="skill-key-badge">T</span>
+              <span class="skill-key-label">Resonance Liberation</span>
+            </div>
+            <div class="skill-names">
+              <span class="skill-cn">巡守者之刀</span>
+              <span class="skill-en">Guardian's Blade</span>
+            </div>
+            <div class="skill-meta">
+              <span class="tag tag-skill">Skill</span>
+              <span class="tag tag-liberation">Liberation</span>
+              <span class="tag tag-stun">Stun</span>
+              <span class="tag tag-counter">Counter</span>
+              <span class="cd">Cooldown: 15s</span>
+            </div>
+          </div>
+        </div>
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'ml-t-desc')">Description</button>
+          <button class="tab-btn" onclick="switchTab(this,'ml-t-pvp')">PvP</button>
+        </div>
+        <div id="ml-t-desc" class="tab-content active">
+          <p class="desc-main">Launch enemies airborne and leap up, then unleash a thunderous barrage of consecutive greatsword slashes dealing <span class="kw">Resonance Liberation DMG</span>. Can counter enemy <span class="kw-red">Red-Light Skills</span>.</p>
+          <div class="assoc-nodes">
+            <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
+            <div class="assoc-nodes-list">
+              <a class="assoc-node-chip" href="#node-baihualiaoaluan"><div class="assoc-node-chip-icon"><img src="mulan/icon_node_baihualiaoaluan.png" alt="百花缭乱"></div><span class="assoc-node-chip-name">百花缭乱</span><span class="assoc-node-chip-arrow">›</span></a>
+            </div>
+          </div>
+        </div>
+        <div id="ml-t-pvp" class="tab-content">
+          <div class="pvp-box modified">In Ranked Mode, the untargetable effect is changed to reducing all damage received by <span class="num">50%</span>.</div>
+        </div>
+      </div>
+
+      <!-- ✦ · 长城巡守者 (Passive) -->
+      <div class="skill-card">
+        <div class="skill-header">
+          <div class="skill-icon-slot"><img src="mulan/icon_changchengxunshouze.png" alt="长城巡守者"></div>
+          <div class="skill-title-area">
+            <div class="skill-key">
+              <span class="skill-key-badge">✦</span>
+              <span class="skill-key-label">Skill Break / Passive</span>
+            </div>
+            <div class="skill-names">
+              <span class="skill-cn">长城巡守者</span>
+              <span class="skill-en">Great Wall Guardian</span>
+            </div>
+            <div class="skill-meta">
+              <span class="tag tag-skill">Skill</span>
+              <span class="tag tag-switch">Switch</span>
+              <span class="tag tag-buff">Buff</span>
+            </div>
+          </div>
+        </div>
+        <div class="tabs">
+          <button class="tab-btn active" onclick="switchTab(this,'ml-p-desc')">Description</button>
+          <button class="tab-btn" onclick="switchTab(this,'ml-p-pvp')">PvP</button>
+        </div>
+        <div id="ml-p-desc" class="tab-content active">
+          <p class="desc-main">In <span class="kw-gold">Dual Blades Form (轻剑形态)</span>: landing normal attacks and Attribute Skills on enemies grants <span class="kw">Fierce Blade Intent (迅烈剑意)</span>.</p>
+          <p class="desc-main">In <span class="kw-red">Greatsword Form (重剑形态)</span>: using E skill <span class="kw-gold">迅烈之华</span> consumes <span class="kw">Fierce Blade Intent</span> to deal bonus damage and gain <span class="kw-gold">Azure Mark (苍破印记)</span> stacks.</p>
+          <p class="desc-main">Using R skill <span class="kw-gold">绕放刀锋</span> switches between <span class="kw-gold">轻剑形态</span> and <span class="kw-red">重剑形态</span>.</p>
+          <div class="sub-skill">
+            <div class="sub-skill-name">Co-op Resonance · 共流技</div>
+            <div class="sub-skill-desc">After an ally uses their Ultimate on-field, slash at nearby enemies with the dual blade; on hit, leap airborne and follow up with a greatsword downward slam, dealing <span class="kw">Attribute Skill DMG</span>.</div>
+          </div>
+        </div>
+        <div id="ml-p-pvp" class="tab-content">
+          <div class="pvp-box modified">In Ranked Mode, the first hit of the <span class="kw">Co-op Resonance (共流技)</span> stunning enemies for <span class="num">1.5s</span> upon landing.</div>
+        </div>
+      </div>
+
+    </div><!-- end #skills -->
+
+
+    <!-- ===== PASSIVE NODES ===== -->
+    <div id="nodes" class="section">
+      <div class="section-label">流脉 · Passive Nodes</div>
+      <div class="nodes-list">
+
+        <div class="node-card" id="node-raodasword">
+          <div class="node-left">
+            <div class="node-layer">Layer 2 · 第二层</div>
+            <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+              <img src="mulan/icon_node_raodaojianwu.png" style="width:56px;height:56px;object-fit:contain;">
+              <div>
+                <div class="node-cn">绕刀剑舞</div>
+                <div class="node-en">Whirling Blade Dance</div>
+              </div>
+            </div>
+          </div>
+          <div class="node-desc">When R skill <span class="kw-gold">绕放刀锋</span> successfully <span class="kw">Parries (化解)</span> an attack, instantly restore <span class="num">500</span> points of <span class="kw">Fierce Blade Intent (迅烈剑意)</span> and convert the next normal attack into a <span class="kw">Perfect Dodge Counter (完美闪避反击)</span>. This effect is inactive in Ranked Mode.</div>
+        </div>
+
+        <div class="node-card" id="node-jianychong">
+          <div class="node-left">
+            <div class="node-layer">Layer 4 · 第四层</div>
+            <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+              <img src="mulan/icon_node_jianyichong.png" style="width:56px;height:56px;object-fit:contain;">
+              <div>
+                <div class="node-cn">剑意充盈</div>
+                <div class="node-en">Brimming Blade Intent</div>
+              </div>
+            </div>
+          </div>
+          <div class="node-desc">After a skill hits in <span class="kw-gold">Dual Blades Form (轻剑形态)</span>, gain <span class="num">30</span> <span class="kw">Fierce Blade Intent (迅烈剑意)</span> per second for <span class="num">15s</span>. This effect stacks up to <span class="num">3</span> times.</div>
+        </div>
+
+        <div class="node-card" id="node-junfenglinarr">
+          <div class="node-left">
+            <div class="node-layer">Layer 6 · 第六层</div>
+            <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+              <img src="mulan/icon_node_junfenglinarr.png" style="width:56px;height:56px;object-fit:contain;">
+              <div>
+                <div class="node-cn">军锋临阵</div>
+                <div class="node-en">Vanguard's Edge</div>
+              </div>
+            </div>
+          </div>
+          <div class="node-desc">In <span class="kw-red">Greatsword Form (重剑形态)</span>, each critical hit from E skill <span class="kw-gold">迅烈之华</span> grants an additional <span class="num">1</span> stack of <span class="kw-gold">Azure Mark (苍破印记)</span>.</div>
+        </div>
+
+        <div class="node-card" id="node-buqihuwei">
+          <div class="node-left">
+            <div class="node-layer">Layer 6 · 第六层</div>
+            <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+              <img src="mulan/icon_node_buqihuwei.png" style="width:56px;height:56px;object-fit:contain;">
+              <div>
+                <div class="node-cn">不怯虎威</div>
+                <div class="node-en">Fearless Before the Tiger</div>
+              </div>
+            </div>
+          </div>
+          <div class="node-desc">Successfully <span class="kw">Parrying (化解)</span> with R skill <span class="kw-gold">绕放刀锋</span>, or with Greatsword Form Q skill <span class="kw-gold">苍破斩</span>, grants <span class="num">4</span> stacks of <span class="kw-gold">Azure Mark (苍破印记)</span>.</div>
+        </div>
+
+        <div class="node-card" id="node-xunshouyizhi">
+          <div class="node-left">
+            <div class="node-layer">Layer 8 · 第八层</div>
+            <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+              <img src="mulan/icon_node_xunshouyizhi.png" style="width:56px;height:56px;object-fit:contain;">
+              <div>
+                <div class="node-cn">巡守者意志</div>
+                <div class="node-en">Guardian's Will</div>
+              </div>
+            </div>
+          </div>
+          <div class="node-desc">After Ultimate <span class="kw-gold">巡守者之刀</span> is used, gain <span class="num">1000</span> points of <span class="kw">Fierce Blade Intent (迅烈剑意)</span> and make the next <span class="kw-red">Greatsword Form</span> Q skill <span class="kw-gold">苍破斩</span> automatically fully charged as <span class="kw-gold">苍破强袭</span>.</div>
+        </div>
+
+        <div class="node-card" id="node-wangwohanzhan">
+          <div class="node-left">
+            <div class="node-layer">Layer 10 · 第十层</div>
+            <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+              <img src="mulan/icon_node_wangwohanzhan.png" style="width:56px;height:56px;object-fit:contain;">
+              <div>
+                <div class="node-cn">忘我酣战</div>
+                <div class="node-en">Lost in Battle</div>
+              </div>
+            </div>
+          </div>
+          <div class="node-desc">Each stack of <span class="kw-gold">Azure Mark (苍破印记)</span> consumed increases Mulan's own ATK by <span class="num">5%</span>. This effect stacks up to <span class="num">6</span> times and lasts <span class="num">10s</span>.</div>
+        </div>
+
+        <div class="node-card" id="node-hanhaiaobinh">
+          <div class="node-left">
+            <div class="node-layer">Layer 10 · 第十层</div>
+            <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+              <img src="mulan/icon_node_hanhaiaobinh.png" style="width:56px;height:56px;object-fit:contain;">
+              <div>
+                <div class="node-cn">瀚海鏖兵</div>
+                <div class="node-en">Desert Siege</div>
+              </div>
+            </div>
+          </div>
+          <div class="node-desc">When holding at least <span class="num">4</span> stacks of <span class="kw-gold">Azure Mark (苍破印记)</span>, <span class="kw-gold">苍破强袭</span> deals an additional <span class="num">50%</span> bonus damage.</div>
+        </div>
+
+        <div class="node-card" id="node-baihualiaoaluan">
+          <div class="node-left">
+            <div class="node-layer">Layer 12 · 第十二层</div>
+            <div style="display:flex;align-items:center;gap:10px;margin:6px 0;">
+              <img src="mulan/icon_node_baihualiaoaluan.png" style="width:56px;height:56px;object-fit:contain;">
+              <div>
+                <div class="node-cn">百花缭乱</div>
+                <div class="node-en">Petal Storm</div>
+              </div>
+            </div>
+          </div>
+          <div class="node-desc">Every <span class="num">24</span> stacks of <span class="kw-gold">Azure Mark (苍破印记)</span> consumed automatically triggers a powerful follow-up pursuit strike against the enemy.</div>
+        </div>
+
+      </div>
+    </div><!-- end #nodes -->
+
+
+    <!-- ===== RESONANCE BREAKTHROUGH ===== -->
+    <div id="breakthrough" class="section">
+      <div class="section-label">共鸣突破 · Resonance Breakthrough</div>
+      <div class="breakthrough-grid">
+
+        <div class="bt-card">
+          <div class="bt-header">
+            <img class="bt-icon" src="shared/bt_1_initialenlightenment.png" alt="初悟">
+            <div class="bt-title">
+              <span class="bt-cn">初悟</span>
+              <span class="bt-en">Initial Enlightenment</span>
+            </div>
+          </div>
+          <div class="bt-body">
+            <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">4700</span><span class="bt-arrow">→</span><span class="bt-after">4890</span></div></div>
+            <div class="bt-row"><span class="bt-stat">Base DEF 基础防御力</span><div class="bt-values"><span class="bt-before">1880</span><span class="bt-arrow">→</span><span class="bt-after">1980</span></div></div>
+            <div class="bt-row"><span class="bt-stat">Weakness Exploit 流相克制强度</span><div class="bt-values"><span class="bt-before">5.0%</span><span class="bt-arrow">→</span><span class="bt-after">10.0%</span></div></div>
+            <div class="bt-row"><span class="bt-stat">ATK 攻击力</span><div class="bt-values"><span class="bt-before">1384</span><span class="bt-arrow">→</span><span class="bt-after">1393</span></div></div>
+          </div>
+        </div>
+
+        <div class="bt-card">
+          <div class="bt-header">
+            <img class="bt-icon" src="shared/bt_2_initialformation.png" alt="初成">
+            <div class="bt-title">
+              <span class="bt-cn">初成</span>
+              <span class="bt-en">Initial Formation</span>
+            </div>
+          </div>
+          <div class="bt-body">
+            <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">4890</span><span class="bt-arrow">→</span><span class="bt-after">5210</span></div></div>
+            <div class="bt-row"><span class="bt-stat">Base DEF 基础防御力</span><div class="bt-values"><span class="bt-before">1980</span><span class="bt-arrow">→</span><span class="bt-after">2080</span></div></div>
+            <div class="bt-row"><span class="bt-stat">ATK 攻击力</span><div class="bt-values"><span class="bt-before">1393</span><span class="bt-arrow">→</span><span class="bt-after">1450</span></div></div>
+          </div>
+        </div>
+
+        <div class="bt-card">
+          <div class="bt-header">
+            <img class="bt-icon" src="shared/bt_3_refinement.png" alt="精进">
+            <div class="bt-title">
+              <span class="bt-cn">精进</span>
+              <span class="bt-en">Refinement</span>
+            </div>
+          </div>
+          <div class="bt-body">
+            <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">5210</span><span class="bt-arrow">→</span><span class="bt-after">5650</span></div></div>
+            <div class="bt-row"><span class="bt-stat">Base DEF 基础防御力</span><div class="bt-values"><span class="bt-before">2080</span><span class="bt-arrow">→</span><span class="bt-after">2270</span></div></div>
+            <div class="bt-row"><span class="bt-stat">Weakness Exploit 流相克制强度</span><div class="bt-values"><span class="bt-before">10.0%</span><span class="bt-arrow">→</span><span class="bt-after">15.0%</span></div></div>
+            <div class="bt-row"><span class="bt-stat">ATK 攻击力</span><div class="bt-values"><span class="bt-before">1450</span><span class="bt-arrow">→</span><span class="bt-after">1459</span></div></div>
+          </div>
+        </div>
+
+        <div class="bt-card">
+          <div class="bt-header">
+            <img class="bt-icon" src="shared/bt_4_excellence.png" alt="精湛">
+            <div class="bt-title">
+              <span class="bt-cn">精湛</span>
+              <span class="bt-en">Excellence</span>
+            </div>
+          </div>
+          <div class="bt-body">
+            <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">5650</span><span class="bt-arrow">→</span><span class="bt-after">6220</span></div></div>
+            <div class="bt-row"><span class="bt-stat">Base DEF 基础防御力</span><div class="bt-values"><span class="bt-before">2270</span><span class="bt-arrow">→</span><span class="bt-after">2460</span></div></div>
+            <div class="bt-row"><span class="bt-stat">ATK 攻击力</span><div class="bt-values"><span class="bt-before">1459</span><span class="bt-arrow">→</span><span class="bt-after">1540</span></div></div>
+          </div>
+        </div>
+
+        <div class="bt-card">
+          <div class="bt-header">
+            <img class="bt-icon" src="shared/bt_5_proficiency.png" alt="精通">
+            <div class="bt-title">
+              <span class="bt-cn">精通</span>
+              <span class="bt-en">Proficiency</span>
+            </div>
+          </div>
+          <div class="bt-body">
+            <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">6220</span><span class="bt-arrow">→</span><span class="bt-after">6920</span></div></div>
+            <div class="bt-row"><span class="bt-stat">Base DEF 基础防御力</span><div class="bt-values"><span class="bt-before">2460</span><span class="bt-arrow">→</span><span class="bt-after">2750</span></div></div>
+            <div class="bt-row"><span class="bt-stat">Weakness Exploit 流相克制强度</span><div class="bt-values"><span class="bt-before">15.0%</span><span class="bt-arrow">→</span><span class="bt-after">20.0%</span></div></div>
+            <div class="bt-row"><span class="bt-stat">ATK 攻击力</span><div class="bt-values"><span class="bt-before">1540</span><span class="bt-arrow">→</span><span class="bt-after">1559</span></div></div>
+          </div>
+        </div>
+
+        <div class="bt-card">
+          <div class="bt-header">
+            <img class="bt-icon" src="shared/bt_6_finalenlightenment.png" alt="终悟">
+            <div class="bt-title">
+              <span class="bt-cn">终悟</span>
+              <span class="bt-en">Final Enlightenment</span>
+            </div>
+          </div>
+          <div class="bt-body">
+            <div class="bt-row"><span class="bt-stat">Base HP 基础生命值</span><div class="bt-values"><span class="bt-before">6920</span><span class="bt-arrow">→</span><span class="bt-after">7740</span></div></div>
+            <div class="bt-row"><span class="bt-stat">Base DEF 基础防御力</span><div class="bt-values"><span class="bt-before">2750</span><span class="bt-arrow">→</span><span class="bt-after">3040</span></div></div>
+            <div class="bt-row"><span class="bt-stat">ATK 攻击力</span><div class="bt-values"><span class="bt-before">1559</span><span class="bt-arrow">→</span><span class="bt-after">1650</span></div></div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- end #breakthrough -->
+
+
+    <!-- ===== WEAPONS ===== -->
+    <div id="weapons" class="section">
+      <div class="section-label">凝武 · Weapons</div>
+
+      <!-- WEAPON CHAIN -->
+      <div class="weapon-chain">
+        <div class="chain-item">
+          <a class="chain-badge" href="#w30">
+            <div class="chain-icon grade-white"><img src="mulan/weapon_mulan_kaishanta.png" alt="开山刃"></div>
+            <div class="chain-lv">Lv 30</div>
+          </a>
+        </div>
+        <div class="chain-arrow">›</div>
+        <div class="chain-item">
+          <a class="chain-badge" href="#w40">
+            <div class="chain-icon grade-green"><img src="mulan/weapon_mulan_duanshuita.png" alt="断水刃"></div>
+            <div class="chain-lv">Lv 40</div>
+          </a>
+        </div>
+        <div class="chain-arrow">›</div>
+        <div class="chain-item">
+          <a class="chain-badge" href="#w50">
+            <div class="chain-icon grade-blue"><img src="mulan/weapon_mulan_kongmingta.png" alt="空鸣刃"></div>
+            <div class="chain-lv">Lv 50</div>
+          </a>
+        </div>
+        <div class="chain-arrow">›</div>
+        <div class="chain-item">
+          <a class="chain-badge" href="#w60a">
+            <div class="chain-icon grade-purple"><img src="mulan/weapon_mulan_xianguguta.png" alt="响谷刃"></div>
+            <div class="chain-lv">Lv 60</div>
+          </a>
+        </div>
+        <div class="chain-arrow">›</div>
+        <div class="chain-item">
+          <a class="chain-badge" href="#w60b">
+            <div class="chain-icon grade-gold"><img src="mulan/weapon_mulan_chengfengfeiyuta.png" alt="乘风飞羽刃"></div>
+            <div class="chain-lv">Lv 60</div>
+          </a>
+        </div>
+        <div class="chain-arrow">›</div>
+        <div class="chain-item">
+          <a class="chain-badge" href="#w60sig">
+            <div class="chain-icon grade-red"><img src="mulan/weapon_mulan_xianyueying.png" alt="弦月影"></div>
+            <div class="chain-lv sig">Lv 60 ✦</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- WEAPON CARDS -->
+      <div class="weapon-cards">
+
+        <!-- Lv 30 · 开山刃 -->
+        <div class="weapon-card" id="w30">
+          <div class="weapon-header">
+            <div class="weapon-icon grade-white"><img src="mulan/weapon_mulan_kaishanta.png" alt="开山刃"></div>
+            <div class="weapon-title-area">
+              <div class="weapon-type">双刃 · Dual Blades</div>
+              <div class="weapon-names">
+                <span class="weapon-cn">开山刃</span>
+                <span class="weapon-en">Mountain Cleaver</span>
+              </div>
+              <div class="weapon-badges">
+                <span class="weapon-lv-badge grade-white">Level 30</span>
+              </div>
+            </div>
+          </div>
+          <div class="weapon-body">
+            <div class="weapon-stats">
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Base ATK 基础攻击力</span><span class="weapon-stat-val">197</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">117</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Attribute Skill DMG 流技强度</span><span class="weapon-stat-val">2.6%</span></div>
+            </div>
+            <div class="weapon-right">
+              <div class="weapon-lore">
+                <div class="weapon-lore-label">Description</div>
+                Dual blades forged from fine steel, commonly used for training coordination.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lv 40 · 断水刃 -->
+        <div class="weapon-card" id="w40">
+          <div class="weapon-header">
+            <div class="weapon-icon grade-green"><img src="mulan/weapon_mulan_duanshuita.png" alt="断水刃"></div>
+            <div class="weapon-title-area">
+              <div class="weapon-type">双刃 · Dual Blades</div>
+              <div class="weapon-names">
+                <span class="weapon-cn">断水刃</span>
+                <span class="weapon-en">Water Cutter</span>
+              </div>
+              <div class="weapon-badges">
+                <span class="weapon-lv-badge grade-green">Level 40</span>
+              </div>
+            </div>
+          </div>
+          <div class="weapon-body">
+            <div class="weapon-stats">
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Base ATK 基础攻击力</span><span class="weapon-stat-val">304</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">182</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Attribute Skill DMG 流技强度</span><span class="weapon-stat-val">5.0%</span></div>
+            </div>
+            <div class="weapon-right">
+              <div class="weapon-lore">
+                <div class="weapon-lore-label">Description</div>
+                Dual blades favored by those who seek advancement. Extraordinarily sharp — one moment of inattention and you'll cut yourself.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lv 50 · 空鸣刃 -->
+        <div class="weapon-card" id="w50">
+          <div class="weapon-header">
+            <div class="weapon-icon grade-blue"><img src="mulan/weapon_mulan_kongmingta.png" alt="空鸣刃"></div>
+            <div class="weapon-title-area">
+              <div class="weapon-type">双刃 · Dual Blades</div>
+              <div class="weapon-names">
+                <span class="weapon-cn">空鸣刃</span>
+                <span class="weapon-en">Void Resonator</span>
+              </div>
+              <div class="weapon-badges">
+                <span class="weapon-lv-badge grade-blue">Level 50</span>
+              </div>
+            </div>
+          </div>
+          <div class="weapon-body">
+            <div class="weapon-stats">
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Base ATK 基础攻击力</span><span class="weapon-stat-val">471</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">279</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Attribute Skill DMG 流技强度</span><span class="weapon-stat-val">6.2%</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">5.3%</span></div>
+            </div>
+            <div class="weapon-right">
+              <div class="weapon-passive">
+                <div class="weapon-passive-name">卸甲 · Armor Break</div>
+                <div class="weapon-passive-desc">After <span class="kw-gold">苍破强袭</span> hits an enemy, increase own DEF Penetration by <span class="num">12%</span> for <span class="num">12s</span>. This effect cannot stack.</div>
+              </div>
+              <div class="weapon-lore">
+                <div class="weapon-lore-label">Lore · 刀铭</div>
+                Forged by a master craftsman with an embedded crystal blade, it absorbed the thunderstruck energy that clouds breathe. Every slash carries lightning. Blade inscription: "Heaven's thunder descends — all evil retreats."
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lv 60 · 响谷刃 -->
+        <div class="weapon-card" id="w60a">
+          <div class="weapon-header">
+            <div class="weapon-icon grade-purple"><img src="mulan/weapon_mulan_xianguguta.png" alt="响谷刃"></div>
+            <div class="weapon-title-area">
+              <div class="weapon-type">双刃 · Dual Blades</div>
+              <div class="weapon-names">
+                <span class="weapon-cn">响谷刃</span>
+                <span class="weapon-en">Valley Echo</span>
+              </div>
+              <div class="weapon-badges">
+                <span class="weapon-lv-badge grade-purple">Level 60</span>
+              </div>
+            </div>
+          </div>
+          <div class="weapon-body">
+            <div class="weapon-stats">
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Base ATK 基础攻击力</span><span class="weapon-stat-val">670</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">400</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Attribute Skill DMG 流技强度</span><span class="weapon-stat-val">9.3%</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">7.9%</span></div>
+            </div>
+            <div class="weapon-right">
+              <div class="weapon-passive">
+                <div class="weapon-passive-name">卸甲 · Armor Break</div>
+                <div class="weapon-passive-desc">After <span class="kw-gold">苍破强袭</span> hits an enemy, increase own DEF Penetration by <span class="num">24%</span> for <span class="num">12s</span>. This effect cannot stack.</div>
+              </div>
+              <div class="weapon-lore">
+                <div class="weapon-lore-label">Description</div>
+                A sturdy dual blade crafted by a master artisan. The workmanship is somewhat rough, but the solid materials and balance make it beloved among frontier soldiers.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lv 60 · 乘风飞羽刃 -->
+        <div class="weapon-card" id="w60b">
+          <div class="weapon-header">
+            <div class="weapon-icon grade-gold"><img src="mulan/weapon_mulan_chengfengfeiyuta.png" alt="乘风飞羽刃"></div>
+            <div class="weapon-title-area">
+              <div class="weapon-type">双刃 · Dual Blades</div>
+              <div class="weapon-names">
+                <span class="weapon-cn">乘风飞羽刃</span>
+                <span class="weapon-en">Wind-Riding Feather Blade</span>
+              </div>
+              <div class="weapon-badges">
+                <span class="weapon-lv-badge grade-gold">Level 60</span>
+              </div>
+            </div>
+          </div>
+          <div class="weapon-body">
+            <div class="weapon-stats">
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Base ATK 基础攻击力</span><span class="weapon-stat-val">760</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">450</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Attribute Skill DMG 流技强度</span><span class="weapon-stat-val">11.2%</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">9.5%</span></div>
+            </div>
+            <div class="weapon-right">
+              <div class="weapon-passive">
+                <div class="weapon-passive-name">见龙卸甲 · Dragon's Armor Break</div>
+                <div class="weapon-passive-desc">After <span class="kw-gold">苍破强袭</span> hits an enemy, increase own Crit Rate by <span class="num">15%</span> and DEF Penetration by <span class="num">24%</span> for <span class="num">12s</span>. This effect cannot stack.</div>
+              </div>
+              <div class="weapon-lore">
+                <div class="weapon-lore-label">Description</div>
+                A peculiar dual blade forged with magically infused materials, shaped by a skilled craftsman as it cooled naturally in the wind. Once held, one feels no weight at all — for reasons unknown, the body becomes remarkably light.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Lv 60 · 弦月影 (SIGNATURE) -->
+        <div class="weapon-card signature" id="w60sig">
+          <div class="weapon-header">
+            <div class="weapon-icon grade-red"><img src="mulan/weapon_mulan_xianyueying.png" alt="弦月影"></div>
+            <div class="weapon-title-area">
+              <div class="weapon-type">双刃 · Dual Blades</div>
+              <div class="weapon-names">
+                <span class="weapon-cn">弦月影</span>
+                <span class="weapon-en">Crescent Shadow</span>
+              </div>
+              <div class="weapon-badges">
+                <span class="weapon-lv-badge grade-red">Level 60</span>
+                <span class="weapon-lv-badge sig">✦ Signature</span>
+              </div>
+            </div>
+          </div>
+          <div class="weapon-body">
+            <div class="weapon-stats">
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Base ATK 基础攻击力</span><span class="weapon-stat-val">840</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">HP 生命值</span><span class="weapon-stat-val">500</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Attribute Skill DMG 流技强度</span><span class="weapon-stat-val">12.4%</span></div>
+              <div class="weapon-stat-row"><span class="weapon-stat-label">Crit Rate 暴击率</span><span class="weapon-stat-val">10.6%</span></div>
+            </div>
+            <div class="weapon-right">
+              <div class="weapon-passive">
+                <div class="weapon-passive-name">龙战于野 · Dragon Battles in the Field</div>
+                <div class="weapon-passive-desc">Each critical hit from <span class="kw-gold">迅烈之华</span> boosts the next <span class="kw-gold">苍破强袭</span>'s damage by <span class="num">15%</span> for <span class="num">8s</span>. This effect stacks up to <span class="num">4</span> times.</div>
+              </div>
+              <div class="weapon-passive" style="border-left-color: var(--gold); margin-top: 0;">
+                <div class="weapon-passive-name" style="color: var(--gold);">见龙卸甲 · Dragon's Armor Break</div>
+                <div class="weapon-passive-desc">After <span class="kw-gold">苍破强袭</span> hits an enemy, increase own Crit Rate by <span class="num">15%</span> and DEF Penetration by <span class="num">24%</span> for <span class="num">12s</span>. This effect cannot stack.</div>
+              </div>
+              <div class="weapon-lore">
+                <div class="weapon-lore-label">Description</div>
+                Light dual blades forged from secret silver excavated from the depths of the desert. Perfectly balanced with extreme lightness, delivering unmatched speed. The blade cuts like a crescent through the sky — where the shadow of the blade stands, there lies a boundary the enemy cannot cross.
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- end #weapons -->
+
+
+    <!-- HERO NAV FOOTER -->
+    <div class="hero-nav-footer">
+      <div class="hero-nav-footer-label">探索英雄 · Explore Heroes</div>
+      <div class="hero-nav-grid">
+
+        <a class="hero-nav-card prev" href="luban.html">
+          <div class="hero-nav-arrow">‹</div>
+          <div class="hero-nav-portrait">🔧</div>
+          <div class="hero-nav-info">
+            <span class="hero-nav-direction">Previous Hero</span>
+            <span class="hero-nav-cn">鲁班大师</span>
+            <span class="hero-nav-en">Master Luban</span>
+            <span class="hero-nav-type">神匠 · Divine Craftsman</span>
+          </div>
+        </a>
+
+        <a class="hero-nav-card next placeholder-card" href="#">
+          <div class="hero-nav-arrow">›</div>
+          <div class="hero-nav-portrait">?</div>
+          <div class="hero-nav-info">
+            <span class="hero-nav-direction">Next Hero</span>
+            <span class="hero-nav-cn">未知</span>
+            <span class="hero-nav-en">Coming Soon</span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+  </div><!-- end .container -->
+</div><!-- end .page-layout -->
+
+<script>
+function switchForm(form) {
+  document.getElementById('panelLight').classList.toggle('active', form === 'light');
+  document.getElementById('panelHeavy').classList.toggle('active', form === 'heavy');
+  document.getElementById('formTabLight').classList.toggle('active', form === 'light');
+  document.getElementById('formTabHeavy').classList.toggle('active', form === 'heavy');
+}
+
+function switchTab(btn, targetId) {
+  const card = btn.closest('.skill-card');
+  card.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(targetId).classList.add('active');
+}
+
+const sections = document.querySelectorAll('.section[id]');
+const links = document.querySelectorAll('.sidebar-link');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      links.forEach(l => l.classList.remove('active'));
+      const active = document.querySelector(`.sidebar-link[data-section="${entry.target.id}"]`);
+      if (active) active.classList.add('active');
+    }
+  });
+}, { threshold: 0.15 });
+sections.forEach(s => observer.observe(s));
+</script>
+</body>
+</html>
