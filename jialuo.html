@@ -1115,7 +1115,8 @@
   <div class="hero-cn">珈罗</div>
   <div class="hero-name">Jia Luo</div>
   <div class="hero-sub">Complete Skill, Node &amp; Weapon Reference</div>
-  <div class="hero-class">破魔之箭 · Demon-Breaking Arrow &nbsp;·&nbsp; <span class="hero-class-role">强攻 · Assault</span></div>
+    <div class="hero-class hero-class-epithet">破魔之箭 · Demon-Breaking Arrow</div>
+  <div class="hero-class hero-class-role-line"><span class="hero-class-role">强攻 · Assault</span></div>
   <div class="star-divider"><span>✦</span></div>
 </div>
 
@@ -1168,7 +1169,6 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this,'na-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this,'na-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this,'na-pvp')">PvP</button>
       </div>
       <div id="na-desc" class="tab-content active">
@@ -1178,18 +1178,6 @@
           <div class="sub-skill-name">蓄力普攻 · Charged Normal Attack</div>
           <div class="sub-skill-desc">Pull the bowstring fully to enter <span class="kw">Precision Shot (精准射击)</span> state. Charge lasts up to <span class="num">1</span> second; the fierce arrow fired pierces through enemies.</div>
         </div>
-      </div>
-      <div id="na-stats" class="tab-content">
-        <table class="stats-table">
-          <tr><td>Hit 1 Damage<span class="cn-label">一段伤害</span></td><td>74%</td><td>→ 80% ▲</td></tr>
-          <tr><td>Hit 2 Damage<span class="cn-label">二段伤害</span></td><td>84%</td><td>→ 92% ▲</td></tr>
-          <tr><td>Hit 3 Damage<span class="cn-label">三段伤害</span></td><td>95%</td><td>→ 104% ▲</td></tr>
-          <tr><td>Hit 4 Damage<span class="cn-label">四段伤害</span></td><td>112%</td><td>→ 122% ▲</td></tr>
-          <tr><td>Charged Attack Damage<span class="cn-label">蓄力伤害</span></td><td>257%</td><td>→ 280% ▲</td></tr>
-          <tr><td>Dodge Attack Damage<span class="cn-label">闪身攻击伤害</span></td><td>112%</td><td>→ 122% ▲</td></tr>
-          <tr><td>Flash Consecutive Shot Damage<span class="cn-label">瞬华连射伤害</span></td><td>63%</td><td>→ 69% ▲</td></tr>
-        </table>
-        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown at current level (3) and next level (4)</p>
       </div>
       <div id="na-pvp" class="tab-content">
         <div class="pvp-box modified">In Ranked Mode, only Charged Attacks cause suppression; all other normal attacks do not.</div>
@@ -1214,7 +1202,6 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this,'sfa-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this,'sfa-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this,'sfa-pvp')">PvP</button>
       </div>
       <div id="sfa-desc" class="tab-content active">
@@ -1254,13 +1241,6 @@
           </div>
         </div>
       </div>
-      <div id="sfa-stats" class="tab-content">
-        <table class="stats-table">
-          <tr><td>Soul Ferry Arrow Damage<span class="cn-label">渡灵箭造成伤害</span></td><td>196%</td><td>→ 213% ▲</td></tr>
-          <tr><td>Demon-Chasing Arrow Damage<span class="cn-label">追魔箭造成伤害</span></td><td>36.7%</td><td>→ 40% ▲</td></tr>
-        </table>
-        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown at current level (3) and next level (4)</p>
-      </div>
       <div id="sfa-pvp" class="tab-content">
         <div class="pvp-box modified">In Ranked Mode, <span class="kw-gold">Soul Ferry Shot (渡灵射击)</span> only causes suppression against airborne enemies.</div>
       </div>
@@ -1286,7 +1266,6 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this,'sa-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this,'sa-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this,'sa-pvp')">PvP</button>
       </div>
       <div id="sa-desc" class="tab-content active">
@@ -1302,12 +1281,6 @@
             </a>
           </div>
         </div>
-      </div>
-      <div id="sa-stats" class="tab-content">
-        <table class="stats-table">
-          <tr><td>Damage per Instance<span class="cn-label">每段造成伤害</span></td><td>257%</td><td>→ 280% ▲</td></tr>
-        </table>
-        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown at current level (3) and next level (4)</p>
       </div>
       <div id="sa-pvp" class="tab-content">
         <div class="pvp-box modified">In Ranked Mode, this skill is an <span class="kw-gold">Empowered Resonance Skill (强流技)</span>.</div>
@@ -1333,7 +1306,6 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this,'pd-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this,'pd-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this,'pd-pvp')">PvP</button>
       </div>
       <div id="pd-desc" class="tab-content active">
@@ -1353,12 +1325,6 @@
             </a>
           </div>
         </div>
-      </div>
-      <div id="pd-stats" class="tab-content">
-        <table class="stats-table">
-          <tr><td>Crit Rate Bonus<span class="cn-label">暴击率加成</span></td><td>17%</td><td>→ 18% ▲</td></tr>
-        </table>
-        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown at current level (3) and next level (4)</p>
       </div>
       <div id="pd-pvp" class="tab-content">
         <div class="pvp-box modified">In Ranked Mode, toggling <span class="kw-gold">Pure Domain (纯净领域)</span> on/off no longer has attack detection.</div>
@@ -1385,17 +1351,10 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this,'tca-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this,'tca-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this,'tca-pvp')">PvP</button>
       </div>
       <div id="tca-desc" class="tab-content active">
         <p class="desc-main">Condense demon-breaking power into the <span class="kw-gold">Thousand Cavern Divine Arrow (千窟神箭)</span>, and fire it fully drawn in the specified direction, dealing massive Resonance Liberation damage to all enemies within range. Enemies hit are stunned from the powerful impact. Can counter enemies' <span class="kw-red">Red-Light Skills</span>.</p>
-      </div>
-      <div id="tca-stats" class="tab-content">
-        <table class="stats-table">
-          <tr><td>Damage<span class="cn-label">造成伤害</span></td><td>1797%</td><td>→ 1960% ▲</td></tr>
-        </table>
-        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown at current level (3) and next level (4)</p>
       </div>
       <div id="tca-pvp" class="tab-content">
         <div class="pvp-box modified">In Ranked Mode, the untargetable effect is changed to reducing all damage received by <span class="num">50%</span>.</div>
@@ -1420,7 +1379,6 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this,'arwb-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this,'arwb-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this,'arwb-pvp')">PvP</button>
       </div>
       <div id="arwb-desc" class="tab-content active">
@@ -1431,12 +1389,6 @@
           <div class="sub-skill-name">共流技 · Coordinated Resonance Skill</div>
           <div class="sub-skill-desc">Triggered after the on-field Resonator casts their Resonance Liberation. Upon entering, fire up to <span class="num">10</span> arrows at enemies, dealing Resonance Skill damage.</div>
         </div>
-      </div>
-      <div id="arwb-stats" class="tab-content">
-        <table class="stats-table">
-          <tr><td>Co-Flow Skill Damage<span class="cn-label">共流技伤害</span></td><td>39%</td><td>→ 43% ▲</td></tr>
-        </table>
-        <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown at current level (3) and next level (4)</p>
       </div>
       <div id="arwb-pvp" class="tab-content">
         <div class="pvp-box modified">

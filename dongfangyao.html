@@ -1112,7 +1112,8 @@
   <div class="hero-cn">东方曜</div>
   <div class="hero-name">Dong Fang Yao</div>
   <div class="hero-sub">Complete Skill, Node &amp; Weapon Reference</div>
-  <div class="hero-class">星辰之子 · Star Child &nbsp;·&nbsp; <span class="hero-class-role">强攻 · Assault</span></div>
+    <div class="hero-class hero-class-epithet">星辰之子 · Star Child</div>
+  <div class="hero-class hero-class-role-line"><span class="hero-class-role">强攻 · Assault</span></div>
   <div class="star-divider"><span>✦</span></div>
 </div>
 
@@ -1165,7 +1166,6 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'na-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'na-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this, 'na-pvp')">PvP</button>
       </div>
       <div id="na-desc" class="tab-content active">
@@ -1182,21 +1182,6 @@
           <div class="sub-skill-name">飞星式 · Shooting Star Strike</div>
           <div class="sub-skill-desc">After activating the relevant <span class="kw">Passive Node</span>, can unleash <span class="kw-gold">Shooting Star Strike</span> under specific conditions. Slashes the space in front, dealing normal attack damage to enemies within range.</div>
         </div>
-      </div>
-      <div id="na-stats" class="tab-content">
-        <table class="stats-table">
-          <tr><td>Ground Normal Attack Hit 1<span class="cn-label">地面普攻一段伤害</span></td><td>100%</td></tr>
-          <tr><td>Ground Normal Attack Hit 2<span class="cn-label">地面普攻二段伤害</span></td><td>120%</td></tr>
-          <tr><td>Ground Normal Attack Hit 3<span class="cn-label">地面普攻三段伤害</span></td><td>70%×2</td></tr>
-          <tr><td>Ground Normal Attack Hit 4<span class="cn-label">地面普攻四段伤害</span></td><td>160%</td></tr>
-          <tr><td>Ground Charged Attack<span class="cn-label">地面蓄力普攻伤害</span></td><td>100%</td></tr>
-          <tr><td>Ground Dodge Attack<span class="cn-label">地面闪身攻击伤害</span></td><td>104%</td></tr>
-          <tr><td>Aerial Normal Attack Hit 1<span class="cn-label">空中普攻一段伤害</span></td><td>80%</td></tr>
-          <tr><td>Aerial Normal Attack Hit 2<span class="cn-label">空中普攻二段伤害</span></td><td>93%</td></tr>
-          <tr><td>Aerial Normal Attack Hit 3<span class="cn-label">空中普攻三段伤害</span></td><td>112%</td></tr>
-          <tr><td>Aerial Normal Attack Hit 4<span class="cn-label">空中普攻四段伤害</span></td><td>178%</td></tr>
-          <tr><td>Aerial Charged Attack<span class="cn-label">空中蓄力普攻伤害</span></td><td>111%</td></tr>
-        </table>
       </div>
       <div id="na-pvp" class="tab-content">
         <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
@@ -1222,18 +1207,11 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'q-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'q-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this, 'q-pvp')">PvP</button>
       </div>
       <div id="q-desc" class="tab-content active">
         <p class="desc-main">Rapidly spin the blade, dealing Resonance Skill damage to surrounding enemies.</p>
         <p class="desc-main">In <span class="kw-gold">Radiant Light (辉光)</span> state, can use <span class="kw">Star Force (星辰之力)</span> to additionally deal <span class="num">1</span> instance of Resonance Skill damage to enemies.</p>
-      </div>
-      <div id="q-stats" class="tab-content">
-        <table class="stats-table">
-          <tr><td>Void Rift Damage<span class="cn-label">裂空伤害</span></td><td>166%</td></tr>
-          <tr><td>Empowered Void Rift Damage<span class="cn-label">强化裂空伤害</span></td><td>197%+197%</td></tr>
-        </table>
       </div>
       <div id="q-pvp" class="tab-content">
         <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
@@ -1260,7 +1238,6 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'e-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'e-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this, 'e-pvp')">PvP</button>
       </div>
       <div id="e-desc" class="tab-content active">
@@ -1277,12 +1254,6 @@
             </a>
           </div>
         </div>
-      </div>
-      <div id="e-stats" class="tab-content">
-        <table class="stats-table">
-          <tr><td>Star Chase Damage<span class="cn-label">逐星伤害</span></td><td>155%</td></tr>
-          <tr><td>Empowered Star Chase Damage<span class="cn-label">强化逐星伤害</span></td><td>292%</td></tr>
-        </table>
       </div>
       <div id="e-pvp" class="tab-content">
         <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
@@ -1310,18 +1281,11 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'r-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'r-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this, 'r-pvp')">PvP</button>
       </div>
       <div id="r-desc" class="tab-content active">
         <p class="desc-main">When casting a movement skill, generates a <span class="kw">Star Mark (星辰标记)</span>, recording the current position. Casting <span class="kw-gold">Return to Dust</span> returns to the Star Mark location, dealing Resonance Skill damage to enemies along the path.</p>
         <p class="desc-main">In <span class="kw-gold">Radiant Light (辉光)</span> state, deals higher damage, recovers <span class="num">14%</span> of lost HP, and can counter enemies' <span class="kw-red">Red-Light Skills</span>.</p>
-      </div>
-      <div id="r-stats" class="tab-content">
-        <table class="stats-table">
-          <tr><td>Return to Dust Damage<span class="cn-label">归尘伤害</span></td><td>176%</td></tr>
-          <tr><td>Empowered Return to Dust Damage<span class="cn-label">强化归尘伤害</span></td><td>445%</td></tr>
-        </table>
       </div>
       <div id="r-pvp" class="tab-content">
         <div class="pvp-box modified">
@@ -1350,7 +1314,6 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'sb-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'sb-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this, 'sb-pvp')">PvP</button>
       </div>
       <div id="sb-desc" class="tab-content active">
@@ -1381,15 +1344,6 @@
           </div>
         </div>
       </div>
-      <div id="sb-stats" class="tab-content">
-        <table class="stats-table">
-          <tr><td>Coordinated Resonance Skill Damage<span class="cn-label">共流技伤害</span></td><td>160%×2+380%</td></tr>
-          <tr><td>Ground Star-Shattering Strike Damage<span class="cn-label">地面碎星式伤害</span></td><td>260%</td></tr>
-          <tr><td>Ground Star-Shattering Strike (Charged) Damage<span class="cn-label">地面碎星式（蓄力）伤害</span></td><td>400%</td></tr>
-          <tr><td>Aerial Star-Shattering Strike Damage<span class="cn-label">空中碎星式伤害</span></td><td>56%×4+220%</td></tr>
-          <tr><td>Aerial Star-Shattering Strike (Charged) Damage<span class="cn-label">空中碎星式（蓄力）伤害</span></td><td>336%</td></tr>
-        </table>
-      </div>
       <div id="sb-pvp" class="tab-content">
         <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
       </div>
@@ -1415,18 +1369,10 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 't-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 't-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this, 't-pvp')">PvP</button>
       </div>
       <div id="t-desc" class="tab-content active">
         <p class="desc-main">Channeling <span class="kw">Star Force (星辰之力)</span>, launches fierce slashing strikes at the enemy from <span class="num">6</span> different directions in an instant, dealing Resonance Liberation damage. Can counter enemies' <span class="kw-red">Red-Light Skills</span>.</p>
-      </div>
-      <div id="t-stats" class="tab-content">
-        <table class="stats-table">
-          <tr><td>Dash-Through Damage<span class="cn-label">穿梭伤害</span></td><td>302%×6</td><td>→ 321%×6 ▲</td></tr>
-          <tr><td>Return Damage<span class="cn-label">返回后伤害</span></td><td>924%</td><td>→ 982% ▲</td></tr>
-        </table>
-        <p style="font-size:12px; color:var(--text-dim); margin-top:12px; font-style:italic;">▲ Values shown for current level (8) and next level (9)</p>
       </div>
       <div id="t-pvp" class="tab-content">
         <div class="pvp-box modified">In Ranked Mode, the untargetable effect is changed to reducing all damage received by <span class="num">50%</span>.</div>

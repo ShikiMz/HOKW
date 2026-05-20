@@ -1117,7 +1117,8 @@
   <div class="hero-cn">鲁班大师</div>
   <div class="hero-name">Master Luban</div>
   <div class="hero-sub">Complete Skill, Node &amp; Weapon Reference</div>
-  <div class="hero-class">神匠 · Divine Craftsman &nbsp;·&nbsp; <span class="hero-class-role">辅助 · Support</span></div>
+    <div class="hero-class hero-class-epithet">神匠 · Divine Craftsman</div>
+  <div class="hero-class hero-class-role-line"><span class="hero-class-role">辅助 · Support</span></div>
   <div class="star-divider"><span>✦</span></div>
 </div>
 
@@ -1170,7 +1171,6 @@
         </div>
         <div class="tabs">
           <button class="tab-btn active" onclick="switchTab(this,'na-desc')">Description</button>
-          <button class="tab-btn" onclick="switchTab(this,'na-stats')">Level-Up Stats</button>
           <button class="tab-btn" onclick="switchTab(this,'na-pvp')">PvP</button>
         </div>
         <div id="na-desc" class="tab-content active">
@@ -1184,19 +1184,7 @@
             <div class="sub-skill-desc">After triggering <span class="kw">Perfect Dodge (完美闪避)</span>, or after Skill I <span class="kw">Energy Shockwave (蓄能震击)</span> is cast, Normal ATK is enhanced to <span class="kw-gold">Laser Strike (激光冲击)</span>. Controls mechanical wings to form an array, concentrating energy into a single beam and firing it, dealing Normal ATK DMG. Can counter enemies' <span class="kw-red">Red-Light Skills (红光技)</span>.</div>
           </div>
         </div>
-        <div id="na-stats" class="tab-content">
-          <table class="stats-table">
-            <tr><td>Normal ATK Hit 1<span class="cn-label">普通攻击一段</span></td><td>16.9%</td><td>→ 17.9% ▲</td></tr>
-            <tr><td>Normal ATK Hit 2<span class="cn-label">普通攻击二段</span></td><td>19.5%</td><td>→ 20.8% ▲</td></tr>
-            <tr><td>Normal ATK Hit 3<span class="cn-label">普通攻击三段</span></td><td>29.6%</td><td>→ 31.5% ▲</td></tr>
-            <tr><td>Normal ATK Hit 4<span class="cn-label">普通攻击四段</span></td><td>11.7%</td><td>→ 12.4% ▲</td></tr>
-            <tr><td>Laser Strike<span class="cn-label">激光冲击</span></td><td>144.3%</td><td>→ 153.4% ▲</td></tr>
-            <tr><td>Dodge ATK / Charged ATK<span class="cn-label">闪避攻击/蓄力普攻</span></td><td>7.6%×6</td><td>→ 8.1%×6 ▲</td></tr>
-            <tr><td>Plunge ATK<span class="cn-label">下落攻击</span></td><td>53.3%</td><td>→ 56.6% ▲</td></tr>
-          </table>
-          <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown for current level (8) and next level (9)</p>
-        </div>
-        <div id="na-pvp" class="tab-content">
+      <div id="na-pvp" class="tab-content">
           <div class="pvp-box modified">In Ranked Mode, Normal ATK and Charged ATK do not apply Suppression.</div>
         </div>
       </div>
@@ -1219,7 +1207,6 @@
         </div>
         <div class="tabs">
           <button class="tab-btn active" onclick="switchTab(this,'q-desc')">Description</button>
-          <button class="tab-btn" onclick="switchTab(this,'q-stats')">Level-Up Stats</button>
           <button class="tab-btn" onclick="switchTab(this,'q-pvp')">PvP</button>
         </div>
         <div id="q-desc" class="tab-content active">
@@ -1235,13 +1222,7 @@
             </div>
           </div>
         </div>
-        <div id="q-stats" class="tab-content">
-          <table class="stats-table">
-            <tr><td>Energy Shockwave DMG<span class="cn-label">蓄能震击伤害</span></td><td>175%</td><td>→ 187% ▲</td></tr>
-          </table>
-          <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown for current level (7) and next level (8)</p>
-        </div>
-        <div id="q-pvp" class="tab-content">
+      <div id="q-pvp" class="tab-content">
           <div class="pvp-box modified">In Ranked Mode, this skill counts as a Major Flow Skill (强流技). <span class="kw-gold">Laser Strike (激光冲击)</span> remains a Normal Flow Skill (普通流技).</div>
         </div>
       </div>
@@ -1264,7 +1245,6 @@
         </div>
         <div class="tabs">
           <button class="tab-btn active" onclick="switchTab(this,'e-desc')">Description</button>
-          <button class="tab-btn" onclick="switchTab(this,'e-stats')">Level-Up Stats</button>
           <button class="tab-btn" onclick="switchTab(this,'e-pvp')">PvP</button>
         </div>
         <div id="e-desc" class="tab-content active">
@@ -1285,20 +1265,7 @@
             </div>
           </div>
         </div>
-        <div id="e-stats" class="tab-content">
-          <table class="stats-table">
-            <tr><td>Jump ATK DMG<span class="cn-label">跳跃攻击伤害</span></td><td>117%</td><td>→ 124% ▲</td></tr>
-            <tr><td>Dash ATK DMG<span class="cn-label">冲刺伤害</span></td><td>117%</td><td>→ 124% ▲</td></tr>
-            <tr><td>No. 5 Launch DMG<span class="cn-label">五号弹射伤害</span></td><td>210%</td><td>→ 224% ▲</td></tr>
-            <tr><td>No. 5 Shockwave Hit 1<span class="cn-label">五号冲击波一段伤害</span></td><td>74%</td><td>→ 78% ▲</td></tr>
-            <tr><td>No. 5 Shockwave Hit 2<span class="cn-label">五号冲击波二段伤害</span></td><td>74%</td><td>→ 78% ▲</td></tr>
-            <tr><td>Wing Combo Hit 1<span class="cn-label">机械翼连打一段伤害</span></td><td>65%</td><td>→ 69% ▲</td></tr>
-            <tr><td>Wing Combo Hit 2<span class="cn-label">机械翼连打二段伤害</span></td><td>68%</td><td>→ 73% ▲</td></tr>
-            <tr><td>Wing Combo Hit 3<span class="cn-label">机械翼连打三段伤害</span></td><td>75%</td><td>→ 80% ▲</td></tr>
-          </table>
-          <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown for current level (7) and next level (8)</p>
-        </div>
-        <div id="e-pvp" class="tab-content">
+      <div id="e-pvp" class="tab-content">
           <div class="pvp-box modified">In Ranked Mode, the first cast of this skill counts as a Major Flow Skill (强流技).</div>
         </div>
       </div>
@@ -1320,7 +1287,6 @@
         </div>
         <div class="tabs">
           <button class="tab-btn active" onclick="switchTab(this,'r-desc')">Description</button>
-          <button class="tab-btn" onclick="switchTab(this,'r-stats')">Level-Up Stats</button>
           <button class="tab-btn" onclick="switchTab(this,'r-pvp')">PvP</button>
         </div>
         <div id="r-desc" class="tab-content active">
@@ -1350,13 +1316,7 @@
             </div>
           </div>
         </div>
-        <div id="r-stats" class="tab-content">
-          <table class="stats-table">
-            <tr><td>Hurricane Assault DMG<span class="cn-label">飓风突袭伤害</span></td><td>55%</td><td>→ 59% ▲</td></tr>
-          </table>
-          <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown for current level (7) and next level (8)</p>
-        </div>
-        <div id="r-pvp" class="tab-content">
+      <div id="r-pvp" class="tab-content">
           <div class="pvp-box modified">In Ranked Mode, the <span class="kw">Energy Shockwave (蓄能震击)</span> triggered by this skill counts as a Normal Flow Skill (普通流技), and <span class="kw">No. 5 (鲁班五号)</span>'s <span class="kw-gold">Hurricane Assault (飓风突袭)</span> does not apply Suppression.</div>
         </div>
       </div>
@@ -1376,7 +1336,6 @@
         </div>
         <div class="tabs">
           <button class="tab-btn active" onclick="switchTab(this,'t-desc')">Description</button>
-          <button class="tab-btn" onclick="switchTab(this,'t-stats')">Level-Up Stats</button>
           <button class="tab-btn" onclick="switchTab(this,'t-pvp')">PvP</button>
         </div>
         <div id="t-desc" class="tab-content active">
@@ -1397,16 +1356,7 @@
             </div>
           </div>
         </div>
-        <div id="t-stats" class="tab-content">
-          <table class="stats-table">
-            <tr><td>No. 5 Auto Hit 1<span class="cn-label">五号普攻一段</span></td><td>43%</td><td>→ 45% ▲</td></tr>
-            <tr><td>No. 5 Auto Hit 2<span class="cn-label">五号普攻二段</span></td><td>45%</td><td>→ 48% ▲</td></tr>
-            <tr><td>Resonance Skill Wing ATK<span class="cn-label">共流技机械翼攻击</span></td><td>71%</td><td>→ 76% ▲</td></tr>
-            <tr><td>Resonance Skill No. 5 Plunge<span class="cn-label">共流技五号下砸</span></td><td>213%</td><td>→ 227% ▲</td></tr>
-          </table>
-          <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown for current level (8) and next level (9)</p>
-        </div>
-        <div id="t-pvp" class="tab-content">
+      <div id="t-pvp" class="tab-content">
           <div class="pvp-box modified">In Ranked Mode, <span class="kw">No. 5 (鲁班五号)</span> disappears immediately after the skill cast completes.</div>
         </div>
       </div>
@@ -1429,7 +1379,6 @@
         </div>
         <div class="tabs">
           <button class="tab-btn active" onclick="switchTab(this,'sb-desc')">Description</button>
-          <button class="tab-btn" onclick="switchTab(this,'sb-stats')">Level-Up Stats</button>
           <button class="tab-btn" onclick="switchTab(this,'sb-pvp')">PvP</button>
         </div>
         <div id="sb-desc" class="tab-content active">
@@ -1455,19 +1404,7 @@
             </div>
           </div>
         </div>
-        <div id="sb-stats" class="tab-content">
-          <table class="stats-table">
-            <tr><td>No. 8 Auto Hit 1<span class="cn-label">八号普攻一段</span></td><td>317%</td><td>→ 338% ▲</td></tr>
-            <tr><td>No. 8 Auto Hit 2<span class="cn-label">八号普攻二段</span></td><td>367%</td><td>→ 391% ▲</td></tr>
-            <tr><td>No. 8 Auto Hit 3<span class="cn-label">八号普攻三段</span></td><td>407%</td><td>→ 434% ▲</td></tr>
-            <tr><td>No. 8 Auto Hit 4<span class="cn-label">八号普攻四段</span></td><td>250%×6</td><td>→ 267%×6 ▲</td></tr>
-            <tr><td>No. 8 Auto Hit 5<span class="cn-label">八号普攻五段</span></td><td>933%</td><td>→ 996% ▲</td></tr>
-            <tr><td>No. 8 Auto Hit 6<span class="cn-label">八号普攻六段</span></td><td>2000%</td><td>→ 2133% ▲</td></tr>
-            <tr><td>No. 8 Landing DMG<span class="cn-label">八号落地伤害</span></td><td>60%</td><td>→ 64% ▲</td></tr>
-          </table>
-          <p style="font-size:12px;color:var(--text-dim);margin-top:12px;font-style:italic;">▲ Values shown for current level (7) and next level (8)</p>
-        </div>
-        <div id="sb-pvp" class="tab-content">
+      <div id="sb-pvp" class="tab-content">
           <div class="pvp-box modified">In Ranked Mode, the untargetable effect is changed to reducing all damage received by <span class="num">50%</span>.</div>
         </div>
       </div>
