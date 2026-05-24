@@ -928,6 +928,8 @@
   }
   /* Set .hero-class-role color per class:
      Assault 强攻 → var(--red)  |  Support 辅助 → var(--green)  |  Clash 对抗 → var(--gold) */
+  .hero-class-epithet { color: var(--gold); margin-bottom: 6px; }
+  .hero-class-role-line { margin-top: 4px; }
   .hero-class-role { color: #a066d3; } /* TODO: change per hero class */
 
   /* ══════════════════════════════════════════
@@ -1087,7 +1089,6 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'na-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'na-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this, 'na-pvp')">PvP</button>
       </div>
       <div id="na-desc" class="tab-content active">
@@ -1144,7 +1145,6 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'q-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'q-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this, 'q-pvp')">PvP</button>
       </div>
       <div id="q-desc" class="tab-content active">
@@ -1182,7 +1182,6 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'e-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'e-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this, 'e-pvp')">PvP</button>
       </div>
       <div id="e-desc" class="tab-content active">
@@ -1222,7 +1221,6 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'r-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'r-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this, 'r-pvp')">PvP</button>
       </div>
       <div id="r-desc" class="tab-content active">
@@ -1262,7 +1260,6 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'sb-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 'sb-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this, 'sb-pvp')">PvP</button>
       </div>
       <div id="sb-desc" class="tab-content active">
@@ -1307,7 +1304,6 @@
       </div>
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 't-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 't-stats')">Level-Up Stats</button>
         <button class="tab-btn" onclick="switchTab(this, 't-pvp')">PvP</button>
       </div>
       <div id="t-desc" class="tab-content active">
