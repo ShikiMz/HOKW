@@ -860,6 +860,33 @@
   ::-webkit-scrollbar-thumb { background: var(--border-glow); border-radius: 3px; }
 
   /* ── MOBILE ── */
+  /* Mobile tooltip close button + overlay */
+  #tip-close-btn {
+    display: none;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 14px 0;
+  }
+  #tip-close-btn button {
+    background: none;
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    padding: 5px 14px;
+    border-radius: 3px;
+    cursor: pointer;
+    text-transform: uppercase;
+  }
+  #tip-mobile-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+    z-index: 9998;
+  }
+
   @media (max-width: 768px) {
     .site-header { padding: 0 16px; }
     .site-title span { display: none; }
@@ -870,7 +897,27 @@
     .sets-grid { grid-template-columns: 1fr; gap: 14px; }
     .page-title { font-size: 22px; }
     .set-name-cn { font-size: 15px; }
-    #piece-tooltip { display: none !important; }
+    #piece-tooltip {
+      position: fixed !important;
+      left: 0 !important;
+      right: 0 !important;
+      bottom: 0 !important;
+      top: auto !important;
+      width: 100% !important;
+      max-height: 75vh;
+      overflow-y: auto;
+      border-radius: 12px 12px 0 0 !important;
+      transform: translateY(100%) !important;
+      transition: transform 0.25s ease, opacity 0.25s ease !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+    #piece-tooltip.visible {
+      transform: translateY(0) !important;
+      opacity: 1 !important;
+    }
+    #tip-close-btn { display: flex !important; }
+    #tip-mobile-overlay { display: block; }
     .jade-grid { grid-template-columns: repeat(4, 80px); gap: 10px; }
     .jade-icon-wrap { width: 80px; }
     .jade-icon { width: 64px; height: 64px; }
@@ -880,7 +927,10 @@
 <body>
 
 <!-- ── GLOBAL PIECE TOOLTIP ── -->
+<div id="tip-mobile-overlay"></div>
+
 <div id="piece-tooltip" role="tooltip" aria-hidden="true">
+  <div id="tip-close-btn"><button>✕ Close</button></div>
   <div class="tip-header">
     <div class="tip-header-bg">
       <div class="tip-art-placeholder" id="tip-art">🪖</div>
@@ -2080,29 +2130,60 @@ function positionTip(e) {
   tip.style.top  = Math.max(8, top)  + 'px';
 }
 
+const isMobile = () => window.innerWidth <= 768;
+
+function showTip(slot, e) {
+  clearTimeout(hideTimer);
+  if (activeSlot) activeSlot.classList.remove('active-tip');
+  activeSlot = slot;
+  slot.classList.add('active-tip');
+  populateTip(slot);
+  if (!isMobile()) positionTip(e);
+  tip.classList.add('visible');
+  tip.setAttribute('aria-hidden', 'false');
+  if (isMobile()) {
+    document.getElementById('tip-mobile-overlay').style.display = 'block';
+  }
+}
+
+function hideTip() {
+  if (activeSlot) activeSlot.classList.remove('active-tip');
+  activeSlot = null;
+  tip.classList.remove('visible');
+  tip.setAttribute('aria-hidden', 'true');
+  document.getElementById('tip-mobile-overlay').style.display = 'none';
+}
+
 document.querySelectorAll('.piece-slot').forEach(slot => {
-  slot.addEventListener('mouseenter', e => {
-    clearTimeout(hideTimer);
-    if (activeSlot) activeSlot.classList.remove('active-tip');
-    activeSlot = slot;
-    slot.classList.add('active-tip');
-    populateTip(slot);
-    positionTip(e);
-    tip.classList.add('visible');
-  });
-
-  slot.addEventListener('mousemove', positionTip);
-
+  // Desktop mouse events
+  slot.addEventListener('mouseenter', e => { if (!isMobile()) showTip(slot, e); });
+  slot.addEventListener('mousemove',  e => { if (!isMobile()) positionTip(e); });
   slot.addEventListener('mouseleave', () => {
-    slot.classList.remove('active-tip');
-    activeSlot = null;
-    // Small delay so tooltip doesn't flash when moving between slots
-    hideTimer = setTimeout(() => tip.classList.remove('visible'), 80);
+    if (!isMobile()) {
+      slot.classList.remove('active-tip');
+      activeSlot = null;
+      hideTimer = setTimeout(() => tip.classList.remove('visible'), 80);
+    }
+  });
+  // Mobile tap
+  slot.addEventListener('click', e => {
+    if (isMobile()) {
+      e.stopPropagation();
+      if (activeSlot === slot && tip.classList.contains('visible')) {
+        hideTip();
+      } else {
+        showTip(slot, e);
+      }
+    }
   });
 });
 
-// Hide on scroll (so tooltip doesn't float away)
-window.addEventListener('scroll', () => tip.classList.remove('visible'), { passive: true });
+// Close button and overlay tap
+document.getElementById('tip-close-btn').addEventListener('click', hideTip);
+document.getElementById('tip-mobile-overlay').addEventListener('click', hideTip);
+
+// Hide on scroll — desktop only (mobile uses bottom sheet, scroll inside it is fine)
+window.addEventListener('scroll', () => { if (!isMobile()) tip.classList.remove('visible'); }, { passive: true });
 
 // ── SCROLL SPY ───────────────────────────────────────────────────────────────
 const links = document.querySelectorAll('.sidebar-link[href^="#"]');
