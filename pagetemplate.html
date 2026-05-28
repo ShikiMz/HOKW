@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+╔══════════════════════════════════════════════════════════════════╗
+║  HOKW · PAGE TEMPLATE — Content Page                            ║
+║  Use for: Stats, Armor, DMG Calc style full-width pages         ║
+║                                                                  ║
+║  CHECKLIST:                                                      ║
+║  1. Update <title> tag                                           ║
+║  2. Add class="active" to the correct nav link                   ║
+║  3. Update .page-eyebrow, .page-title, .page-sub                 ║
+║  4. Add page-specific CSS under YOUR CSS BELOW                   ║
+║  5. Add content inside PAGE CONTENT                              ║
+║  6. Save as newpagename.html                                     ║
+╚══════════════════════════════════════════════════════════════════╝
+-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PAGE TITLE — HOKW</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Spectral:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg: #080c14;
+    --bg2: #0d1420;
+    --bg3: #111827;
+    --border: #1e2d45;
+    --border-glow: #2a4a7f;
+    --gold: #c9a84c;
+    --gold-light: #e8c97a;
+    --gold-dim: #7a5e2a;
+    --blue: #4a9eff;
+    --blue-dim: #1a3a6a;
+    --teal: #5ecfcf;
+    --red: #e06060;
+    --green: #6dbf8a;
+    --text: #d4cfc7;
+    --text-dim: #7a7a8a;
+    --text-bright: #f0ead8;
+    --tag-bg: #12202f;
+
+    /* Flow type colours */
+    --flow-ji:   #7ab8e8;   /* 疾 Gale — blue-grey crescent */
+    --flow-guan: #9b7ecf;   /* 贯 Pierce — purple */
+    --flow-beng: #c97a3a;   /* 崩 Shatter — amber-orange placeholder */
+    --flow-zhuo: #e07840;   /* 灼 Fire — orange flame */
+    --flow-ning: #a8d4f0;   /* 凝 Frost — ice blue */
+    --flow-zhen: #60b8f0;   /* 震 Lightning — electric blue-white */
+    --flow-nian: #4ecfb8;   /* 念 Soul — teal */
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    min-height: 100vh;
+    background-image:
+      radial-gradient(ellipse at 20% 0%, rgba(42,74,127,0.15) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 100%, rgba(201,168,76,0.07) 0%, transparent 50%);
+  }
+
+  /* ── SITE HEADER ── */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background: rgba(8,12,20,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0;
+    padding: 0 40px;
+    height: 56px;
+  }
+  .site-title {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 16px;
+    color: var(--gold-light);
+    letter-spacing: 0.15em;
+    text-decoration: none;
+    margin-right: 32px;
+  }
+  .site-title span {
+    color: var(--text-dim);
+    font-size: 11px;
+    letter-spacing: 0.3em;
+    margin-left: 12px;
+    font-family: 'Cinzel', serif;
+  }
+  .header-nav { display: flex; gap: 0; margin-left: auto; }
+  .header-nav a {
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    color: #8a9ab5;
+    text-decoration: none;
+    padding: 0 18px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid transparent;
+    text-transform: uppercase;
+    transition: all 0.2s;
+  }
+  .header-nav a:hover { color: var(--gold-light); }
+  .header-nav a.active { color: var(--gold-light); border-bottom-color: var(--gold); }
+
+  /* ── PAGE WRAP ── */
+  .page-wrap { max-width: 1340px; margin: 0 auto; padding: 44px 40px 80px; }
+
+  /* ── PAGE HEADER ── */
+  .page-header { text-align: center; padding: 56px 40px 40px; }
+  .page-eyebrow { font-family: 'Cinzel Decorative', serif; font-size: 11px; letter-spacing: 0.5em; color: var(--gold-dim); text-transform: uppercase; margin-bottom: 12px; }
+  .page-title { font-family: 'Cinzel Decorative', serif; font-size: 40px; color: var(--gold-light); letter-spacing: 0.08em; margin-bottom: 10px; text-shadow: 0 0 50px rgba(201,168,76,0.2); }
+  .page-sub { font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 0.3em; color: var(--text-dim); text-transform: uppercase; }
+
+  /* ── STAR DIVIDER ── */
+  .star-divider { display: flex; align-items: center; gap: 16px; max-width: 900px; margin: 0 auto 48px; padding: 0 40px; }
+  .star-divider::before, .star-divider::after { content: ''; flex: 1; height: 1px; background: linear-gradient(to right, transparent, var(--gold-dim)); }
+  .star-divider::after { background: linear-gradient(to left, transparent, var(--gold-dim)); }
+  .star-divider span { color: var(--gold); font-size: 14px; }
+
+  /* ── CARD ── */
+  .card { background: var(--bg2); border: 1px solid var(--border); border-radius: 8px; padding: 28px 32px; margin-bottom: 24px; }
+  .card-title { font-family: 'Cinzel', serif; font-size: 13px; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 20px; padding-bottom: 14px; border-bottom: 1px solid var(--border); }
+
+  /* ── NOTE ── */
+  .note { background: rgba(201,168,76,0.07); border-left: 3px solid rgba(201,168,76,0.4); border-radius: 0 4px 4px 0; padding: 12px 16px; margin-bottom: 18px; font-family: 'Spectral', serif; font-size: 15px; color: var(--gold); line-height: 1.6; }
+
+  /* ── YOUR CSS BELOW ─────────────────────────────────────────── */
+
+
+</style>
+</head>
+<body>
+
+<!-- ── SITE HEADER ── -->
+<header class="site-header">
+  <a class="site-title" href="index.html">HOKW <span>Hero Reference</span></a>
+  <nav class="header-nav">
+    <a href="index.html">Roster</a>
+    <a href="stats.html">Stats</a>
+    <a href="armor.html">Armor</a>
+    <a href="dmgcalc.html">Damage Calculator</a>
+    <!-- Add class="active" to the link matching this page -->
+  </nav>
+</header>
+
+<!-- ── PAGE HEADER ── -->
+<div class="page-header">
+  <div class="page-eyebrow">EYEBROW TEXT</div>
+  <div class="page-title">Page Title</div>
+  <div class="page-sub">Short description here</div>
+</div>
+<div class="star-divider"><span>✦</span></div>
+
+<!-- ── PAGE CONTENT ── -->
+<div class="page-wrap">
+
+  <div class="card">
+    <div class="card-title">Section Title</div>
+    <!-- Content here -->
+  </div>
+
+</div><!-- end page-wrap -->
+
+</body>
+</html>

@@ -78,7 +78,7 @@
     margin-left: 12px;
     font-family: 'Cinzel', serif;
   }
-  .header-nav { display: flex; gap: 0; }
+  .header-nav { display: flex; gap: 0; margin-left: auto; }
   .header-nav a {
     font-family: 'Cinzel', serif;
     font-size: 11px;
@@ -600,6 +600,10 @@
     .note-box { font-size: 13.5px; }
   }
 
+.header-nav { display:flex; gap:0; margin-left:auto; }
+.header-nav a { font-family:'Cinzel',serif; font-size:11px; letter-spacing:.25em; color:#8a9ab5; text-decoration:none; padding:0 18px; height:56px; display:flex; align-items:center; border-bottom:2px solid transparent; text-transform:uppercase; transition:all .2s; }
+.header-nav a:hover { color:var(--gold-light); }
+.header-nav a.active { color:var(--gold-light); border-bottom-color:var(--gold); }
 </style>
 </head>
 <body>
@@ -611,6 +615,7 @@
     <a href="index.html">Roster</a>
     <a href="stats.html" class="active">Stats</a>
     <a href="armor.html">Armor</a>
+    <a href="dmgcalc.html">Damage Calculator</a>
   </nav>
 </header>
 

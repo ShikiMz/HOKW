@@ -51,7 +51,6 @@
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0 40px;
     height: 56px;
   }
@@ -69,6 +68,8 @@
     margin-left: 12px;
     font-family: 'Cinzel', serif;
   }
+
+
   .back-btn {
     font-family: 'Cinzel', serif;
     font-size: 11px;
@@ -689,13 +690,22 @@
     .breakthrough-grid { grid-template-columns: 1fr; }
   }
 
+.header-nav { display:flex; gap:0; margin-left:auto; }
+.header-nav a { font-family:'Cinzel',serif; font-size:11px; letter-spacing:.25em; color:#8a9ab5; text-decoration:none; padding:0 18px; height:56px; display:flex; align-items:center; border-bottom:2px solid transparent; text-transform:uppercase; transition:all .2s; }
+.header-nav a:hover { color:var(--gold-light); }
+.header-nav a.active { color:var(--gold-light); border-bottom-color:var(--gold); }
 </style>
 </head>
 <body>
 
 <header class="site-header">
   <a class="site-title" href="index.html">HOKW <span>Hero Reference</span></a>
-  <a class="back-btn" href="index.html">Roster</a>
+  <nav class="header-nav">
+    <a href="index.html">Roster</a>
+    <a href="stats.html">Stats</a>
+    <a href="armor.html">Armor</a>
+    <a href="dmgcalc.html">Damage Calculator</a>
+  </nav>
 </header>
 
 <!-- HERO HEADER -->

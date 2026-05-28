@@ -1,4 +1,21 @@
 <!DOCTYPE html>
+<!--
+╔══════════════════════════════════════════════════════════════════╗
+║  HOKW · HERO TEMPLATE — Hero Detail Page                        ║
+║  Use for: individual hero skill/weapon reference pages           ║
+║                                                                  ║
+║  CHECKLIST:                                                      ║
+║  1. Update <title> tag                                           ║
+║  2. Replace HERO_NAME_CN with Chinese name (e.g. 花木兰)         ║
+║  3. Replace HERO_NAME_EN with English name (e.g. Hua Mulan)     ║
+║  4. Replace HERO_TITLE_CN · HERO_TITLE_EN with hero title       ║
+║  5. Replace HERO_CLASS_CN · HERO_CLASS_EN with class type       ║
+║  6. Fill in skills, passive nodes, breakthrough, weapons         ║
+║  7. Update hero nav footer prev/next cards at the bottom         ║
+║  8. Save as heroname.html (e.g. sunshangxiang.html)             ║
+║  9. Add hero card to index.html roster grid                      ║
+╚══════════════════════════════════════════════════════════════════╝
+-->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -765,8 +782,6 @@
     padding: 40px 48px 80px;
     min-width: 0;
   }
-    .container { padding: 24px 16px 60px; }
-  }
   .site-header {
     position: sticky;
     top: 0;
@@ -776,7 +791,6 @@
     border-bottom: 1px solid var(--border);
     display: flex;
     align-items: center;
-    justify-content: space-between;
     padding: 0 40px;
     height: 56px;
   }
@@ -1023,12 +1037,22 @@
     .hero-nav-cn { font-size: 15px; }
   }
 
+.header-nav { display:flex; gap:0; margin-left:auto; }
+.header-nav a { font-family:'Cinzel',serif; font-size:11px; letter-spacing:.25em; color:#8a9ab5; text-decoration:none; padding:0 18px; height:56px; display:flex; align-items:center; border-bottom:2px solid transparent; text-transform:uppercase; transition:all .2s; }
+.header-nav a:hover { color:var(--gold-light); }
+.header-nav a.active { color:var(--gold-light); border-bottom-color:var(--gold); }
 </style>
 </head>
 <body>
 
 <header class="site-header">
   <a class="site-title" href="index.html">HOKW <span>Hero Reference</span></a>
+  <nav class="header-nav">
+    <a href="index.html">Roster</a>
+    <a href="stats.html">Stats</a>
+    <a href="armor.html">Armor</a>
+    <a href="dmgcalc.html">Damage Calculator</a>
+  </nav>
 </header>
 
 <!-- HEADER -->
@@ -1498,23 +1522,6 @@ function switchTab(btn, targetId) {
   btn.classList.add('active');
   document.getElementById(targetId).classList.add('active');
 }
-
-// Scroll spy — highlight active sidebar link as sections come into view
-const sections = document.querySelectorAll('.section[id]');
-const links = document.querySelectorAll('.sidebar-link');
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      links.forEach(l => l.classList.remove('active'));
-      const active = document.querySelector(`.sidebar-link[data-section="${entry.target.id}"]`);
-      if (active) active.classList.add('active');
-    }
-  });
-}, { threshold: 0.15 });
-sections.forEach(s => observer.observe(s));
-</script>
-</body>
-</html>
 
 // Scroll spy — highlight active sidebar link as sections come into view
 const sections = document.querySelectorAll('.section[id]');
