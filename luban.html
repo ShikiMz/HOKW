@@ -364,6 +364,25 @@
     background: rgba(201,168,76,0.05);
     border-color: rgba(201,168,76,0.2);
   }
+  /* VIDEO TAB */
+  .tab-btn-video { color: #7a6a9a; }
+  .tab-btn-video.active { color: #c090e8; border-bottom-color: #a066d3; }
+  .tab-content-video { padding: 0; background: #000; }
+  .skill-video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  .video-placeholder {
+    padding: 32px 28px;
+    color: var(--text-dim);
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+  }
 
   /* NODE CARDS */
   .nodes-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 40px; }
@@ -1182,10 +1201,11 @@
           </div>
         </div>
         <div class="tabs">
-          <button class="tab-btn active" onclick="switchTab(this,'na-desc')">Description</button>
-          <button class="tab-btn" onclick="switchTab(this,'na-pvp')">PvP</button>
+          <button class="tab-btn active" onclick="switchTab(this,'normalattack-desc')">Description</button>
+          <button class="tab-btn" onclick="switchTab(this,'normalattack-pvp')">PvP</button>
+          <button class="tab-btn tab-btn-video" onclick="switchTab(this,'normalattack-video')">▶ Video</button>
         </div>
-        <div id="na-desc" class="tab-content active">
+        <div id="normalattack-desc" class="tab-content active">
           <p class="desc-main">Controls mechanical wings to fly out and strike enemies with sweeping blows, dealing Normal ATK DMG. The 5th hit triggers <span class="kw-gold">Laser Strike (激光冲击)</span>.</p>
           <div class="sub-skill">
             <div class="sub-skill-name">蓄力普攻 · Charged Normal Attack</div>
@@ -1196,8 +1216,11 @@
             <div class="sub-skill-desc">After triggering <span class="kw">Perfect Dodge (完美闪避)</span>, or after Skill I <span class="kw">Energy Shockwave (蓄能震击)</span> is cast, Normal ATK is enhanced to <span class="kw-gold">Laser Strike (激光冲击)</span>. Controls mechanical wings to form an array, concentrating energy into a single beam and firing it, dealing Normal ATK DMG. Can counter enemies' <span class="kw-red">Red-Light Skills (红光技)</span>.</div>
           </div>
         </div>
-      <div id="na-pvp" class="tab-content">
+        <div id="normalattack-pvp" class="tab-content">
           <div class="pvp-box modified">In Ranked Mode, Normal ATK and Charged ATK do not apply Suppression.</div>
+        </div>
+        <div id="normalattack-video" class="tab-content tab-content-video">
+          <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/luban/skill_normalattack.mp4" muted loop playsinline></video>
         </div>
       </div>
 
@@ -1220,6 +1243,7 @@
         <div class="tabs">
           <button class="tab-btn active" onclick="switchTab(this,'q-desc')">Description</button>
           <button class="tab-btn" onclick="switchTab(this,'q-pvp')">PvP</button>
+          <button class="tab-btn tab-btn-video" onclick="switchTab(this,'q-video')">▶ Video</button>
         </div>
         <div id="q-desc" class="tab-content active">
           <p class="desc-main">Teleports <span class="kw">No. 5 (鲁班五号)</span> to the target enemy. <span class="kw">No. 5</span> flashes out of space and slams the ground, dealing Flow Skill DMG and granting <span class="kw-gold">Frenzy Gauge (亢奋值)</span>. After casting, own Normal ATK is enhanced to <span class="kw-gold">Laser Strike (激光冲击)</span>.</p>
@@ -1234,8 +1258,11 @@
             </div>
           </div>
         </div>
-      <div id="q-pvp" class="tab-content">
+        <div id="q-pvp" class="tab-content">
           <div class="pvp-box modified">In Ranked Mode, this skill counts as a Major Flow Skill (强流技). <span class="kw-gold">Laser Strike (激光冲击)</span> remains a Normal Flow Skill (普通流技).</div>
+        </div>
+        <div id="q-video" class="tab-content tab-content-video">
+          <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/luban/skill_q.mp4" muted loop playsinline></video>
         </div>
       </div>
 
@@ -1258,6 +1285,7 @@
         <div class="tabs">
           <button class="tab-btn active" onclick="switchTab(this,'e-desc')">Description</button>
           <button class="tab-btn" onclick="switchTab(this,'e-pvp')">PvP</button>
+          <button class="tab-btn tab-btn-video" onclick="switchTab(this,'e-video')">▶ Video</button>
         </div>
         <div id="e-desc" class="tab-content active">
           <p class="desc-main">After a brief wind-up, controls mechanical wings to jet-propel a high leap toward a designated location, gaining <span class="kw-gold">Frenzy Gauge (亢奋值)</span>. On landing, deploys a force field dealing Flow Skill DMG to nearby enemies and countering their <span class="kw-red">Red-Light Skills (红光技)</span>. For 8 seconds afterward, enters <span class="kw">Rotation On-Field (轮番上阵)</span> state — own Normal ATK is enhanced to <span class="kw-gold">Mechanical Wing Combo (机械翼连打)</span>, and <span class="kw">No. 5 (鲁班五号)</span> continuously fires long-range shockwaves dealing Flow Skill DMG.</p>
@@ -1277,8 +1305,11 @@
             </div>
           </div>
         </div>
-      <div id="e-pvp" class="tab-content">
+        <div id="e-pvp" class="tab-content">
           <div class="pvp-box modified">In Ranked Mode, the first cast of this skill counts as a Major Flow Skill (强流技).</div>
+        </div>
+        <div id="e-video" class="tab-content tab-content-video">
+          <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/luban/skill_e.mp4" muted loop playsinline></video>
         </div>
       </div>
 
@@ -1300,6 +1331,7 @@
         <div class="tabs">
           <button class="tab-btn active" onclick="switchTab(this,'r-desc')">Description</button>
           <button class="tab-btn" onclick="switchTab(this,'r-pvp')">PvP</button>
+          <button class="tab-btn tab-btn-video" onclick="switchTab(this,'r-video')">▶ Video</button>
         </div>
         <div id="r-desc" class="tab-content active">
           <p class="desc-main">Can only be cast when <span class="kw-gold">Frenzy Gauge (亢奋值)</span> is at maximum. Immediately triggers Skill I <span class="kw">Energy Shockwave (蓄能震击)</span>, then <span class="kw">No. 5 (鲁班五号)</span> enters <span class="kw-gold">Frenzy State (亢奋状态)</span>, activating electric energy to link them together. During this time, gain a <span class="num">30%</span> Crit DMG increase. <span class="kw">No. 5</span> in <span class="kw-gold">Frenzy State</span> continuously uses <span class="kw-gold">Hurricane Assault (飓风突袭)</span>.</p>
@@ -1328,8 +1360,11 @@
             </div>
           </div>
         </div>
-      <div id="r-pvp" class="tab-content">
+        <div id="r-pvp" class="tab-content">
           <div class="pvp-box modified">In Ranked Mode, the <span class="kw">Energy Shockwave (蓄能震击)</span> triggered by this skill counts as a Normal Flow Skill (普通流技), and <span class="kw">No. 5 (鲁班五号)</span>'s <span class="kw-gold">Hurricane Assault (飓风突袭)</span> does not apply Suppression.</div>
+        </div>
+        <div id="r-video" class="tab-content tab-content-video">
+          <div class="video-placeholder">No video available yet</div>
         </div>
       </div>
 
@@ -1349,6 +1384,7 @@
         <div class="tabs">
           <button class="tab-btn active" onclick="switchTab(this,'t-desc')">Description</button>
           <button class="tab-btn" onclick="switchTab(this,'t-pvp')">PvP</button>
+          <button class="tab-btn tab-btn-video" onclick="switchTab(this,'t-video')">▶ Video</button>
         </div>
         <div id="t-desc" class="tab-content active">
           <p class="desc-main">Casting any Flow Skill summons <span class="kw">No. 5 (鲁班五号)</span> for automatic combat, dealing Flow Skill DMG to enemies. <span class="kw">No. 5</span> disappears when self goes to the backline or exits combat.</p>
@@ -1368,8 +1404,11 @@
             </div>
           </div>
         </div>
-      <div id="t-pvp" class="tab-content">
+        <div id="t-pvp" class="tab-content">
           <div class="pvp-box modified">In Ranked Mode, <span class="kw">No. 5 (鲁班五号)</span> disappears immediately after the skill cast completes.</div>
+        </div>
+        <div id="t-video" class="tab-content tab-content-video">
+          <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/luban/skill_t.mp4" muted loop playsinline></video>
         </div>
       </div>
 
@@ -1416,8 +1455,9 @@
             </div>
           </div>
         </div>
-      <div id="sb-pvp" class="tab-content">
+        <div id="sb-pvp" class="tab-content">
           <div class="pvp-box modified">In Ranked Mode, the untargetable effect is changed to reducing all damage received by <span class="num">50%</span>.</div>
+
         </div>
       </div>
 
@@ -1843,10 +1883,23 @@
 <script>
 function switchTab(btn, targetId) {
   const card = btn.closest('.skill-card');
+
+  // Pause any playing video in this card before switching away
+  card.querySelectorAll('video').forEach(v => { v.pause(); });
+
   card.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById(targetId).classList.add('active');
+
+  const target = document.getElementById(targetId);
+  target.classList.add('active');
+
+  // If switching to a video tab, play the video
+  const vid = target.querySelector('video');
+  if (vid) {
+    vid.currentTime = 0;
+    vid.play();
+  }
 }
 const sections = document.querySelectorAll('.section[id]');
 const links    = document.querySelectorAll('.sidebar-link');
@@ -1860,6 +1913,32 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 sections.forEach(s => observer.observe(s));
+// Reset card to Description tab when it scrolls out of view
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) return;
+    const card = entry.target;
+    const videoTab = card.querySelector('.tab-content-video.active');
+    if (!videoTab) return;
+    // Pause video
+    const vid = videoTab.querySelector('video');
+    if (vid) vid.pause();
+    // Switch back to Description tab
+    card.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    const descBtn = card.querySelector('.tab-btn:first-child');
+    if (descBtn) {
+      descBtn.classList.add('active');
+      // Get the target ID from the onclick attribute and activate that content div
+      const match = descBtn.getAttribute('onclick').match(/['"]([^'"]+)['"]\)/);
+      if (match) {
+        const descContent = document.getElementById(match[1]);
+        if (descContent) descContent.classList.add('active');
+      }
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.skill-card').forEach(card => videoObserver.observe(card));
 </script>
 </body>
 </html>

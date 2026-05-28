@@ -364,6 +364,25 @@
     background: rgba(201,168,76,0.05);
     border-color: rgba(201,168,76,0.2);
   }
+  /* VIDEO TAB */
+  .tab-btn-video { color: #7a6a9a; }
+  .tab-btn-video.active { color: #c090e8; border-bottom-color: #a066d3; }
+  .tab-content-video { padding: 0; background: #000; }
+  .skill-video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  .video-placeholder {
+    padding: 32px 28px;
+    color: var(--text-dim);
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+  }
 
   /* NODE CARDS */
   .nodes-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 40px; }
@@ -1180,10 +1199,11 @@
         </div>
       </div>
       <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(this,'na-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this,'na-pvp')">PvP</button>
+        <button class="tab-btn active" onclick="switchTab(this,'normalattack-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this,'normalattack-pvp')">PvP</button>
+        <button class="tab-btn tab-btn-video" onclick="switchTab(this,'normalattack-video')">▶ Video</button>
       </div>
-      <div id="na-desc" class="tab-content active">
+      <div id="normalattack-desc" class="tab-content active">
         <p class="desc-main">Continuously shoot, dealing normal attack damage.</p>
         <p class="desc-main">After a <span class="kw">Perfect Dodge</span> or casting Skill 2 <span class="kw-gold">Silent Arrow (静默之箭)</span>, briefly gain <span class="kw-gold">Flash Consecutive Shot (瞬华连射)</span> effect, empowering the next normal attack. In <span class="kw">Short Bow State (短弓状态)</span>, the next normal attack rapidly fires four arrows — on hit, gain <span class="num">2</span> <span class="kw-gold">Soul Ferry Arrows (渡灵箭)</span> and can counter enemies' <span class="kw-red">Red-Light Skills</span>. In <span class="kw">Long Bow State (长弓状态)</span>, the next normal attack additionally fires one <span class="kw-gold">Demon-Chasing Arrow (追魔箭)</span> and can counter enemies' <span class="kw-red">Red-Light Skills</span>.</p>
         <div class="sub-skill">
@@ -1191,8 +1211,11 @@
           <div class="sub-skill-desc">Pull the bowstring fully to enter <span class="kw">Precision Shot (精准射击)</span> state. Charge lasts up to <span class="num">1</span> second; the fierce arrow fired pierces through enemies.</div>
         </div>
       </div>
-      <div id="na-pvp" class="tab-content">
+      <div id="normalattack-pvp" class="tab-content">
         <div class="pvp-box modified">In Ranked Mode, only Charged Attacks cause suppression; all other normal attacks do not.</div>
+      </div>
+      <div id="normalattack-video" class="tab-content tab-content-video">
+        <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/jialuo/skill_normalattack.mp4" muted loop playsinline></video>
       </div>
     </div>
 
@@ -1213,10 +1236,11 @@
         </div>
       </div>
       <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(this,'sfa-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this,'sfa-pvp')">PvP</button>
+        <button class="tab-btn active" onclick="switchTab(this,'q-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this,'q-pvp')">PvP</button>
+        <button class="tab-btn tab-btn-video" onclick="switchTab(this,'q-video')">▶ Video</button>
       </div>
-      <div id="sfa-desc" class="tab-content active">
+      <div id="q-desc" class="tab-content active">
         <p class="desc-main">Enter <span class="kw">Long Bow State (长弓状态)</span>, empowering normal attacks to <span class="kw-gold">Soul Ferry Shot (渡灵射击)</span>. Casting again or when <span class="kw-gold">Soul Ferry Arrows (渡灵箭)</span> are exhausted, switch back to <span class="kw">Short Bow State (短弓状态)</span>.</p>
         <div class="sub-skill">
           <div class="sub-skill-name">渡灵射击 · Soul Ferry Shot</div>
@@ -1253,8 +1277,11 @@
           </div>
         </div>
       </div>
-      <div id="sfa-pvp" class="tab-content">
+      <div id="q-pvp" class="tab-content">
         <div class="pvp-box modified">In Ranked Mode, <span class="kw-gold">Soul Ferry Shot (渡灵射击)</span> only causes suppression against airborne enemies.</div>
+      </div>
+      <div id="q-video" class="tab-content tab-content-video">
+        <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/jialuo/skill_q.mp4" muted loop playsinline></video>
       </div>
     </div>
 
@@ -1277,10 +1304,11 @@
         </div>
       </div>
       <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(this,'sa-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this,'sa-pvp')">PvP</button>
+        <button class="tab-btn active" onclick="switchTab(this,'e-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this,'e-pvp')">PvP</button>
+        <button class="tab-btn tab-btn-video" onclick="switchTab(this,'e-video')">▶ Video</button>
       </div>
-      <div id="sa-desc" class="tab-content active">
+      <div id="e-desc" class="tab-content active">
         <p class="desc-main">Draw the bow and fire a piercing arrow in the specified direction, dealing Resonance Skill damage, knocking back enemies and leaving a rune. After a brief delay, the rune explodes, dealing Resonance Skill damage to nearby enemies, launching them airborne, and countering enemies' <span class="kw-red">Red-Light Skills</span>.</p>
         <p class="desc-main">After casting, gain <span class="num">2</span> <span class="kw-gold">Soul Ferry Arrows (渡灵箭)</span>; the next normal attack within <span class="num">3</span> seconds is empowered to <span class="kw-gold">Flash Consecutive Shot (瞬华连射)</span>.</p>
         <div class="assoc-nodes">
@@ -1294,8 +1322,11 @@
           </div>
         </div>
       </div>
-      <div id="sa-pvp" class="tab-content">
+      <div id="e-pvp" class="tab-content">
         <div class="pvp-box modified">In Ranked Mode, this skill is an <span class="kw-gold">Empowered Resonance Skill (强流技)</span>.</div>
+      </div>
+      <div id="e-video" class="tab-content tab-content-video">
+        <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/jialuo/skill_e.mp4" muted loop playsinline></video>
       </div>
     </div>
 
@@ -1317,10 +1348,11 @@
         </div>
       </div>
       <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(this,'pd-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this,'pd-pvp')">PvP</button>
+        <button class="tab-btn active" onclick="switchTab(this,'r-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this,'r-pvp')">PvP</button>
+        <button class="tab-btn tab-btn-video" onclick="switchTab(this,'r-video')">▶ Video</button>
       </div>
-      <div id="pd-desc" class="tab-content active">
+      <div id="r-desc" class="tab-content active">
         <p class="desc-main">Release arcane power to deploy a <span class="kw-gold">Pure Domain (纯净领域)</span> lasting <span class="num">12</span> seconds, immediately launching airborne all enemies within the domain. While self is within the domain, Crit Rate is increased. Casting again closes the <span class="kw-gold">Pure Domain</span>.</p>
         <div class="assoc-nodes">
           <div class="assoc-nodes-label">关联流脉 · Associated Nodes</div>
@@ -1338,8 +1370,11 @@
           </div>
         </div>
       </div>
-      <div id="pd-pvp" class="tab-content">
+      <div id="r-pvp" class="tab-content">
         <div class="pvp-box modified">In Ranked Mode, toggling <span class="kw-gold">Pure Domain (纯净领域)</span> on/off no longer has attack detection.</div>
+      </div>
+      <div id="r-video" class="tab-content tab-content-video">
+        <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/jialuo/skill_r.mp4" muted loop playsinline></video>
       </div>
     </div>
 
@@ -1362,14 +1397,18 @@
         </div>
       </div>
       <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(this,'tca-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this,'tca-pvp')">PvP</button>
+        <button class="tab-btn active" onclick="switchTab(this,'sb-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this,'sb-pvp')">PvP</button>
+        <button class="tab-btn tab-btn-video" onclick="switchTab(this,'sb-video')">▶ Video</button>
       </div>
-      <div id="tca-desc" class="tab-content active">
+      <div id="sb-desc" class="tab-content active">
         <p class="desc-main">Condense demon-breaking power into the <span class="kw-gold">Thousand Cavern Divine Arrow (千窟神箭)</span>, and fire it fully drawn in the specified direction, dealing massive Resonance Liberation damage to all enemies within range. Enemies hit are stunned from the powerful impact. Can counter enemies' <span class="kw-red">Red-Light Skills</span>.</p>
       </div>
-      <div id="tca-pvp" class="tab-content">
+      <div id="sb-pvp" class="tab-content">
         <div class="pvp-box modified">In Ranked Mode, the untargetable effect is changed to reducing all damage received by <span class="num">50%</span>.</div>
+      </div>
+      <div id="sb-video" class="tab-content tab-content-video">
+        <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/jialuo/skill_t.mp4" muted loop playsinline></video>
       </div>
     </div>
 
@@ -1390,10 +1429,10 @@
         </div>
       </div>
       <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(this,'arwb-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this,'arwb-pvp')">PvP</button>
+        <button class="tab-btn active" onclick="switchTab(this,'t-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this,'t-pvp')">PvP</button>
       </div>
-      <div id="arwb-desc" class="tab-content active">
+      <div id="t-desc" class="tab-content active">
         <p class="desc-main">All attacks deal <span class="num">100%</span> additional damage to shields.</p>
         <p class="desc-main">In <span class="kw">Short Bow State (短弓状态)</span>, gain <span class="num">1</span> <span class="kw-gold">Soul Ferry Arrow (渡灵箭)</span> every <span class="num">3</span> seconds, up to a maximum of <span class="num">10</span>.</p>
         <p class="desc-main">Using Skill 1 <span class="kw-gold">Soul Ferry Arrow (渡灵之箭)</span> switches between <span class="kw">Short Bow State</span> and <span class="kw">Long Bow State</span>.</p>
@@ -1402,13 +1441,14 @@
           <div class="sub-skill-desc">Triggered after the on-field Resonator casts their Resonance Liberation. Upon entering, fire up to <span class="num">10</span> arrows at enemies, dealing Resonance Skill damage.</div>
         </div>
       </div>
-      <div id="arwb-pvp" class="tab-content">
+      <div id="t-pvp" class="tab-content">
         <div class="pvp-box modified">
           <p>In Ranked Mode, <span class="kw-gold">Soul Ferry Arrow (渡灵箭)</span> default cap is changed to <span class="num">5</span>.</p>
           <br>
           <p><span class="kw-gold">Flash Consecutive Shot (瞬华连射)</span> hits no longer grant <span class="kw-gold">Soul Ferry Arrows</span>.</p>
         </div>
       </div>
+
     </div>
 
   </div><!-- end #skills -->
@@ -1889,10 +1929,23 @@
 <script>
 function switchTab(btn, targetId) {
   const card = btn.closest('.skill-card');
+
+  // Pause any playing video in this card before switching away
+  card.querySelectorAll('video').forEach(v => { v.pause(); });
+
   card.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById(targetId).classList.add('active');
+
+  const target = document.getElementById(targetId);
+  target.classList.add('active');
+
+  // If switching to a video tab, play the video
+  const vid = target.querySelector('video');
+  if (vid) {
+    vid.currentTime = 0;
+    vid.play();
+  }
 }
 
 // Scroll spy — highlight active sidebar link as sections come into view
@@ -1908,6 +1961,33 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 sections.forEach(s => observer.observe(s));
+
+// Reset card to Description tab when it scrolls out of view
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) return;
+    const card = entry.target;
+    const videoTab = card.querySelector('.tab-content-video.active');
+    if (!videoTab) return;
+    // Pause video
+    const vid = videoTab.querySelector('video');
+    if (vid) vid.pause();
+    // Switch back to Description tab
+    card.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    const descBtn = card.querySelector('.tab-btn:first-child');
+    if (descBtn) {
+      descBtn.classList.add('active');
+      // Get the target ID from the onclick attribute and activate that content div
+      const match = descBtn.getAttribute('onclick').match(/['"]([^'"]+)['"]\)/);
+      if (match) {
+        const descContent = document.getElementById(match[1]);
+        if (descContent) descContent.classList.add('active');
+      }
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.skill-card').forEach(card => videoObserver.observe(card));
 </script>
 </body>
 </html>

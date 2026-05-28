@@ -401,6 +401,25 @@
   .pvp-box:last-child { margin-bottom: 0; }
   .pvp-box.modified { background: rgba(201,168,76,0.05); border-color: rgba(201,168,76,0.2); }
   .pvp-box.nochange { background: rgba(30,45,69,0.3); border-color: rgba(30,45,69,0.6); color: var(--text-dim); }
+  /* VIDEO TAB */
+  .tab-btn-video { color: #7a6a9a; }
+  .tab-btn-video.active { color: #c090e8; border-bottom-color: #a066d3; }
+  .tab-content-video { padding: 0; background: #000; }
+  .skill-video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  .video-placeholder {
+    padding: 32px 28px;
+    color: var(--text-dim);
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+  }
 
   /* NODE CARDS */
   .nodes-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 40px; }
@@ -777,10 +796,11 @@
             </div>
           </div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this,'ml-aa-desc')">Description</button>
-            <button class="tab-btn" onclick="switchTab(this,'ml-aa-pvp')">PvP</button>
+            <button class="tab-btn active" onclick="switchTab(this,'light-aa-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'light-aa-pvp')">PvP</button>
+            <button class="tab-btn tab-btn-video" onclick="switchTab(this,'light-aa-video')">▶ Video</button>
           </div>
-          <div id="ml-aa-desc" class="tab-content active">
+          <div id="light-aa-desc" class="tab-content active">
             <p class="desc-main">Swing the dual blades in up to <span class="num">5</span> consecutive slash strikes. Each hit deals normal attack damage and grants <span class="kw">Fierce Blade Intent (迅烈剑意)</span>.</p>
             <div class="sub-skill">
               <div class="sub-skill-name">Charged Attack · 蓄力普攻</div>
@@ -798,8 +818,11 @@
               </div>
             </div>
           </div>
-          <div id="ml-aa-pvp" class="tab-content">
+          <div id="light-aa-pvp" class="tab-content">
             <div class="pvp-box nochange">This skill has no changes in Ranked Mode.</div>
+          </div>
+          <div id="light-aa-video" class="tab-content tab-content-video">
+            <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/mulan/skill_light-aa.mp4" muted loop playsinline></video>
           </div>
         </div>
 
@@ -825,10 +848,11 @@
             </div>
           </div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this,'ml-q-desc')">Description</button>
-            <button class="tab-btn" onclick="switchTab(this,'ml-q-pvp')">PvP</button>
+            <button class="tab-btn active" onclick="switchTab(this,'light-q-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'light-q-pvp')">PvP</button>
+            <button class="tab-btn tab-btn-video" onclick="switchTab(this,'light-q-video')">▶ Video</button>
           </div>
-          <div id="ml-q-desc" class="tab-content active">
+          <div id="light-q-desc" class="tab-content active">
             <p class="desc-main">Spin the dual blades and dash forward, dealing multiple hits of <span class="kw">Attribute Skill DMG</span>. Re-activating leaps airborne and unleashes a spinning wheel-slash with the dual blades, dealing multiple hits of <span class="kw">Attribute Skill DMG</span>. On hit, grants <span class="kw">Fierce Blade Intent (迅烈剑意)</span>.</p>
             <div class="assoc-nodes">
               <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
@@ -838,8 +862,11 @@
               </div>
             </div>
           </div>
-          <div id="ml-q-pvp" class="tab-content">
+          <div id="light-q-pvp" class="tab-content">
             <div class="pvp-box modified">In Ranked Mode, <span class="kw-gold">苍破斩</span> is treated as a <span class="kw">Strong Attribute Skill (强流技)</span>, and <span class="kw-gold">苍破强袭</span> is treated as an <span class="kw">Ultimate</span>.</div>
+          </div>
+          <div id="light-q-video" class="tab-content tab-content-video">
+            <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/mulan/skill_light-q.mp4" muted loop playsinline></video>
           </div>
         </div>
 
@@ -864,10 +891,11 @@
             </div>
           </div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this,'ml-e-desc')">Description</button>
-            <button class="tab-btn" onclick="switchTab(this,'ml-e-pvp')">PvP</button>
+            <button class="tab-btn active" onclick="switchTab(this,'light-e-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'light-e-pvp')">PvP</button>
+            <button class="tab-btn tab-btn-video" onclick="switchTab(this,'light-e-video')">▶ Video</button>
           </div>
-          <div id="ml-e-desc" class="tab-content active">
+          <div id="light-e-desc" class="tab-content active">
             <p class="desc-main">Throw a dual blade forward; on hit it attaches to the enemy and orbits them, dealing <span class="kw">Attribute Skill DMG</span> once every <span class="num">0.5s</span> for <span class="num">6s</span>. Re-activating instantly teleports to the blade's location, picks it up, and delivers a powerful slash dealing <span class="kw">Attribute Skill DMG</span>. On hit, grants <span class="kw">Fierce Blade Intent (迅烈剑意)</span>.</p>
             <div class="assoc-nodes">
               <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
@@ -876,8 +904,11 @@
               </div>
             </div>
           </div>
-          <div id="ml-e-pvp" class="tab-content">
+          <div id="light-e-pvp" class="tab-content">
             <div class="pvp-box modified">In Ranked Mode, the attached blade's orbit duration is reduced to <span class="num">1s</span>. The blade does not apply <span class="kw">Suppression (压制)</span> and is treated as a normal attack. <span class="kw-gold">迅烈之华</span> — the first <span class="num">3</span> hits are treated as <span class="kw">Strong Attribute Skills (强流技)</span>; the final hit is treated as an <span class="kw">Ultimate</span>.</div>
+          </div>
+          <div id="light-e-video" class="tab-content tab-content-video">
+            <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/mulan/skill_light-e.mp4" muted loop playsinline></video>
           </div>
         </div>
 
@@ -903,10 +934,11 @@
             </div>
           </div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this,'ml-r-light-desc')">Description</button>
-            <button class="tab-btn" onclick="switchTab(this,'ml-r-light-pvp')">PvP</button>
+            <button class="tab-btn active" onclick="switchTab(this,'light-r-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'light-r-pvp')">PvP</button>
+            <button class="tab-btn tab-btn-video" onclick="switchTab(this,'light-r-video')">▶ Video</button>
           </div>
-          <div id="ml-r-light-desc" class="tab-content active">
+          <div id="light-r-desc" class="tab-content active">
             <p class="desc-main">Instantly switch to <span class="kw-gold">Greatsword Form (重剑形态)</span>, unleashing rapid consecutive slashes with the dual blades to deal <span class="kw">Attribute Skill DMG</span> and grant <span class="kw">Fierce Blade Intent (迅烈剑意)</span>. On successful <span class="kw">Parry (化解)</span>, counters the enemy's <span class="kw-red">Red-Light Skill</span>.</p>
             <div class="assoc-nodes">
               <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
@@ -916,8 +948,11 @@
               </div>
             </div>
           </div>
-          <div id="ml-r-light-pvp" class="tab-content">
+          <div id="light-r-pvp" class="tab-content">
             <div class="pvp-box modified">In Ranked Mode, <span class="kw-gold">绕放刀锋</span> does not have a <span class="kw">Parry (化解)</span> mechanic.</div>
+          </div>
+          <div id="light-r-video" class="tab-content tab-content-video">
+            <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/mulan/skill_light-r.mp4" muted loop playsinline></video>
           </div>
         </div>
 
@@ -949,10 +984,11 @@
             </div>
           </div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this,'mh-aa-desc')">Description</button>
-            <button class="tab-btn" onclick="switchTab(this,'mh-aa-pvp')">PvP</button>
+            <button class="tab-btn active" onclick="switchTab(this,'heavy-aa-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'heavy-aa-pvp')">PvP</button>
+            <button class="tab-btn tab-btn-video" onclick="switchTab(this,'heavy-aa-video')">▶ Video</button>
           </div>
-          <div id="mh-aa-desc" class="tab-content active">
+          <div id="heavy-aa-desc" class="tab-content active">
             <p class="desc-main">Swing the greatsword in up to <span class="num">4</span> consecutive slash strikes. Each hit deals normal attack damage.</p>
             <div class="sub-skill">
               <div class="sub-skill-name">Charged Attack · 蓄力普攻</div>
@@ -970,8 +1006,11 @@
               </div>
             </div>
           </div>
-          <div id="mh-aa-pvp" class="tab-content">
+          <div id="heavy-aa-pvp" class="tab-content">
             <div class="pvp-box nochange">This skill has no changes in Ranked Mode.</div>
+          </div>
+          <div id="heavy-aa-video" class="tab-content tab-content-video">
+            <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/mulan/skill_heavy-aa.mp4" muted loop playsinline></video>
           </div>
         </div>
 
@@ -996,10 +1035,11 @@
             </div>
           </div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this,'mh-q-desc')">Description</button>
-            <button class="tab-btn" onclick="switchTab(this,'mh-q-pvp')">PvP</button>
+            <button class="tab-btn active" onclick="switchTab(this,'heavy-q-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'heavy-q-pvp')">PvP</button>
+            <button class="tab-btn tab-btn-video" onclick="switchTab(this,'heavy-q-video')">▶ Video</button>
           </div>
-          <div id="mh-q-desc" class="tab-content active">
+          <div id="heavy-q-desc" class="tab-content active">
             <p class="desc-main">Launch a <span class="kw">Charge (冲撞)</span> forward, <span class="kw">Parrying (化解)</span> enemy attacks during the dash; then follow up with a sword slash dealing <span class="kw">Attribute Skill DMG</span>. Mulan gains <span class="num">50%</span> damage reduction while this skill is active. Long-press to charge the skill — Mulan enters <span class="kw">Armored (霸体)</span> state during the charge. If charge time exceeds <span class="num">3.3s</span>, <span class="kw-gold">苍破斩</span> upgrades into <span class="kw-gold">苍破强袭</span>.</p>
             <div class="sub-skill">
               <div class="sub-skill-name">Azure Surge · 苍破强袭</div>
@@ -1013,8 +1053,11 @@
               </div>
             </div>
           </div>
-          <div id="mh-q-pvp" class="tab-content">
+          <div id="heavy-q-pvp" class="tab-content">
             <div class="pvp-box modified">In Ranked Mode, <span class="kw-gold">苍破斩</span> is treated as a <span class="kw">Strong Attribute Skill (强流技)</span>, and <span class="kw-gold">苍破强袭</span> is treated as an <span class="kw">Ultimate</span>.</div>
+          </div>
+          <div id="heavy-q-video" class="tab-content tab-content-video">
+            <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/mulan/skill_heavy-q.mp4" muted loop playsinline></video>
           </div>
         </div>
 
@@ -1038,10 +1081,11 @@
             </div>
           </div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this,'mh-e-desc')">Description</button>
-            <button class="tab-btn" onclick="switchTab(this,'mh-e-pvp')">PvP</button>
+            <button class="tab-btn active" onclick="switchTab(this,'heavy-e-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'heavy-e-pvp')">PvP</button>
+            <button class="tab-btn tab-btn-video" onclick="switchTab(this,'heavy-e-video')">▶ Video</button>
           </div>
-          <div id="mh-e-desc" class="tab-content active">
+          <div id="heavy-e-desc" class="tab-content active">
             <p class="desc-main">Launch up to <span class="num">4</span> consecutive forward slashes dealing <span class="kw">Attribute Skill DMG</span>. Mulan enters <span class="kw">Armored (霸体)</span> state and gains <span class="num">50%</span> damage reduction during the skill. Each slash consumes <span class="num">250</span> points of <span class="kw">Fierce Blade Intent (迅烈剑意)</span> and grants <span class="num">1</span> stack of <span class="kw-gold">Azure Mark (苍破印记)</span>.</p>
             <div class="assoc-nodes">
               <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
@@ -1050,8 +1094,11 @@
               </div>
             </div>
           </div>
-          <div id="mh-e-pvp" class="tab-content">
+          <div id="heavy-e-pvp" class="tab-content">
             <div class="pvp-box modified">In Ranked Mode, <span class="kw-gold">迅烈之华</span> — the first <span class="num">3</span> hits are treated as <span class="kw">Strong Attribute Skills (强流技)</span>; the final hit is treated as an <span class="kw">Ultimate</span>.</div>
+          </div>
+          <div id="heavy-e-video" class="tab-content tab-content-video">
+            <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/mulan/skill_heavy-e.mp4" muted loop playsinline></video>
           </div>
         </div>
 
@@ -1077,10 +1124,11 @@
             </div>
           </div>
           <div class="tabs">
-            <button class="tab-btn active" onclick="switchTab(this,'mh-r-desc')">Description</button>
-            <button class="tab-btn" onclick="switchTab(this,'mh-r-pvp')">PvP</button>
+            <button class="tab-btn active" onclick="switchTab(this,'heavy-r-desc')">Description</button>
+            <button class="tab-btn" onclick="switchTab(this,'heavy-r-pvp')">PvP</button>
+            <button class="tab-btn tab-btn-video" onclick="switchTab(this,'heavy-r-video')">▶ Video</button>
           </div>
-          <div id="mh-r-desc" class="tab-content active">
+          <div id="heavy-r-desc" class="tab-content active">
             <p class="desc-main">Instantly switch to <span class="kw-gold">Dual Blades Form (轻剑形态)</span>, striking enemies with the heavy sword's momentum to deal <span class="kw">Attribute Skill DMG</span>. On successful <span class="kw">Parry (化解)</span>, counters the enemy's <span class="kw-red">Red-Light Skill</span>.</p>
             <div class="assoc-nodes">
               <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
@@ -1090,8 +1138,11 @@
               </div>
             </div>
           </div>
-          <div id="mh-r-pvp" class="tab-content">
+          <div id="heavy-r-pvp" class="tab-content">
             <div class="pvp-box modified">In Ranked Mode, <span class="kw-gold">绕放刀锋</span> does not have a <span class="kw">Parry (化解)</span> mechanic.</div>
+          </div>
+          <div id="heavy-r-video" class="tab-content tab-content-video">
+            <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/mulan/skill_heavy-r.mp4" muted loop playsinline></video>
           </div>
         </div>
 
@@ -1127,10 +1178,11 @@
           </div>
         </div>
         <div class="tabs">
-          <button class="tab-btn active" onclick="switchTab(this,'ml-t-desc')">Description</button>
-          <button class="tab-btn" onclick="switchTab(this,'ml-t-pvp')">PvP</button>
+          <button class="tab-btn active" onclick="switchTab(this,'t-desc')">Description</button>
+          <button class="tab-btn" onclick="switchTab(this,'t-pvp')">PvP</button>
+          <button class="tab-btn tab-btn-video" onclick="switchTab(this,'t-video')">▶ Video</button>
         </div>
-        <div id="ml-t-desc" class="tab-content active">
+        <div id="t-desc" class="tab-content active">
           <p class="desc-main">Launch enemies airborne and leap up, then unleash a thunderous barrage of consecutive greatsword slashes dealing <span class="kw">Resonance Liberation DMG</span>. Can counter enemy <span class="kw-red">Red-Light Skills</span>.</p>
           <div class="assoc-nodes">
             <div class="assoc-nodes-label">Associated Nodes · 关联流脉</div>
@@ -1139,9 +1191,12 @@
             </div>
           </div>
         </div>
-        <div id="ml-t-pvp" class="tab-content">
+        <div id="t-pvp" class="tab-content">
           <div class="pvp-box modified">In Ranked Mode, the untargetable effect is changed to reducing all damage received by <span class="num">50%</span>.</div>
         </div>
+          <div id="t-video" class="tab-content tab-content-video">
+            <video class="skill-video" src="https://pub-50a8fa45b692411ba79251aa784958b9.r2.dev/mulan/skill_t.mp4" muted loop playsinline></video>
+          </div>
       </div>
 
       <!-- ✦ · 长城巡守者 (Passive) -->
@@ -1165,10 +1220,10 @@
           </div>
         </div>
         <div class="tabs">
-          <button class="tab-btn active" onclick="switchTab(this,'ml-p-desc')">Description</button>
-          <button class="tab-btn" onclick="switchTab(this,'ml-p-pvp')">PvP</button>
+          <button class="tab-btn active" onclick="switchTab(this,'p-desc')">Description</button>
+          <button class="tab-btn" onclick="switchTab(this,'p-pvp')">PvP</button>
         </div>
-        <div id="ml-p-desc" class="tab-content active">
+        <div id="p-desc" class="tab-content active">
           <p class="desc-main">In <span class="kw-gold">Dual Blades Form (轻剑形态)</span>: landing normal attacks and Attribute Skills on enemies grants <span class="kw">Fierce Blade Intent (迅烈剑意)</span>.</p>
           <p class="desc-main">In <span class="kw-red">Greatsword Form (重剑形态)</span>: using E skill <span class="kw-gold">迅烈之华</span> consumes <span class="kw">Fierce Blade Intent</span> to deal bonus damage and gain <span class="kw-gold">Azure Mark (苍破印记)</span> stacks.</p>
           <p class="desc-main">Using R skill <span class="kw-gold">绕放刀锋</span> switches between <span class="kw-gold">轻剑形态</span> and <span class="kw-red">重剑形态</span>.</p>
@@ -1177,8 +1232,9 @@
             <div class="sub-skill-desc">After an ally uses their Ultimate on-field, slash at nearby enemies with the dual blade; on hit, leap airborne and follow up with a greatsword downward slam, dealing <span class="kw">Attribute Skill DMG</span>.</div>
           </div>
         </div>
-        <div id="ml-p-pvp" class="tab-content">
+        <div id="p-pvp" class="tab-content">
           <div class="pvp-box modified">In Ranked Mode, the first hit of the <span class="kw">Co-op Resonance (共流技)</span> stunning enemies for <span class="num">1.5s</span> upon landing.</div>
+
         </div>
       </div>
 
@@ -1711,10 +1767,23 @@ function switchForm(form) {
 
 function switchTab(btn, targetId) {
   const card = btn.closest('.skill-card');
+
+  // Pause any playing video in this card before switching away
+  card.querySelectorAll('video').forEach(v => { v.pause(); });
+
   card.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById(targetId).classList.add('active');
+
+  const target = document.getElementById(targetId);
+  target.classList.add('active');
+
+  // If switching to a video tab, play the video
+  const vid = target.querySelector('video');
+  if (vid) {
+    vid.currentTime = 0;
+    vid.play();
+  }
 }
 
 const sections = document.querySelectorAll('.section[id]');
@@ -1729,6 +1798,32 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 sections.forEach(s => observer.observe(s));
+// Reset card to Description tab when it scrolls out of view
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) return;
+    const card = entry.target;
+    const videoTab = card.querySelector('.tab-content-video.active');
+    if (!videoTab) return;
+    // Pause video
+    const vid = videoTab.querySelector('video');
+    if (vid) vid.pause();
+    // Switch back to Description tab
+    card.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    const descBtn = card.querySelector('.tab-btn:first-child');
+    if (descBtn) {
+      descBtn.classList.add('active');
+      // Get the target ID from the onclick attribute and activate that content div
+      const match = descBtn.getAttribute('onclick').match(/['"]([^'"]+)['"]\)/);
+      if (match) {
+        const descContent = document.getElementById(match[1]);
+        if (descContent) descContent.classList.add('active');
+      }
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.skill-card').forEach(card => videoObserver.observe(card));
 </script>
 </body>
 </html>

@@ -382,6 +382,26 @@
     border-color: rgba(201,168,76,0.2);
   }
 
+  /* VIDEO TAB */
+  .tab-btn-video { color: #7a6a9a; }
+  .tab-btn-video.active { color: #c090e8; border-bottom-color: #a066d3; }
+  .tab-content-video { padding: 0; background: #000; }
+  .skill-video {
+    width: 100%;
+    display: block;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+  }
+  .video-placeholder {
+    padding: 32px 28px;
+    color: var(--text-dim);
+    font-family: 'Cinzel', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
   /* NODE CARDS */
   .nodes-list { display: flex; flex-direction: column; gap: 2px; margin-bottom: 40px; }
   .node-card {
@@ -1114,6 +1134,7 @@
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'na-desc')">Description</button>
         <button class="tab-btn" onclick="switchTab(this, 'na-pvp')">PvP</button>
+        <button class="tab-btn tab-btn-video" onclick="switchTab(this, 'na-video')">▶ Video</button>
       </div>
       <div id="na-desc" class="tab-content active">
         <p class="desc-main">Continuously swing the sword, performing up to <span class="num">4</span> slash hits, dealing normal attack damage to enemies.</p>
@@ -1148,6 +1169,9 @@
       <div id="na-pvp" class="tab-content">
         <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
       </div>
+      <div id="na-video" class="tab-content tab-content-video">
+        <video class="skill-video" src="HERO_FOLDER/skill_normalattack.mp4" muted loop playsinline></video>
+      </div>
     </div>
 
     <!-- VOID RIFT -->
@@ -1170,6 +1194,7 @@
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'q-desc')">Description</button>
         <button class="tab-btn" onclick="switchTab(this, 'q-pvp')">PvP</button>
+        <button class="tab-btn tab-btn-video" onclick="switchTab(this, 'q-video')">▶ Video</button>
       </div>
       <div id="q-desc" class="tab-content active">
         <p class="desc-main">Rapidly spin the blade, dealing Resonance Skill damage to surrounding enemies.</p>
@@ -1183,6 +1208,9 @@
       </div>
       <div id="q-pvp" class="tab-content">
         <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
+      </div>
+      <div id="q-video" class="tab-content tab-content-video">
+        <video class="skill-video" src="HERO_FOLDER/skill_q.mp4" muted loop playsinline></video>
       </div>
     </div>
 
@@ -1207,6 +1235,7 @@
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'e-desc')">Description</button>
         <button class="tab-btn" onclick="switchTab(this, 'e-pvp')">PvP</button>
+        <button class="tab-btn tab-btn-video" onclick="switchTab(this, 'e-video')">▶ Video</button>
       </div>
       <div id="e-desc" class="tab-content active">
         <p class="desc-main">Rapidly dash forward along an arc and strike with the sword, dealing Resonance Skill damage to enemies.</p>
@@ -1221,6 +1250,9 @@
       </div>
       <div id="e-pvp" class="tab-content">
         <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
+      </div>
+      <div id="e-video" class="tab-content tab-content-video">
+        <video class="skill-video" src="HERO_FOLDER/skill_e.mp4" muted loop playsinline></video>
       </div>
     </div>
 
@@ -1246,6 +1278,7 @@
       <div class="tabs">
         <button class="tab-btn active" onclick="switchTab(this, 'r-desc')">Description</button>
         <button class="tab-btn" onclick="switchTab(this, 'r-pvp')">PvP</button>
+        <button class="tab-btn tab-btn-video" onclick="switchTab(this, 'r-video')">▶ Video</button>
       </div>
       <div id="r-desc" class="tab-content active">
         <p class="desc-main">When casting a movement skill, generates a <span class="kw">Star Mark (星辰标记)</span>, recording the current position. Casting <span class="kw-gold">Return to Dust</span> returns to the Star Mark location, dealing Resonance Skill damage to enemies along the path.</p>
@@ -1264,7 +1297,52 @@
           <p>In <span class="kw-gold">Radiant Light</span> state, must hit an enemy to gain HP recovery, recovering <span class="num">12%</span> of lost HP.</p>
         </div>
       </div>
+      <div id="r-video" class="tab-content tab-content-video">
+        <video class="skill-video" src="HERO_FOLDER/skill_r.mp4" muted loop playsinline></video>
+      </div>
     </div>
+
+    <!-- GALAXY BURST -->
+    <div class="skill-card">
+      <div class="skill-header">
+        <div class="skill-icon-slot"><img src="dongfangyao/icon_galaxyburst.png" alt="Galaxy Burst"></div>
+        <div class="skill-title-area">
+          <div class="skill-key"><span class="skill-key-badge">T</span><span class="skill-key-label">Resonance Liberation</span></div>
+          <div class="skill-names">
+            <span class="skill-cn">星河破裂</span>
+            <span class="skill-en">Galaxy Burst</span>
+          </div>
+          <div class="skill-meta">
+            <span class="tag tag-skill">Skill</span>
+            <span class="tag tag-liberation">Liberation</span>
+            <span class="tag tag-stun">Stun</span>
+            <span class="cd">Cooldown: 15s</span>
+          </div>
+        </div>
+      </div>
+      <div class="tabs">
+        <button class="tab-btn active" onclick="switchTab(this, 't-desc')">Description</button>
+        <button class="tab-btn" onclick="switchTab(this, 't-pvp')">PvP</button>
+        <button class="tab-btn tab-btn-video" onclick="switchTab(this, 't-video')">▶ Video</button>
+      </div>
+      <div id="t-desc" class="tab-content active">
+        <p class="desc-main">Channeling <span class="kw">Star Force (星辰之力)</span>, launches fierce slashing strikes at the enemy from <span class="num">6</span> different directions in an instant, dealing Resonance Liberation damage. Can counter enemies' <span class="kw-red">Red-Light Skills</span>.</p>
+      </div>
+      <div id="t-stats" class="tab-content">
+        <table class="stats-table">
+          <tr><td>Dash-Through Damage<span class="cn-label">穿梭伤害</span></td><td>302%×6</td><td>→ 321%×6 ▲</td></tr>
+          <tr><td>Return Damage<span class="cn-label">返回后伤害</span></td><td>924%</td><td>→ 982% ▲</td></tr>
+        </table>
+        <p style="font-size:12px; color:var(--text-dim); margin-top:12px; font-style:italic;">▲ Values shown for current level (8) and next level (9)</p>
+      </div>
+      <div id="t-pvp" class="tab-content">
+        <div class="pvp-box modified">In Ranked Mode, the untargetable effect is changed to reducing all damage received by <span class="num">50%</span>.</div>
+      </div>
+      <div id="t-video" class="tab-content tab-content-video">
+        <video class="skill-video" src="HERO_FOLDER/skill_t.mp4" muted loop playsinline></video>
+      </div>
+    </div>
+
 
     <!-- STAR BLESSING -->
     <div class="skill-card">
@@ -1306,45 +1384,8 @@
       <div id="sb-pvp" class="tab-content">
         <div class="pvp-box">This skill's effects have no changes in Ranked Mode.</div>
       </div>
-    </div>
 
-    <!-- GALAXY BURST -->
-    <div class="skill-card">
-      <div class="skill-header">
-        <div class="skill-icon-slot"><img src="dongfangyao/icon_galaxyburst.png" alt="Galaxy Burst"></div>
-        <div class="skill-title-area">
-          <div class="skill-key"><span class="skill-key-badge">T</span><span class="skill-key-label">Resonance Liberation</span></div>
-          <div class="skill-names">
-            <span class="skill-cn">星河破裂</span>
-            <span class="skill-en">Galaxy Burst</span>
-          </div>
-          <div class="skill-meta">
-            <span class="tag tag-skill">Skill</span>
-            <span class="tag tag-liberation">Liberation</span>
-            <span class="tag tag-stun">Stun</span>
-            <span class="cd">Cooldown: 15s</span>
-          </div>
-        </div>
-      </div>
-      <div class="tabs">
-        <button class="tab-btn active" onclick="switchTab(this, 't-desc')">Description</button>
-        <button class="tab-btn" onclick="switchTab(this, 't-pvp')">PvP</button>
-      </div>
-      <div id="t-desc" class="tab-content active">
-        <p class="desc-main">Channeling <span class="kw">Star Force (星辰之力)</span>, launches fierce slashing strikes at the enemy from <span class="num">6</span> different directions in an instant, dealing Resonance Liberation damage. Can counter enemies' <span class="kw-red">Red-Light Skills</span>.</p>
-      </div>
-      <div id="t-stats" class="tab-content">
-        <table class="stats-table">
-          <tr><td>Dash-Through Damage<span class="cn-label">穿梭伤害</span></td><td>302%×6</td><td>→ 321%×6 ▲</td></tr>
-          <tr><td>Return Damage<span class="cn-label">返回后伤害</span></td><td>924%</td><td>→ 982% ▲</td></tr>
-        </table>
-        <p style="font-size:12px; color:var(--text-dim); margin-top:12px; font-style:italic;">▲ Values shown for current level (8) and next level (9)</p>
-      </div>
-      <div id="t-pvp" class="tab-content">
-        <div class="pvp-box modified">In Ranked Mode, the untargetable effect is changed to reducing all damage received by <span class="num">50%</span>.</div>
-      </div>
     </div>
-
   </div><!-- end #skills -->
 
   <!-- ===== PASSIVE NODES ===== -->
@@ -1517,10 +1558,23 @@
 <script>
 function switchTab(btn, targetId) {
   const card = btn.closest('.skill-card');
+
+  // Pause any playing video in this card before switching away
+  card.querySelectorAll('video').forEach(v => { v.pause(); });
+
   card.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
   card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
   btn.classList.add('active');
-  document.getElementById(targetId).classList.add('active');
+
+  const target = document.getElementById(targetId);
+  target.classList.add('active');
+
+  // If switching to a video tab, play the video
+  const vid = target.querySelector('video');
+  if (vid) {
+    vid.currentTime = 0;
+    vid.play();
+  }
 }
 
 // Scroll spy — highlight active sidebar link as sections come into view
@@ -1536,6 +1590,30 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.15 });
 sections.forEach(s => observer.observe(s));
+
+// Reset card to Description tab when it scrolls out of view
+const videoObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) return;
+    const card = entry.target;
+    const videoTab = card.querySelector('.tab-content-video.active');
+    if (!videoTab) return;
+    const vid = videoTab.querySelector('video');
+    if (vid) vid.pause();
+    card.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    card.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    const descBtn = card.querySelector('.tab-btn:first-child');
+    if (descBtn) {
+      descBtn.classList.add('active');
+      const match = descBtn.getAttribute('onclick').match(/['"]([^'"]+)['"]\)/);
+      if (match) {
+        const descContent = document.getElementById(match[1]);
+        if (descContent) descContent.classList.add('active');
+      }
+    }
+  });
+}, { threshold: 0.2 });
+document.querySelectorAll('.skill-card').forEach(card => videoObserver.observe(card));
 </script>
 </body>
 </html>
