@@ -695,7 +695,7 @@
   }
   .phantom-table tr:last-child td { border-bottom: none; }
   .phantom-table td:first-child { color: var(--gold); font-weight: 500; }
-  .phantom-table td:nth-child(2) { color: var(--text-dim); }
+  .phantom-table td:nth-child(2) { color: var(--text-dim); min-width: 100px; }
   .phantom-note {
     font-family: 'Spectral', serif;
     font-size: 14px;
@@ -703,6 +703,61 @@
     margin-top: 10px;
     line-height: 1.6;
   }
+
+
+  /* Affix pool tabs */
+  .affix-tab-content { display: block; }
+  .affix-tab-content.hidden { display: none; }
+
+  /* S1 badge */
+  .s1-badge {
+    display: inline-block;
+    font-family: 'Cinzel', serif;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    color: #a8d4f0;
+    border: 1px solid rgba(168,212,240,0.4);
+    background: rgba(168,212,240,0.08);
+    border-radius: 3px;
+    padding: 1px 5px;
+    vertical-align: middle;
+    margin-left: 4px;
+  }
+
+  /* Affix tier accordion */
+  .affix-tier-block { margin-bottom: 8px; border-radius: 4px; overflow: hidden; }
+  .affix-tier-header {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: 'Cinzel', serif;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    text-align: left;
+    transition: opacity 0.15s;
+  }
+  .affix-tier-header:hover { opacity: 0.85; }
+  .affix-tier-legendary { background: rgba(201,168,76,0.12); color: var(--gold-light); border: 1px solid rgba(201,168,76,0.25); }
+  .affix-tier-rare      { background: rgba(160,102,211,0.1);  color: #c090e8;          border: 1px solid rgba(160,102,211,0.25); }
+  .affix-tier-fine      { background: rgba(94,207,207,0.08);  color: var(--teal);      border: 1px solid rgba(94,207,207,0.2); }
+  .affix-tier-count {
+    font-family: 'Spectral', serif;
+    font-size: 13px;
+    font-weight: 400;
+    letter-spacing: 0;
+    text-transform: none;
+    opacity: 0.6;
+  }
+  .affix-tier-chevron { margin-left: auto; font-size: 14px; transition: transform 0.2s; }
+  .affix-tier-header.collapsed .affix-tier-chevron { transform: rotate(-90deg); }
+  .affix-tier-body { border: 1px solid var(--border); border-top: none; border-radius: 0 0 4px 4px; padding: 4px 0; }
+  .affix-tier-body.hidden { display: none; }
 
   /* Jade section */
   .jade-callout {
@@ -1035,6 +1090,8 @@
       <a class="sidebar-link" href="#baolie">暴烈 · Blazing Fury</a>
       <a class="sidebar-link" href="#lianjin">炼金 · Alchemist</a>
       <a class="sidebar-link" href="#doushi">斗士 · Fighter</a>
+      <a class="sidebar-link" href="#jingying">镜影 · Mirror</a>
+      <a class="sidebar-link" href="#fenhui">焚毁 · Incinerate</a>
       <div class="sidebar-class-label sidebar-support" style="margin-top:18px;">辅助 · Support</div>
       <a class="sidebar-link" href="#shengshu">圣树 · Sacred Tree</a>
       <a class="sidebar-link" href="#xuri">旭日 · Rising Sun</a>
@@ -1042,10 +1099,12 @@
       <a class="sidebar-link" href="#tongku">痛苦 · Torment</a>
       <a class="sidebar-link" href="#meiying">魅影 · Phantom</a>
       <a class="sidebar-link" href="#anye">暗夜 · Dark Night</a>
+      <a class="sidebar-link" href="#handi">撼地 · Earthshaker</a>
+      <a class="sidebar-link" href="#rousha">柔纱 · Silken</a>
     </div>
     <div class="sidebar-section">
       <div class="sidebar-section-label">Universal</div>
-      <a class="sidebar-link" href="#phantom">万相附流 · Phantom Affix</a>
+      <a class="sidebar-link" href="#phantom">万相附流 · Affix Pool</a>
       <a class="sidebar-link" href="#jades">流玉 · Socket Jades</a>
     </div>
   </aside>
@@ -1756,6 +1815,85 @@
           </div>
         </div>
 
+
+        <!-- ══ 镜影套装 · Mirror Set ══ -->
+        <div class="set-card" id="jingying">
+          <div class="set-card-header">
+            <div class="set-icon"><img src="armor/icon_jingying.png" alt="Mirror Set Icon" style="width:56px;height:56px;object-fit:contain;"></div>
+            <div class="set-header-text">
+              <div class="set-name-cn">镜影套装</div>
+              <div class="set-name-en">Mirror Set</div>
+              <span class="set-class-badge badge-assault">强攻 · Assault</span>
+            </div>
+          </div>
+          <div class="set-pieces">
+            <div class="piece-slot" data-name="镜影头盔" data-name-en="Mirror Helm" data-slot="Helm · 头盔" data-art="armor/jingying_helm.png" data-class-color="#e06060" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="镜影 · Mirror" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/jingying_helm.png" alt="Helm" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Helm</div></div>
+            <div class="piece-slot" data-name="镜影护甲" data-name-en="Mirror Chest" data-slot="Chest · 护甲" data-art="armor/jingying_chest.png" data-class-color="#e06060" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="镜影 · Mirror" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/jingying_chest.png" alt="Chest" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Chest</div></div>
+            <div class="piece-slot" data-name="镜影手甲" data-name-en="Mirror Gauntlets" data-slot="Gauntlets · 手甲" data-art="armor/jingying_gauntlets.png" data-class-color="#e06060" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="镜影 · Mirror" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/jingying_gauntlets.png" alt="Gauntlets" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Gauntlets</div></div>
+            <div class="piece-slot" data-name="镜影护腿" data-name-en="Mirror Boots" data-slot="Boots · 护腿" data-art="armor/jingying_boots.png" data-class-color="#e06060" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="镜影 · Mirror" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/jingying_boots.png" alt="Boots" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Boots</div></div>
+            <div class="piece-slot" data-name="镜影饰品" data-name-en="Mirror Accessory" data-slot="Accessory · 饰品" data-art="armor/jingying_accessory.png" data-class-color="#e06060" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="镜影 · Mirror" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/jingying_accessory.png" alt="Accessory" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Accessory</div></div>
+          </div>
+          <div class="set-body">
+            <div class="set-trait-label">Set Trait · 套装特性</div>
+            <div class="set-trait-desc">
+              <span style="color:var(--red);font-weight:500;">镜影</span> — While resonating as the <span class="kw">off-field</span> character, every <span class="num">6</span> <span class="kw">Combo Hits</span> grants a <span class="kw-gold">Buff</span> stack, lasting <span class="num">20s</span>, max <span class="num">10</span> stacks.
+            </div>
+            <div class="scaling-rows">
+              <div class="scaling-row"><span class="scaling-lv">Lv 5</span><span class="scaling-text">Each stack: Attribute Skill DMG <span class="num">+2.8%</span></span></div>
+              <div class="scaling-row"><span class="scaling-lv">Lv 10</span><span class="scaling-text">Each stack: Attribute Skill DMG <span class="num">+5.6%</span></span></div>
+              <div class="scaling-row"><span class="scaling-lv">Lv 15</span><span class="scaling-text">At <span class="num">30</span> / <span class="num">60</span> / <span class="num">100</span> Combo Hits, Attribute Skill DMG gains <span class="num">15%</span> / <span class="num">30%</span> / <span class="num">45%</span> Armor Penetration</span></div>
+              <div class="scaling-row"><span class="scaling-lv">Lv 20</span><span class="scaling-text">At the corresponding Combo Hit thresholds, Attribute Skill DMG dealt <span class="num">+9%</span> / <span class="num">+18%</span> / <span class="num">+27%</span></span></div>
+            </div>
+            <div class="set-sources">
+              <div class="sources-label">Sources · 获取来源</div>
+              <div>
+                <span class="source-tag"><span class="source-dot source-dot-dream"></span>梦行奇谭 · Dream Odyssey <span class="source-range">★130–200 · ⚙63</span></span>
+                <span class="source-tag"><span class="source-dot source-dot-realm"></span>奇境 · Realm <span class="source-range">★130–200 · ⚙63</span></span>
+                <span class="source-tag"><span class="source-dot source-dot-world"></span>完成朝闻道任务获取 · Chaowendao Quest Reward</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ 焚毁套装 · Incinerate Set ══ -->
+        <div class="set-card" id="fenhui">
+          <div class="set-card-header">
+            <div class="set-icon"><img src="armor/icon_fenhui.png" alt="Incinerate Set Icon" style="width:56px;height:56px;object-fit:contain;"></div>
+            <div class="set-header-text">
+              <div class="set-name-cn">焚毁套装</div>
+              <div class="set-name-en">Incinerate Set</div>
+              <span class="set-class-badge badge-assault">强攻 · Assault</span>
+            </div>
+          </div>
+          <div class="set-pieces">
+            <div class="piece-slot" data-name="焚毁头盔" data-name-en="Incinerate Helm" data-slot="Helm · 头盔" data-art="armor/fenhui_helm.png" data-class-color="#e06060" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="焚毁 · Incinerate" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/fenhui_helm.png" alt="Helm" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Helm</div></div>
+            <div class="piece-slot" data-name="焚毁护甲" data-name-en="Incinerate Chest" data-slot="Chest · 护甲" data-art="armor/fenhui_chest.png" data-class-color="#e06060" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="焚毁 · Incinerate" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/fenhui_chest.png" alt="Chest" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Chest</div></div>
+            <div class="piece-slot" data-name="焚毁手甲" data-name-en="Incinerate Gauntlets" data-slot="Gauntlets · 手甲" data-art="armor/fenhui_gauntlets.png" data-class-color="#e06060" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="焚毁 · Incinerate" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/fenhui_gauntlets.png" alt="Gauntlets" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Gauntlets</div></div>
+            <div class="piece-slot" data-name="焚毁护腿" data-name-en="Incinerate Boots" data-slot="Boots · 护腿" data-art="armor/fenhui_boots.png" data-class-color="#e06060" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="焚毁 · Incinerate" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/fenhui_boots.png" alt="Boots" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Boots</div></div>
+            <div class="piece-slot" data-name="焚毁饰品" data-name-en="Incinerate Accessory" data-slot="Accessory · 饰品" data-art="armor/fenhui_accessory.png" data-class-color="#e06060" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="焚毁 · Incinerate" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/fenhui_accessory.png" alt="Accessory" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Accessory</div></div>
+          </div>
+          <div class="set-body">
+            <div class="set-trait-label">Set Trait · 套装特性</div>
+            <div class="set-trait-desc">
+              <span style="color:var(--red);font-weight:500;">焚毁</span> — After each <span class="kw">Dodge</span>, gain a <span class="kw-gold">Buff</span> lasting <span class="num">5s</span>.
+            </div>
+            <div class="scaling-rows">
+              <div class="scaling-row"><span class="scaling-lv">Lv 5</span><span class="scaling-text">Dodge Attack DMG <span class="num">+50%</span>, Follow-Up Attack Rate <span class="num">+12%</span></span></div>
+              <div class="scaling-row"><span class="scaling-lv">Lv 10</span><span class="scaling-text">Dodge Attack DMG <span class="num">+100%</span>, Follow-Up Attack Rate <span class="num">+25%</span></span></div>
+              <div class="scaling-row"><span class="scaling-lv">Lv 15</span><span class="scaling-text">After <span class="num">6</span> Dodge Attacks, enter <span class="kw">所向披靡 · Unstoppable</span> state — ATK <span class="num">+35%</span> for <span class="num">30s</span></span></div>
+              <div class="scaling-row"><span class="scaling-lv">Lv 20</span><span class="scaling-text">During <span class="kw">Unstoppable</span> state, ATK <span class="num">+70%</span></span></div>
+            </div>
+            <div class="set-sources">
+              <div class="sources-label">Sources · 获取来源</div>
+              <div>
+                <span class="source-tag"><span class="source-dot source-dot-dream"></span>梦行奇谭 · Dream Odyssey <span class="source-range">★130–200 · ⚙63</span></span>
+                <span class="source-tag"><span class="source-dot source-dot-realm"></span>奇境 · Realm <span class="source-range">★130–200 · ⚙63</span></span>
+                <span class="source-tag"><span class="source-dot source-dot-world"></span>完成朝闻道任务获取 · Chaowendao Quest Reward</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div><!-- /sets-grid -->
     </div>
 
@@ -2000,25 +2138,192 @@
           </div>
         </div>
 
+
+        <!-- ══ 撼地套装 · Earthshaker Set ══ -->
+        <div class="set-card" id="handi">
+          <div class="set-card-header">
+            <div class="set-icon"><img src="armor/icon_handi.png" alt="Earthshaker Set Icon" style="width:56px;height:56px;object-fit:contain;"></div>
+            <div class="set-header-text">
+              <div class="set-name-cn">撼地套装</div>
+              <div class="set-name-en">Earthshaker Set</div>
+              <span class="set-class-badge badge-support">辅助 · Support</span>
+            </div>
+          </div>
+          <div class="set-pieces">
+            <div class="piece-slot" data-name="撼地头盔" data-name-en="Earthshaker Helm" data-slot="Helm · 头盔" data-art="armor/handi_helm.png" data-class-color="#6dbf8a" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="撼地 · Earthshaker" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/handi_helm.png" alt="Helm" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Helm</div></div>
+            <div class="piece-slot" data-name="撼地护甲" data-name-en="Earthshaker Chest" data-slot="Chest · 护甲" data-art="armor/handi_chest.png" data-class-color="#6dbf8a" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="撼地 · Earthshaker" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/handi_chest.png" alt="Chest" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Chest</div></div>
+            <div class="piece-slot" data-name="撼地手甲" data-name-en="Earthshaker Gauntlets" data-slot="Gauntlets · 手甲" data-art="armor/handi_gauntlets.png" data-class-color="#6dbf8a" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="撼地 · Earthshaker" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/handi_gauntlets.png" alt="Gauntlets" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Gauntlets</div></div>
+            <div class="piece-slot" data-name="撼地护腿" data-name-en="Earthshaker Boots" data-slot="Boots · 护腿" data-art="armor/handi_boots.png" data-class-color="#6dbf8a" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="撼地 · Earthshaker" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/handi_boots.png" alt="Boots" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Boots</div></div>
+            <div class="piece-slot" data-name="撼地饰品" data-name-en="Earthshaker Accessory" data-slot="Accessory · 饰品" data-art="armor/handi_accessory.png" data-class-color="#6dbf8a" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="撼地 · Earthshaker" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/handi_accessory.png" alt="Accessory" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Accessory</div></div>
+          </div>
+          <div class="set-body">
+            <div class="set-trait-label">Set Trait · 套装特性</div>
+            <div class="set-trait-desc">
+              <span style="color:var(--green);font-weight:500;">撼地</span> — While resonating as the <span class="kw">back-line</span> character, dealing damage grants a <span class="kw-gold">Buff</span> stack, lasting <span class="num">15s</span>, max <span class="num">10</span> stacks.
+            </div>
+            <div class="scaling-rows">
+              <div class="scaling-row"><span class="scaling-lv">Lv 5</span><span class="scaling-text">Each stack: Attribute Skill DMG <span class="num">+2.8%</span></span></div>
+              <div class="scaling-row"><span class="scaling-lv">Lv 10</span><span class="scaling-text">Each stack: Attribute Skill DMG <span class="num">+5.6%</span></span></div>
+              <div class="scaling-row"><span class="scaling-lv">Lv 15</span><span class="scaling-text">After casting a <span class="kw-teal">Co-op Resonance Skill</span>, front and back characters gain <span class="num">5%</span> Armor Penetration — max <span class="num">3</span> stacks, lasting <span class="num">25s</span></span></div>
+              <div class="scaling-row"><span class="scaling-lv">Lv 20</span><span class="scaling-text">Each stack also grants front and back characters <span class="num">+2%</span> DMG Bonus</span></div>
+            </div>
+            <div class="set-sources">
+              <div class="sources-label">Sources · 获取来源</div>
+              <div>
+                <span class="source-tag"><span class="source-dot source-dot-dream"></span>梦行奇谭 · Dream Odyssey <span class="source-range">★130–200 · ⚙63</span></span>
+                <span class="source-tag"><span class="source-dot source-dot-realm"></span>奇境 · Realm <span class="source-range">★130–200 · ⚙63</span></span>
+                <span class="source-tag"><span class="source-dot source-dot-world"></span>完成朝闻道任务获取 · Chaowendao Quest Reward</span>
+                <span class="source-tag"><span class="source-dot source-dot-trail"></span>暗影试炼 · Shadow Trial</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ══ 柔纱套装 · Silken Set ══ -->
+        <div class="set-card" id="rousha">
+          <div class="set-card-header">
+            <div class="set-icon"><img src="armor/icon_rousha.png" alt="Silken Set Icon" style="width:56px;height:56px;object-fit:contain;"></div>
+            <div class="set-header-text">
+              <div class="set-name-cn">柔纱套装</div>
+              <div class="set-name-en">Silken Set</div>
+              <span class="set-class-badge badge-support">辅助 · Support</span>
+            </div>
+          </div>
+          <div class="set-pieces">
+            <div class="piece-slot" data-name="柔纱头盔" data-name-en="Silken Helm" data-slot="Helm · 头盔" data-art="armor/rousha_helm.png" data-class-color="#6dbf8a" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="柔纱 · Silken" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/rousha_helm.png" alt="Helm" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Helm</div></div>
+            <div class="piece-slot" data-name="柔纱护甲" data-name-en="Silken Chest" data-slot="Chest · 护甲" data-art="armor/rousha_chest.png" data-class-color="#6dbf8a" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="柔纱 · Silken" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/rousha_chest.png" alt="Chest" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Chest</div></div>
+            <div class="piece-slot" data-name="柔纱手甲" data-name-en="Silken Gauntlets" data-slot="Gauntlets · 手甲" data-art="armor/rousha_gauntlets.png" data-class-color="#6dbf8a" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="柔纱 · Silken" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/rousha_gauntlets.png" alt="Gauntlets" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Gauntlets</div></div>
+            <div class="piece-slot" data-name="柔纱护腿" data-name-en="Silken Boots" data-slot="Boots · 护腿" data-art="armor/rousha_boots.png" data-class-color="#6dbf8a" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="柔纱 · Silken" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/rousha_boots.png" alt="Boots" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Boots</div></div>
+            <div class="piece-slot" data-name="柔纱饰品" data-name-en="Silken Accessory" data-slot="Accessory · 饰品" data-art="armor/rousha_accessory.png" data-class-color="#6dbf8a" data-star="★ TODO" data-stat1-label="TODO Stat" data-stat1-val="TODO%" data-stat2-label="TODO Stat" data-stat2-val="TODO%" data-trait-name="柔纱 · Silken" data-trait-lv="Lv TODO" data-socket="TODO" data-has-socket="0" data-affix="random"><div class="piece-art"><img src="armor/rousha_accessory.png" alt="Accessory" style="width:56px;height:56px;object-fit:contain;border-radius:3px;"></div><div class="piece-slot-label">Accessory</div></div>
+          </div>
+          <div class="set-body">
+            <div class="set-trait-label">Set Trait · 套装特性</div>
+            <div class="set-trait-desc">
+              <span style="color:var(--green);font-weight:500;">柔纱</span> — On entering resonance, gain <span class="num">3</span> stacks of <span class="kw-gold">激励 · Inspiration</span> (max once every <span class="num">30s</span>). Each <span class="kw">Attribute Skill</span> cast consumes <span class="num">1</span> stack, granting an <span class="kw-gold">Attribute Bonus</span>.
+            </div>
+            <div class="scaling-rows">
+              <div class="scaling-row"><span class="scaling-lv">Lv 5</span><span class="scaling-text">Ultimate Charge <span class="num">+10%</span></span></div>
+              <div class="scaling-row"><span class="scaling-lv">Lv 10</span><span class="scaling-text">Ultimate Charge <span class="num">+20%</span></span></div>
+              <div class="scaling-row"><span class="scaling-lv">Lv 15</span><span class="scaling-text">Also buffs the <span class="kw">back-line</span> character's ATK <span class="num">+4%</span> for <span class="num">30s</span>, max <span class="num">3</span> stacks</span></div>
+              <div class="scaling-row"><span class="scaling-lv">Lv 20</span><span class="scaling-text">Back-line character's ATK Bonus effect <span class="num">+100%</span></span></div>
+            </div>
+            <div class="set-sources">
+              <div class="sources-label">Sources · 获取来源</div>
+              <div>
+                <span class="source-tag"><span class="source-dot source-dot-dream"></span>梦行奇谭 · Dream Odyssey <span class="source-range">★130–200 · ⚙63</span></span>
+                <span class="source-tag"><span class="source-dot source-dot-realm"></span>奇境 · Realm <span class="source-range">★130–200 · ⚙63</span></span>
+                <span class="source-tag"><span class="source-dot source-dot-world"></span>完成朝闻道任务获取 · Chaowendao Quest Reward</span>
+                <span class="source-tag"><span class="source-dot source-dot-trail"></span>暗影试炼 · Shadow Trial</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </div><!-- /sets-grid -->
     </div>
 
-    <!-- ══ PHANTOM AFFIX TABLE ══ -->
-    <div id="phantom" class="phantom-callout">
-      <div class="phantom-callout-title">万相附流 · Phantom Affix Pool <span style="color:var(--text-dim);font-weight:400;font-family:'Spectral',serif;font-size:13px;letter-spacing:0;text-transform:none;margin-left:10px;">精良 tier · universal across all sets · highest 梦行奇谭 layer only</span></div>
-      <table class="phantom-table">
-        <thead><tr><th>EN Name</th><th>CN</th><th>Effect</th></tr></thead>
-        <tbody>
-          <tr><td>Glory</td><td>荣耀</td><td>+5 Honor Gear Level</td></tr>
-          <tr><td>Healing</td><td>疗愈</td><td>+2% Healing Strength</td></tr>
-          <tr><td>Cascade</td><td>瀑布</td><td>+2.5% Crit Rate</td></tr>
-          <tr><td>Overflow</td><td>充盈</td><td>+4% Ultimate Charge Rate</td></tr>
-          <tr><td>Pursuit</td><td>追连</td><td>+3% Follow-Up Attack Rate</td></tr>
-          <tr><td>Finesse</td><td>妙诀</td><td>+3% Attribute Skill DMG</td></tr>
-          <tr><td>Opportune</td><td>见机</td><td>+2% All Attribute DMG Bonus</td></tr>
-        </tbody>
-      </table>
-      <div class="phantom-note">Phantom Affixes are RNG — not guaranteed on any piece. The pool is identical across all armor sets and piece types.</div>
+    <!-- ══ AFFIX POOL ══ -->
+    <div id="phantom" class="jade-callout">
+      <div class="jade-callout-title">万相附流 · Affix Pool <span style="color:var(--text-dim);font-weight:400;font-family:'Spectral',serif;font-size:13px;letter-spacing:0;text-transform:none;margin-left:10px;">RNG — not guaranteed on any piece · pool is identical across all armor sets</span></div>
+
+      <!-- Tabs -->
+      <div class="jade-tabs">
+        <button class="jade-tab active" data-tab="affix-dream" onclick="switchAffixTab(this, 'affix-dream')">梦行奇谭 · Dream Odyssey</button>
+        <button class="jade-tab" data-tab="affix-shadow" onclick="switchAffixTab(this, 'affix-shadow')">暗影试炼 · Shadow Trial</button>
+      </div>
+
+      <!-- Dream Odyssey tab -->
+      <div id="affix-dream" class="affix-tab-content">
+        <div class="phantom-note" style="margin-bottom:14px;">精良 tier only · obtained from 梦行奇谭 · universal across all sets and piece types · highest layer only</div>
+        <table class="phantom-table">
+          <thead><tr><th>EN Name</th><th>CN</th><th>Effect</th></tr></thead>
+          <tbody>
+            <tr><td>Glory</td><td>荣耀</td><td>+5 Honor Gear Level</td></tr>
+            <tr><td>Healing</td><td>疗愈</td><td>+2% Healing Strength</td></tr>
+            <tr><td>Cascade</td><td>瀑布</td><td>+2.5% Crit Rate</td></tr>
+            <tr><td>Overflow</td><td>充盈</td><td>+4% Ultimate Charge Rate</td></tr>
+            <tr><td>Pursuit</td><td>追连</td><td>+3% Follow-Up Attack Rate</td></tr>
+            <tr><td>Finesse</td><td>妙诀</td><td>+3% Attribute Skill DMG</td></tr>
+            <tr><td>Opportune</td><td>见机</td><td>+2% All Attribute DMG Bonus</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Shadow Trial tab -->
+      <div id="affix-shadow" class="affix-tab-content hidden">
+        <div class="phantom-note" style="margin-bottom:16px;">3 tiers · obtained from 暗影试炼 · S1 梦演 exclusive affixes marked <span class="s1-badge">S1</span></div>
+
+        <!-- 传说 Legendary -->
+        <div class="affix-tier-block">
+          <button class="affix-tier-header collapsed affix-tier-legendary" onclick="toggleAffixTier(this)">
+            <span>传说 · Legendary</span><span class="affix-tier-count">9</span><span class="affix-tier-chevron">▾</span>
+          </button>
+          <div class="affix-tier-body hidden">
+            <table class="phantom-table">
+              <thead><tr><th>EN Name</th><th>CN</th><th>Effect</th></tr></thead>
+              <tbody>
+                <tr><td>Flowing Blade <span class="s1-badge">S1</span></td><td>游刃</td><td>Each Attribute Skill cast buffs back-line ATK <span class="num">+4%</span>, max <span class="num">3</span> stacks, lasts <span class="num">20s</span>; after Ultimate, back-line DMG <span class="num">+4%</span> for <span class="num">20s</span></td></tr>
+                <tr><td>Nourish <span class="s1-badge">S1</span></td><td>滋养</td><td>On healing, target gains <span class="num">16%</span> DMG Reduction for <span class="num">10s</span></td></tr>
+                <tr><td>Execution <span class="s1-badge">S1</span></td><td>处刑</td><td>Break Finisher DMG <span class="num">+16%</span>; DMG to enemies in Break state <span class="num">+10%</span></td></tr>
+                <tr><td>Jade Polish <span class="s1-badge">S1</span></td><td>琢玉</td><td>Treat lowest trait tier as <span class="num">2</span> levels higher</td></tr>
+                <tr><td>Momentum</td><td>摆升</td><td>Within <span class="num">60s</span> after Ultimate, each attack has <span class="num">50%</span> chance to deal bonus DMG equal to <span class="num">300%</span> ATK (<span class="num">3s</span> cooldown); if an ally on field shares this buff, trigger chance rises to <span class="num">100%</span></td></tr>
+                <tr><td>Catalyst</td><td>机纽</td><td>On casting Co-op Resonance Skill, add <span class="num">20%</span> of back-line ATK to front-line for <span class="num">20s</span> (effect expires on swap); if not triggered within <span class="num">35s</span>, triggers automatically on next swap</td></tr>
+                <tr><td>Grimoire</td><td>魔典</td><td>Attribute Skill hits grant <span class="num">+1%</span> ATK and <span class="num">+1%</span> Attribute Skill DMG per stack, max <span class="num">5</span> stacks; Normal Attack consumes all stacks → each stack grants <span class="num">+2%</span> Ultimate Charge for <span class="num">8s</span></td></tr>
+                <tr><td>Combat Discipline</td><td>武纲</td><td>Normal Attack hits grant <span class="num">+1%</span> ATK and <span class="num">+1%</span> Follow-Up Attack Rate per stack, max <span class="num">5</span> stacks; Attribute Skill consumes all stacks → each stack grants <span class="num">+1%</span> Cooldown Reduction for <span class="num">8s</span></td></tr>
+                <tr><td>Glory</td><td>荣耀</td><td><span class="num">+20</span> Honor Gear Level</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 稀世 Rare -->
+        <div class="affix-tier-block">
+          <button class="affix-tier-header collapsed affix-tier-rare" onclick="toggleAffixTier(this)">
+            <span>稀世 · Rare</span><span class="affix-tier-count">12</span><span class="affix-tier-chevron">▾</span>
+          </button>
+          <div class="affix-tier-body hidden">
+            <table class="phantom-table">
+              <thead><tr><th>EN Name</th><th>CN</th><th>Effect</th></tr></thead>
+              <tbody>
+                <tr><td>Jade Polish <span class="s1-badge">S1</span></td><td>琢玉</td><td>Treat lowest trait tier as <span class="num">1</span> level higher</td></tr>
+                <tr><td>Execution <span class="s1-badge">S1</span></td><td>处刑</td><td>Break Finisher DMG <span class="num">+8%</span>; DMG to enemies in Break state <span class="num">+5%</span></td></tr>
+                <tr><td>Nourish <span class="s1-badge">S1</span></td><td>滋养</td><td>On healing, target gains <span class="num">8%</span> DMG Reduction for <span class="num">10s</span></td></tr>
+                <tr><td>Flowing Blade <span class="s1-badge">S1</span></td><td>游刃</td><td>Each Attribute Skill cast buffs back-line ATK <span class="num">+2%</span>, max <span class="num">3</span> stacks, lasts <span class="num">20s</span>; after Ultimate, back-line DMG <span class="num">+2%</span> for <span class="num">20s</span></td></tr>
+                <tr><td>Shadow Step</td><td>影随</td><td>Treat current gear trait tier as Lv <span class="num">4</span></td></tr>
+                <tr><td>Opportune</td><td>见机</td><td><span class="num">+3%</span> All Attribute DMG Bonus</td></tr>
+                <tr><td>Finesse</td><td>妙诀</td><td><span class="num">+4%</span> Attribute Skill DMG</td></tr>
+                <tr><td>Pursuit</td><td>追连</td><td><span class="num">+4%</span> Follow-Up Attack Rate</td></tr>
+                <tr><td>Overflow</td><td>充盈</td><td><span class="num">+6%</span> Ultimate Charge Rate</td></tr>
+                <tr><td>Cascade</td><td>瀑布</td><td><span class="num">+3.5%</span> Crit Rate</td></tr>
+                <tr><td>Healing</td><td>疗愈</td><td><span class="num">+3%</span> Healing Strength</td></tr>
+                <tr><td>Glory</td><td>荣耀</td><td><span class="num">+10</span> Honor Gear Level</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- 精良 Fine -->
+        <div class="affix-tier-block">
+          <button class="affix-tier-header collapsed affix-tier-fine" onclick="toggleAffixTier(this)">
+            <span>精良 · Fine</span><span class="affix-tier-count">7</span><span class="affix-tier-chevron">▾</span>
+          </button>
+          <div class="affix-tier-body hidden">
+            <table class="phantom-table">
+              <thead><tr><th>EN Name</th><th>CN</th><th>Effect</th></tr></thead>
+              <tbody>
+                <tr><td>Glory</td><td>荣耀</td><td><span class="num">+5</span> Honor Gear Level</td></tr>
+                <tr><td>Healing</td><td>疗愈</td><td><span class="num">+2%</span> Healing Strength</td></tr>
+                <tr><td>Cascade</td><td>瀑布</td><td><span class="num">+2.5%</span> Crit Rate</td></tr>
+                <tr><td>Overflow</td><td>充盈</td><td><span class="num">+4%</span> Ultimate Charge Rate</td></tr>
+                <tr><td>Pursuit</td><td>追连</td><td><span class="num">+3%</span> Follow-Up Attack Rate</td></tr>
+                <tr><td>Finesse</td><td>妙诀</td><td><span class="num">+3%</span> Attribute Skill DMG</td></tr>
+                <tr><td>Opportune</td><td>见机</td><td><span class="num">+2%</span> All Attribute DMG Bonus</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+      </div><!-- /affix-shadow -->
     </div>
 
     <!-- ══ SOCKET JADES ══ -->
@@ -2283,15 +2588,30 @@ const spy   = new IntersectionObserver(entries => {
 document.querySelectorAll('.set-card[id], #phantom').forEach(el => spy.observe(el));
 
 // ── JADE TAB SWITCHER ─────────────────────────────────────────────────────────
-document.querySelectorAll('.jade-tab').forEach(tab => {
+document.querySelectorAll('#jades .jade-tab').forEach(tab => {
   tab.addEventListener('click', () => {
-    document.querySelectorAll('.jade-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('#jades .jade-tab').forEach(t => t.classList.remove('active'));
     tab.classList.add('active');
     const target = tab.dataset.tab;
     document.getElementById('jade-grid-universal').classList.toggle('hidden', target !== 'universal');
     document.getElementById('jade-grid-trait').classList.toggle('hidden', target !== 'trait');
   });
 });
+
+// ── AFFIX POOL TAB SWITCHER ───────────────────────────────────────────────────
+function switchAffixTab(btn, targetId) {
+  document.querySelectorAll('#phantom .jade-tab').forEach(t => t.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('#phantom .affix-tab-content').forEach(c => c.classList.add('hidden'));
+  document.getElementById(targetId).classList.remove('hidden');
+}
+
+// ── AFFIX TIER ACCORDION ──────────────────────────────────────────────────────
+function toggleAffixTier(btn) {
+  const body = btn.nextElementSibling;
+  const collapsed = body.classList.toggle('hidden');
+  btn.classList.toggle('collapsed', collapsed);
+}
 
 // ── JADE HOVER TOOLTIP ────────────────────────────────────────────────────────
 const jadeTip = document.getElementById('jade-tip');
